@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/static/MathJax" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/hugo-theme-canux" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/hugo-theme-even" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/hugo-theme-learn" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/hugo-tranquilpeak-theme" vcs="Git" />
+  </component>
+</project>
