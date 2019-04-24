@@ -7,7 +7,6 @@ tags:
 - golang
 keywords:
 - golang
-draft: true
 ---
 
 # Go概述

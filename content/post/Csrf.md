@@ -7,7 +7,6 @@ tags:
 - csrf
 keywords:
 - csrf
-draft: true
 ---
 
 # CSRF

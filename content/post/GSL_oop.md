@@ -8,7 +8,6 @@ tags:
 - oop
 keywords:
 - reflect
-draft: true
 ---
 
 # reflect

@@ -9,7 +9,6 @@ tags:
 - template
 keywords:
 - beego
-draft: true
 ---
 
 # Golang 模板

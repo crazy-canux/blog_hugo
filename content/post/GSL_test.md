@@ -10,7 +10,6 @@ tags:
 keywords:
 - testing
 - gotests
-draft: true
 ---
 
 # testing

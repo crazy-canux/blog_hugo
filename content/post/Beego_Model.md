@@ -9,7 +9,6 @@ tags:
 - model
 keywords:
 - beego
-draft: true
 ---
 
 # Model

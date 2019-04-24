@@ -9,7 +9,6 @@ keywords:
 - development
 - qa
 - operator
-draft: true
 ---
 
 # DevOps

@@ -7,7 +7,6 @@ tags:
 - awk
 keywords:
 - awk
-draft: true
 ---
 
 # awk

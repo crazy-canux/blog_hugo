@@ -8,7 +8,6 @@ tags:
 - database
 keywords:
 - database
-draft: true
 ---
 
 # database/sql

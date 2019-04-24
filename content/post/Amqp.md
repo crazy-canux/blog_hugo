@@ -7,7 +7,6 @@ tags:
 - amqp
 keywords:
 - rabbitmq
-draft: true
 ---
 
 # AMQP

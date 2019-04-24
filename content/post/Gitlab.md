@@ -7,7 +7,6 @@ tags:
 - gitlab
 keywords:
 - gitlab
-draft: true
 ---
 
 # Gitlab

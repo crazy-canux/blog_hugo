@@ -8,7 +8,6 @@ tags:
 - ansible
 keywords:
 - ansible
-draft: true
 ---
 
 # Ansible

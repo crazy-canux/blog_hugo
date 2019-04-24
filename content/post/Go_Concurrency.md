@@ -9,7 +9,6 @@ tags:
 keywords:
 - golang
 - concurrency
-draft: true
 ---
 
 # 并发/concurrency

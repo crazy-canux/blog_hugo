@@ -9,7 +9,6 @@ tags:
 keywords:
 - gdb
 - delve
-draft: true
 ---
 
 # gdb

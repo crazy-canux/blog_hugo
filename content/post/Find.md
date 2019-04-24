@@ -7,7 +7,6 @@ tags:
 - find
 keywords:
 - find
-draft: true
 ---
 
 # find

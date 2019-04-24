@@ -8,7 +8,6 @@ tags:
 - document
 keywords:
 - godoc
-draft: true
 ---
 
 # Document

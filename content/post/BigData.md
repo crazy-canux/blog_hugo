@@ -7,7 +7,6 @@ tags:
 - bigdata
 keywords:
 - bigdata
-draft: true
 ---
 
 # BigData

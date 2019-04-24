@@ -9,7 +9,6 @@ keywords:
 - xp
 - kanban
 - scrum
-draft: true
 ---
 
 # Agile methodologies

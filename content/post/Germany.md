@@ -7,7 +7,6 @@ tags:
 - gearmany
 keywords:
 - gearmany
-draft: true
 ---
 
 # 德国之旅

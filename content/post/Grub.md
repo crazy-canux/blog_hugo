@@ -7,7 +7,6 @@ tags:
 - grub
 keywords:
 - grub
-draft: true
 ---
 
 # Grub

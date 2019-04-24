@@ -1,7 +1,6 @@
 ---
 title: "Todo"
 date: 2013-04-01T12:49:49+08:00
-draft: true
 ---
 
 # TODO

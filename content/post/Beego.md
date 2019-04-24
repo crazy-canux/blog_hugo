@@ -9,7 +9,6 @@ tags:
 - web
 keywords:
 - beego
-draft: true
 ---
 
 # Beego

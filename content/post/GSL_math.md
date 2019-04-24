@@ -9,7 +9,6 @@ tags:
 keywords:
 - math
 - sort
-draft: true
 ---
 
 # math

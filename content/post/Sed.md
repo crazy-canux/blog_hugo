@@ -7,7 +7,6 @@ tags:
 - sed
 keywords:
 - sed
-draft: true
 ---
 
 # sed

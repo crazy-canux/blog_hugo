@@ -10,7 +10,6 @@ keywords:
 - ack
 - ack2
 - ag
-draft: true
 ---
 
 # grep

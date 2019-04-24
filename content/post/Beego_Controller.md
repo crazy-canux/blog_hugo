@@ -9,7 +9,6 @@ tags:
 - controller
 keywords:
 - beego
-draft: true
 ---
 
 # Controller

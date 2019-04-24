@@ -9,7 +9,6 @@ tags:
 keywords:
 - dep
 - vendor
-draft: true
 ---
 
 # Go

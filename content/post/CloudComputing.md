@@ -7,7 +7,6 @@ tags:
 - cloud
 keywords:
 - cloud
-draft: true
 ---
 
 # CloudComputing

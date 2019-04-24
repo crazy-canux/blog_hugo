@@ -9,7 +9,6 @@ tags:
 - deploy
 keywords:
 - beego
-draft: true
 ---
 
 # 发布beego项目

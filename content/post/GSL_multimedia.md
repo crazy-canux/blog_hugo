@@ -9,7 +9,6 @@ tags:
 keywords:
 - image
 - mime
-draft: true
 ---
 
 # image

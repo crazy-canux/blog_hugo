@@ -11,7 +11,6 @@ keywords:
 - storage
 - disk
 - diskio
-draft: true
 ---
 
 # sysstat:

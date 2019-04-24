@@ -7,6 +7,5 @@ tags:
 - golang
 - package
 keywords:
-draft: true
 ---
 

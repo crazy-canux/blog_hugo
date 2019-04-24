@@ -9,7 +9,6 @@ tags:
 - view
 keywords:
 - beego
-draft: true
 ---
 
 # View

@@ -7,7 +7,6 @@ tags:
 - capture
 keywords:
 - capture
-draft: true
 ---
 title: Capture
 

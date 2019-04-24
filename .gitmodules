@@ -1,0 +1,3 @@
+[submodule "themes/hugo-theme-canux"]
+	path = themes/hugo-theme-canux
+	url = https://github.com/crazy-canux/hugo-theme-canux

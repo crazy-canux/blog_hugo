@@ -8,7 +8,6 @@ tags:
 - oop
 keywords:
 - golang
-draft: true
 ---
 
 # Go面向对象

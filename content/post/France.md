@@ -7,7 +7,6 @@ tags:
 - france
 keywords:
 - france
-draft: true
 ---
 
 # 法国之旅

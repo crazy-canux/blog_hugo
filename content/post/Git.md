@@ -9,7 +9,6 @@ tags:
 - github
 keywords:
 - git
-draft: true
 ---
 
 # Git

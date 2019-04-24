@@ -7,7 +7,6 @@ tags:
 - restructuretext
 keywords:
 - rest
-draft: true
 ---
 
 # reStructuredText
