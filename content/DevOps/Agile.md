@@ -1,8 +1,15 @@
-Title: Agile
-Date: 2016-04-15 09:41:39
-Tags: Agile, Development
-
-
+---
+title: "Agile"
+date: 2016-04-15T09:41:39T22:37:56+08:00
+categories:
+- DevOps
+tags:
+- agile
+keywords:
+- xp
+- kanban
+- scrum
+---
 
 # Agile methodologies
 

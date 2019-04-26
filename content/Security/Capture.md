@@ -1,6 +1,14 @@
-Title: Capture
-Date: 2018-07-28 16:08:54
-Tags: Security, Capture
+---
+title: "Capture"
+date: 2018-07-28T16:08:54
+categories:
+- Security
+tags:
+- capture
+keywords:
+- capture
+---
+title: Capture
 
 
 
@@ -15,3 +23,5 @@ Tags: Security, Capture
 # Wireshark
 
 <https://www.wireshark.org/>
+
+

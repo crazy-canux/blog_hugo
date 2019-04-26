@@ -1,8 +1,13 @@
-Title: Gitlab
-Date: 2016-04-15 09:41:39
-Tags: DevOps, Gitlab
-
-
+---
+title: "Gitlab"
+date: 2016-04-15T09:41:39
+categories:
+- DevOps
+tags:
+- gitlab
+keywords:
+- gitlab
+---
 
 # Gitlab
 

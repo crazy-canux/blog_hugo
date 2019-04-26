@@ -1,8 +1,14 @@
-Title: Apache
-Date: 2016-09-27 03:25:26
-Tags: Apache, httpd
-
-
+---
+title: "Apache"
+date: 2016-09-27T03:25:26+08:00
+categories:
+- Web
+tags:
+- apache
+- httpd
+keywords:
+- apache2
+---
 
 # Apache
 
@@ -45,4 +51,5 @@ a2enmod
 a2dismod
 
     $ sudo a2dismod <mod>
+
 

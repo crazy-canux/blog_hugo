@@ -1,8 +1,11 @@
-Title: Hadoop HDFS
-Date: 2016-04-11 22:57:37
-Tags: Hadoop, HDFS
-
-
+---
+title: "Hadoop HDFS"
+date: 2016-04-11T22:57:37
+categories:
+- BigData
+tags:
+- hadoop
+---
 
 # HDFS
 

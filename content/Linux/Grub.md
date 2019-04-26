@@ -1,8 +1,13 @@
-Title: Grub
-Date: 2016-03-31 21:48:59
-Tags: Linux, Grub
-
-
+---
+title: "Grub"
+date: 2016-03-31T21:48:59
+categories:
+- Linux
+tags:
+- grub
+keywords:
+- grub
+---
 
 # Grub
 
@@ -11,3 +16,9 @@ Tags: Linux, Grub
 windows的引导程序是NTloader。
 
 linux/unix的引导程序有lilo和grub。
+
+# 配置
+
+修改grub:
+
+    $ sudo vim /boot/grub/grub.cfg

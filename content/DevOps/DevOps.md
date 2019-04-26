@@ -1,8 +1,15 @@
-Title: DevOps
-Date: 2016-04-15 09:41:39
-Tags: DevOps, Development, Operations, QA
-
-
+---
+title: "DevOps"
+Date: 2016-04-15T09:41:39
+categories:
+- DevOps
+tags:
+- devops
+keywords:
+- development
+- qa
+- operator
+---
 
 # DevOps
 

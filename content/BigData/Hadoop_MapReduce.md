@@ -1,8 +1,11 @@
-Title: Hadoop MapReduce
-Date: 2017-05-03 22:57:37
-Tags: Hadoop, MapReduce
-
-
+---
+title: "Hadoop MapReduce"
+date: 2017-05-03T22:57:37
+categories:
+- BigData
+tags:
+- hadoop
+---
 
 # Map-Reduce
 

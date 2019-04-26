@@ -1,8 +1,13 @@
-Title: Development
-Date: 2016-04-15 09:41:39
-Tags: DevOps, Development
-
-
+---
+title: "Development"
+date: 2016-04-15T09:41:39
+categories:
+- DevOps
+tags:
+- development
+keywords:
+- dev
+---
 
 # Development
 

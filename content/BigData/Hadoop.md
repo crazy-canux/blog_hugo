@@ -1,8 +1,11 @@
-Title: Hadoop
-Date: 2016-04-11 22:57:37
-Tags: Hadoop
-
-
+---
+title: "Hadoop"
+date: 2016-04-11T22:57:37
+categories:
+- BigData
+tags:
+- hadoop
+---
 
 # Hadoop
 

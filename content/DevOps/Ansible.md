@@ -1,8 +1,14 @@
-Title: Ansible
-Date: 2017-01-12 21:05:48
-Tags: DevOps, Ansible
-
-
+---
+title: "Ansible"
+date: 2019-04-23T20:25:43+08:00
+date: 2017-01-12T21:05:48+08:00
+categories:
+- DevOps
+tags:
+- ansible
+keywords:
+- ansible
+---
 
 # Ansible
 
@@ -215,3 +221,5 @@ debug:
 ansible的web管理界面.
 
 <https://github.com/ansible/awx>
+
+

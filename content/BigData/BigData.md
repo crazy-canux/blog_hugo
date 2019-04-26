@@ -1,8 +1,13 @@
-Title: BigData
-Date: 2016-04-11 22:57:37
-Tags: BigData
-
-
+---
+title: "BigData"
+date: 2016-04-11T22:57:37+08:00
+categories:
+- BigData
+tags:
+- bigdata
+keywords:
+- bigdata
+---
 
 # BigData
 
@@ -161,3 +166,4 @@ Cloudera的CHD集成了Impala.
 ## crunch
 
 ## hcatalog
+

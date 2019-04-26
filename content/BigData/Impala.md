@@ -1,8 +1,11 @@
-Title: Impala
-Date: 2017-04-24 22:57:37
-Tags: Hadoop, Impala
-
-
+---
+title: "Impala"
+date: 2017-04-24T22:57:37
+categories:
+- BigData
+tags:
+- impala
+---
 
 # Impala
 

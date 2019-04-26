@@ -1,6 +1,17 @@
-Title: Cryptographic
-Date: 2017-03-27 17:11:58
-Tags: PGP, GPG, OpenPGP, GPGME
+---
+title: "Cryptographic"
+date: 2017-03-27T17:11:58
+categories:
+- Security
+tags:
+- PGP
+- GPG
+- OpenPGP
+- GPGME
+keywords:
+- cryptographic
+---
+
 
 
 
