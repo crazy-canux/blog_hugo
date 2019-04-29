@@ -60,13 +60,14 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
    url = "/todo/"
 
 [params]
+  logo = "/img/home/home.JPG"
   version = "4.x"           # Used to give a friendly message when you have an incompatible update
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
   since = "2013"            # Site creation time          # 站点建立时间
   # use public git repo url to link lastmod git commit, enableGitInfo should be true.
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-  gitRepo = "https://github.com/crazy-canux/hugo-theme-canux"
+  gitRepo = ""
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
 #  logoTitle = ""        # default: the title value # 默认值: 上面设置的title值
@@ -151,11 +152,11 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     clientSecret = "868aa81b294f1463ddb6edc007576ecfed7d2075"       # Your client secret
 
   [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
-    enable = false
+    enable = true
     options = ""
 
   [params.sequenceDiagrams] # see https://blog.olowolo.com/example-site/post/js-sequence-diagrams/
-    enable = false
+    enable = true
     options = ""            # default: "{theme: 'simple'}"
 
   [params.busuanzi]         # count web traffic by busuanzi  # 是否使用不蒜子统计站点访问量
@@ -167,7 +168,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   [params.reward]                                         # 文章打赏
     enable = true
     wechat = "/img/reward/wechat.png"       # 微信二维码
-    alipay = "/img/reward/alipay.png"           # 支付宝二维码
+    alipay = "/img/reward/alipay.png"       # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "mailto:canuxcheng@gmail.com"

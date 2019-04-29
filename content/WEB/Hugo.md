@@ -68,6 +68,10 @@ go开发的静态站点生成器.
 
     $ hugo new theme [name]
 
+添加自己的主题:
+
+    $ git submodule add https://github.com/crazy-canux/hugo-theme-canux.git
+
 ***
 
 # 创建页面
