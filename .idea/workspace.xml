@@ -2,201 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec326d9-b7cb-4282-a54d-36ae109dc962" name="Default Changelist" comment="k">
-      <change afterPath="$PROJECT_DIR$/content/Windows/PS_Utils.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/C_Document.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/C_Package.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/DNS.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Keepalived.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Linux_Monitoring.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Logging.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Monitoring_Nagios.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Monitoring_Zabbix.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/SQLite.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Shell_Awk.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Shell_Find.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Shell_Sed.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/TSDB.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/post/Travel_Brazil.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/home/home.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/post/JS_Document.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/post/JS_Package.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/post/KVM.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archetypes/default.md" beforeDir="false" afterPath="$PROJECT_DIR$/archetypes/default.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Beego/Beego.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Beego.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Beego/Controller.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Beego_Controller.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Beego/Deploy.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Beego_Deploy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Beego/Model.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Beego_Model.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Beego/Template.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Beego_Template.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Beego/View.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Beego_View.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/BigData.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/BigData.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/HAWQ.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/HAWQ.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/Hadoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Hadoop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/Hadoop_HDFS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Hadoop_HDFS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/Hadoop_MapReduce.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Hadoop_MapReduce.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/Hadoop_YARN.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Hadoop_YARN.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/Hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Hive.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/Impala.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Impala.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/BigData/Presto.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Presto.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/C/DevOps.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/C_DevOps.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/C/Document.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/C/ISO.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/C_ISO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/C/POSIX.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/C_POSIX.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/C/Package.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/C/Summary.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/C_Summary.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/CloudComputing/CloudComputing.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/CloudComputing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/CloudComputing/OpenStack.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/OpenStack.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/MSSQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/MSSQL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/MongoDB.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/MongoDB.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/Monitoring.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/DB_Monitoring.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/Mysql.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Mysql.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/NoSQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/NoSQL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/Oracle.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Oracle.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/Postgre.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Postgre.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/RDBMS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/RDBMS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/Redis.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Redis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/SQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/SQL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/SQLite.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Database/TSDB.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Agile.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Agile.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Ansible.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Ansible.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/DevOps.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/DevOps.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Development.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Development.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Git.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Git.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Gitlab.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Gitlab.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Jenkins.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Jenkins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/JetBrains.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/IDE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Logging.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Logging_grok.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Logging_grok.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Make.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Makefile.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Monitoring.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_Addons.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_Grafana.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Monitoring_Grafana.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_Influxdb.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Monitoring_Influxdb.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_Kapacitor.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Monitoring_Kapacitor.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_Nagios.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_Plugins.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_Telegraf.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Monitoring_Telegraf.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_Tivoli.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Monitoring_Tivoli.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Monitoring_old.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Operations.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Operations.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/TMUX.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/TMUX.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Testing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Testing_RobotFramework.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Testing_RobotFramework.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/Testing_Selenium.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Testing_Selenium.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/DevOps/VIM.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/VIM.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/Admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_Admin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/Deploy.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_Deploy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/Django.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/Form.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_Form.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/Misc.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_Misc.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/Model.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_Model.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/TPL.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_Utils.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/Template.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_Template.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/Test.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_Test.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/URL.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_URL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Django/View.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Django_View.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/Debug.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go_Debug.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/Devops.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go_Devops.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/Document.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go_Document.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_builtin.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_builtin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_concurrency.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_concurrency.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_cryptographic.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_cryptographic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_data.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_data.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_database.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_database.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_file.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_file.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_golang.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_golang.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_math.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_math.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_multimedia.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_multimedia.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_network.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_network.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_oop.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_oop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_string.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_string.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_system.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_system.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/GSL_test.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/GSL_test.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/Go.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/Go_Concurrency.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go_Concurrency.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/Go_Oop.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go_Oop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Golang/Package.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go_Package.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/JavaScript/Bootstrap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_Admin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Awk.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Builtins.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell_Builtins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Coreutils.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell_Coreutils.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/FileSystem.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_FileSystem.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Find.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/FireWall.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_FireWall.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Grep.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell_Grep.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Grub.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_Grub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Init.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_Init.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Linux.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Monitoring.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Package.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_Package.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/RegularExpression.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/RegularExpression.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Sed.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/Shell.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Linux/TPC.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell_Utils.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/Amqp.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/Command.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Network_Command.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/DNS.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/FTP.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/FTP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/HAProxy.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/HAProxy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/HTTP.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/HTTP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/Keepalived.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/LDAP.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/LDAP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/Monitoring.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Network_Monitoring.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/NFS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/NFS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/NTP.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/NTP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/Network.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Network.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/REST.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/REST.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/RPC.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/RPC.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/RabbitMQ.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/RabbitMQ.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/SMTP.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/SMTP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/SNMP.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/SNMP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/SSH.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/SSH.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/Samba.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Samba.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/WebHook.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/WebHook.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Network/WebSocket.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/WebSocket.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/Debug.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python_Debug.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/DevOps.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python_DevOps.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/Document.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python_Document.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PEP257.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python_PEP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PEP8.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Concurrency.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Concurrency.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Cryptographic.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Cryptographic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Data.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Data.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_File.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_File.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_GUI.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_GUI.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Math.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Math.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Misc.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Misc.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Multimedia.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Multimedia.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Network.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Network.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Python.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_String.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_String.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_System.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_System.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_Test.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_Test.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/PSL_builtins.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PSL_builtins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/Package.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python_Package.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/Python.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/Python_OOP.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python_OOP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Python/Summary.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python_Summary.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Storage/Command.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Storage_Command.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Storage/Monitoring.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Storage_Monitoring.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Storage/Storage.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Storage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Travel/France.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Travel_France.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Travel/Germany.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Travel_Germany.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Virtualization/Monitoring.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/DevOps.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/JS_DevOps.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/Document.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/Javascript.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/JS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/Javascript_BOM.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/JS_BOM.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/Javascript_DOM.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/JS_DOM.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/Javascript_OOP.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/JS_OOP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/NodeJS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/JS_Node.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/NodeJS_OOP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/Package.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/Summary.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/JS_Summary.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/JavaScript/Vue.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Vue.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Security/Capture.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Sec_Capture.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Security/Cfssl.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Sec_Cfssl.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Security/Cryptographic.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Sec_Cryptographic.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Security/Csrf.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Sec_Csrf.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Security/Security.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Sec_Security.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Security/SqlInjection.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Sec_SqlInjection.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Security/XSS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Sec_XSS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Virtualization/ESXi.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/ESXi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Virtualization/KVM.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Virtualization/Vagrant.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Vagrant.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Virtualization/Virtualization.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Virtualization.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Virtualization/libvirt.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/libvirt.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/Apache.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/Apache.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/Bootstrap.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/Bootstrap.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/CSS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/CSS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/HTML.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/HTML.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/HTML_Form.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/HTML_Form.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/Hexo.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/Hexo.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/WEB/Hugo.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/Hugo.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/Admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/Win_Admin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/Builtins.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/PS_Builtins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/Coreutils.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/PS_Coreutils.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/FileSystem.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/Win_FileSystem.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/Monitoring.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/Win_Monitoring.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/PowerShell.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/PS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/RemoteManagement.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/PS_Remote.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/WMI.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/Win_WMI.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/WinRM.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/Win_WinRM.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Windows/Windows.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Windows/Win.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/alipa.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/wechatpay.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/hugo-theme-canux" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-theme-canux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/JSON.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/JSON.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/Markdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/Markdown.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/Nginx.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/Nginx.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/Pelican.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/Pelican.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/ReStructuredText.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/ReStructuredText.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/WEB.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/WEB.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/WebService.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/WebService.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/Wordpress.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/Wordpress.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/XML.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/XML.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/WEB/XPATH.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/WEB/XPATH.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/PS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/PS_Builtins.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PS_Builtins.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/PS_Coreutils.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PS_Coreutils.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/PS_Remote.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PS_Remote.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/PS_Utils.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/PS_Utils.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/Win.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Win.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/Win_Admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Win_Admin.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/Win_FileSystem.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Win_FileSystem.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/Win_Monitoring.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Win_Monitoring.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/Win_WMI.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Win_WMI.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Windows/Win_WinRM.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Win_WinRM.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Go_Oop.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go_OOP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Linux_FileSystem.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_FileSystem.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Logging_grok.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Logging_Grok.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -225,9 +89,9 @@
           <entry key="js" value="2" />
           <entry key="json" value="4" />
           <entry key="lock" value="2" />
-          <entry key="md" value="889" />
+          <entry key="md" value="966" />
           <entry key="scss" value="5" />
-          <entry key="toml" value="18" />
+          <entry key="toml" value="19" />
           <entry key="txt" value="2" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="2" />
@@ -238,9 +102,9 @@
           <entry key="HTML" value="55" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="2" />
-          <entry key="Markdown" value="889" />
+          <entry key="Markdown" value="966" />
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="TOML" value="17" />
+          <entry key="TOML" value="18" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="2" />
           <entry key="yarn.lock" value="2" />
@@ -250,17 +114,17 @@
         <counts>
           <entry key="gitignore" value="16" />
           <entry key="html" value="976" />
-          <entry key="md" value="22525" />
-          <entry key="toml" value="5457" />
+          <entry key="md" value="25267" />
+          <entry key="toml" value="5459" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="976" />
-          <entry key="Markdown" value="22525" />
+          <entry key="Markdown" value="25267" />
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="TOML" value="5457" />
+          <entry key="TOML" value="5459" />
         </counts>
       </usages-collector>
     </session>
@@ -271,87 +135,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/post/JS_OOP.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="171">
+                <caret line="9" selection-start-line="9" selection-end-line="9" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/WEB/Apache.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/content/WEB/Bootstrap.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/post/Agile.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/post/Storage.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="741">
-                <caret line="39" selection-start-line="39" selection-end-line="39" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/post/Monitoring.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-57" />
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/post/Travel_France.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="38">
-                <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/post/TSDB.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/post/Travel_Germany.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="38">
-                <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+              <first_editor relative-caret-position="76">
+                <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -361,11 +175,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/content/post/Travel_Brazil.md">
+        <entry file="file://$PROJECT_DIR$/content/WEB/CSS.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="228">
-                <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <first_editor relative-caret-position="171">
+                <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -375,11 +189,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/post/Storage_Command.md">
+        <entry file="file://$PROJECT_DIR$/content/post/JS_Node.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="2907">
-                <caret line="153" selection-start-line="153" selection-end-line="153" />
+              <first_editor relative-caret-position="-188">
+                <caret line="9" selection-start-line="9" selection-end-line="9" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -389,12 +203,66 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/post/Storage_Monitoring.md">
+        <entry file="file://$PROJECT_DIR$/content/post/JS_Package.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="703">
-                <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <first_editor relative-caret-position="95">
+                <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/post/JS_Summary.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="152">
+                <caret line="10" selection-start-line="10" selection-end-line="10" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/post/Vue.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="171">
+                <caret line="9" selection-start-line="9" selection-end-line="9" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/post/JS_DevOps.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-492">
+                <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/post/JS.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor />
               <second_editor>
                 <markdownNavigatorState />
               </second_editor>
@@ -418,6 +286,8 @@
       <find>Site.Params.des</find>
       <find>gitRepo</find>
       <find>post</find>
+      <find>password</find>
+      <find>10.</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -426,11 +296,12 @@
       <replace>tags</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>C:\Hugo\Sites\canuxcheng.com\content</dir>
       <dir>C:\Hugo\Sites\canuxcheng.com\public</dir>
       <dir>C:\Hugo\Sites\canuxcheng.com\themes\hugo-theme-canux\layouts</dir>
       <dir>C:\Hugo\Sites\canuxcheng.com\themes\hugo-theme-canux</dir>
       <dir>C:\Hugo\Sites\canuxcheng.com\themes\hugo-theme-canux\src\css</dir>
+      <dir>C:\Hugo\Sites\canuxcheng.com</dir>
+      <dir>C:\Hugo\Sites\canuxcheng.com\content</dir>
     </dirStrings>
   </component>
   <component name="GOROOT" path="C:\Go" />
@@ -440,57 +311,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/content/Linux/Admin.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Linux.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Linux_FileSystem.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Linux_FireWall.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Linux_Grub.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Linux_Init.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Linux_Monitoring.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Linux_Package.md" />
-        <option value="$PROJECT_DIR$/content/Linux/RegularExpression.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Shell.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Shell_Awk.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Shell_Builtins.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Shell_Coreutils.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Shell_Find.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Shell_Grep.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Shell_Sed.md" />
-        <option value="$PROJECT_DIR$/content/Linux/Shell_TPC.md" />
-        <option value="$PROJECT_DIR$/content/Windows/PS_Utils.md" />
-        <option value="$PROJECT_DIR$/content/Windows/Win.md" />
+        <option value="$PROJECT_DIR$/content/Virtualization/Virtualization.md" />
+        <option value="$PROJECT_DIR$/content/Virtualization/Vagrant.md" />
+        <option value="$PROJECT_DIR$/content/Virtualization/libvirt.md" />
+        <option value="$PROJECT_DIR$/content/Security/Capture.md" />
+        <option value="$PROJECT_DIR$/content/Security/Cfssl.md" />
+        <option value="$PROJECT_DIR$/content/Security/Cryptographic.md" />
+        <option value="$PROJECT_DIR$/content/Security/Csrf.md" />
+        <option value="$PROJECT_DIR$/content/Security/XSS.md" />
+        <option value="$PROJECT_DIR$/content/Security/SqlInjection.md" />
+        <option value="$PROJECT_DIR$/content/Security/Security.md" />
+        <option value="$PROJECT_DIR$/config.toml" />
+        <option value="$PROJECT_DIR$/content/post/Go_Oop.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/DevOps.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/Document.md" />
+        <option value="$PROJECT_DIR$/content/WEB/Apache.md" />
+        <option value="$PROJECT_DIR$/content/WEB/Hexo.md" />
+        <option value="$PROJECT_DIR$/content/WEB/HTML.md" />
+        <option value="$PROJECT_DIR$/content/WEB/HTML_Form.md" />
+        <option value="$PROJECT_DIR$/content/WEB/Hugo.md" />
+        <option value="$PROJECT_DIR$/content/WEB/JSON.md" />
+        <option value="$PROJECT_DIR$/content/WEB/Markdown.md" />
+        <option value="$PROJECT_DIR$/content/WEB/Nginx.md" />
+        <option value="$PROJECT_DIR$/content/WEB/Pelican.md" />
+        <option value="$PROJECT_DIR$/content/WEB/ReStructuredText.md" />
+        <option value="$PROJECT_DIR$/content/WEB/WEB.md" />
+        <option value="$PROJECT_DIR$/content/WEB/WebService.md" />
+        <option value="$PROJECT_DIR$/content/WEB/Wordpress.md" />
+        <option value="$PROJECT_DIR$/content/WEB/XML.md" />
+        <option value="$PROJECT_DIR$/content/WEB/XPATH.md" />
+        <option value="$PROJECT_DIR$/content/Windows/PS.md" />
+        <option value="$PROJECT_DIR$/content/Windows/Win_WMI.md" />
+        <option value="$PROJECT_DIR$/content/Windows/Win_WinRM.md" />
         <option value="$PROJECT_DIR$/content/Windows/Win_Monitoring.md" />
+        <option value="$PROJECT_DIR$/content/Windows/Win_FileSystem.md" />
         <option value="$PROJECT_DIR$/content/Windows/Win_Admin.md" />
-        <option value="$PROJECT_DIR$/content/Storage/Command.md" />
-        <option value="$PROJECT_DIR$/content/Storage/Monitoring.md" />
-        <option value="$PROJECT_DIR$/content/Virtualization/Monitoring.md" />
-        <option value="$PROJECT_DIR$/content/Network/DNS.md" />
-        <option value="$PROJECT_DIR$/content/Network/FTP.md" />
-        <option value="$PROJECT_DIR$/content/Network/HAProxy.md" />
-        <option value="$PROJECT_DIR$/content/Network/Amqp.md" />
-        <option value="$PROJECT_DIR$/content/Network/HTTP.md" />
-        <option value="$PROJECT_DIR$/content/Network/Keepalived.md" />
-        <option value="$PROJECT_DIR$/content/Network/LDAP.md" />
-        <option value="$PROJECT_DIR$/content/Network/Network.md" />
-        <option value="$PROJECT_DIR$/content/Network/Network_Command.md" />
-        <option value="$PROJECT_DIR$/content/Network/Network_Monitoring.md" />
-        <option value="$PROJECT_DIR$/content/Network/NFS.md" />
-        <option value="$PROJECT_DIR$/content/Network/NTP.md" />
-        <option value="$PROJECT_DIR$/content/Network/RabbitMQ.md" />
-        <option value="$PROJECT_DIR$/content/Network/REST.md" />
-        <option value="$PROJECT_DIR$/content/Network/RPC.md" />
-        <option value="$PROJECT_DIR$/content/Network/Samba.md" />
-        <option value="$PROJECT_DIR$/content/Network/SMTP.md" />
-        <option value="$PROJECT_DIR$/content/Network/SNMP.md" />
-        <option value="$PROJECT_DIR$/content/Network/SSH.md" />
-        <option value="$PROJECT_DIR$/content/Network/WebHook.md" />
-        <option value="$PROJECT_DIR$/content/Network/WebSocket.md" />
-        <option value="$PROJECT_DIR$/content/Storage/Storage_Monitoring.md" />
-        <option value="$PROJECT_DIR$/content/Storage/Storage_Command.md" />
-        <option value="$PROJECT_DIR$/content/Storage/Storage.md" />
-        <option value="$PROJECT_DIR$/content/post/Travel_France.md" />
-        <option value="$PROJECT_DIR$/content/post/Travel_Germany.md" />
-        <option value="$PROJECT_DIR$/content/post/Travel_Brazil.md" />
+        <option value="$PROJECT_DIR$/content/Windows/Win.md" />
+        <option value="$PROJECT_DIR$/content/Windows/PS_Utils.md" />
+        <option value="$PROJECT_DIR$/content/Windows/PS_Remote.md" />
+        <option value="$PROJECT_DIR$/content/Windows/PS_Coreutils.md" />
+        <option value="$PROJECT_DIR$/content/Windows/PS_Builtins.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/Javascript.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/Javascript_BOM.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/Javascript_DOM.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/Javascript_OOP.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/NodeJS.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/NodeJS_OOP.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/Package.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/Vue.md" />
+        <option value="$PROJECT_DIR$/content/JavaScript/Summary.md" />
+        <option value="$PROJECT_DIR$/content/WEB/Bootstrap.md" />
+        <option value="$PROJECT_DIR$/content/WEB/CSS.md" />
       </list>
     </option>
   </component>
@@ -534,7 +405,7 @@
               <item name="canuxcheng.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="canuxcheng.com" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -604,7 +475,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.12903225" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.21428572" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -619,7 +490,41 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/content/Windows/PS.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Sec_Capture.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-169" />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/Sec_Cfssl.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="171">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/Sec_Cryptographic.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1290">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/Sec_Csrf.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -629,139 +534,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/PS_Builtins.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/PS_Remote.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/Win_WMI.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-2823" />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/PS_Coreutils.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/PS_Utils.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="627">
-            <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/Win.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="475">
-            <caret line="25" selection-start-line="25" selection-end-line="25" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/Win_Admin.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="57">
-            <caret line="3" selection-start-line="3" selection-end-line="3" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/Win_FileSystem.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/Win_Monitoring.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="190">
-            <caret line="10" selection-start-line="10" selection-end-line="10" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Windows/Win_WinRM.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-788" />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Virtualization/Virtualization_Monitoring.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="7" selection-start-column="7" selection-end-column="7" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Network/Amqp.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="76">
-            <caret line="10" selection-start-line="10" selection-end-line="10" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/DNS.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Sec_XSS.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="76">
@@ -773,10 +546,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/FTP.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Sec_SqlInjection.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="171">
+          <first_editor relative-caret-position="-361">
             <caret line="9" selection-start-line="9" selection-end-line="9" />
           </first_editor>
           <second_editor>
@@ -785,7 +558,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/HAProxy.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Sec_Security.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-74">
+            <caret line="11" selection-start-line="11" selection-end-line="11" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/Python_OOP.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -795,11 +587,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/HTTP.md">
+    <entry file="file://$PROJECT_DIR$/content/post/GSL_oop.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="133">
-            <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <first_editor />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/Go_OOP.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/Hexo.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -807,11 +619,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Keepalived.md">
+    <entry file="file://$PROJECT_DIR$/content/WEB/HTML.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="342">
-            <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -819,7 +631,151 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/LDAP.md">
+    <entry file="file://$PROJECT_DIR$/content/WEB/HTML_Form.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/Hugo.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/JSON.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/Markdown.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/Nginx.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/Pelican.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/ReStructuredText.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="209">
+            <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/WEB.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/WebService.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/Wordpress.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/XML.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/WEB/XPATH.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/Win_WMI.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="171">
@@ -831,11 +787,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Network.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Win_WinRM.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-344">
-            <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <first_editor relative-caret-position="171">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -843,11 +799,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Network_Command.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Win_Monitoring.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="133">
-            <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -855,7 +811,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Network_Monitoring.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Win_FileSystem.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="171">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/Win_Admin.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="171">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/Win.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="152">
@@ -867,79 +847,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/NFS.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-439">
-            <caret line="9" selection-start-line="9" selection-end-line="9" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/NTP.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="342">
-            <caret line="54" selection-start-line="54" selection-end-line="54" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/RabbitMQ.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-1710">
-            <caret line="9" selection-start-line="9" selection-end-line="9" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/REST.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-323">
-            <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/RPC.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Samba.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="171">
-            <caret line="15" selection-start-line="15" selection-end-line="15" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/SMTP.md">
+    <entry file="file://$PROJECT_DIR$/content/post/PS_Coreutils.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="-684">
@@ -951,11 +859,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/SNMP.md">
+    <entry file="file://$PROJECT_DIR$/content/post/PS_Builtins.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="19">
-            <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+          <first_editor relative-caret-position="-741">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -963,11 +871,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/SSH.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Linux_Monitoring.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="95">
-            <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <first_editor relative-caret-position="-55" />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/PS_Utils.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="133">
+            <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -975,11 +893,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/WebHook.md">
+    <entry file="file://$PROJECT_DIR$/content/post/PS.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="114">
-            <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <first_editor relative-caret-position="-2204">
+            <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -987,11 +905,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/WebSocket.md">
+    <entry file="file://$PROJECT_DIR$/content/post/PS_Remote.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="38">
-            <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -999,7 +917,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/JavaScript/Bootstrap.md">
+    <entry file="file://$PROJECT_DIR$/content/post/JS_BOM.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="171">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/JS_DOM.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="171">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/JS_Document.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="19">
+            <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/JS.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1009,30 +963,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/JavaScript/DevOps.md">
+    <entry file="file://$PROJECT_DIR$/content/post/JS_DevOps.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="-492">
+            <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+          </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/JavaScript/Document.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Vue.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="171">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/JavaScript/NodeJS.md">
+    <entry file="file://$PROJECT_DIR$/content/post/JS_Summary.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="152">
+            <caret line="10" selection-start-line="10" selection-end-line="10" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/post/JS_Package.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="95">
+            <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
@@ -1042,34 +1014,40 @@
     <entry file="file://$PROJECT_DIR$/content/JavaScript/NodeJS_OOP.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="152">
+            <caret line="8" selection-start-line="8" selection-end-line="8" />
+          </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/JavaScript/Package.md">
+    <entry file="file://$PROJECT_DIR$/content/post/JS_Node.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="-188">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/JavaScript/Summary.md">
+    <entry file="file://$PROJECT_DIR$/content/post/JS_OOP.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="171">
+            <caret line="9" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/JavaScript/Vue.md">
+    <entry file="file://$PROJECT_DIR$/content/WEB/Apache.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1082,28 +1060,8 @@
     <entry file="file://$PROJECT_DIR$/content/WEB/Bootstrap.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Agile.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Storage_Monitoring.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="703">
-            <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <first_editor relative-caret-position="76">
+            <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1111,79 +1069,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Storage_Command.md">
+    <entry file="file://$PROJECT_DIR$/content/WEB/CSS.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="2907">
-            <caret line="153" selection-start-line="153" selection-end-line="153" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Storage.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="741">
-            <caret line="39" selection-start-line="39" selection-end-line="39" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Monitoring.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-57" />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/TSDB.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Travel_Germany.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="38">
-            <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Travel_France.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="38">
-            <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Travel_Brazil.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="228">
-            <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <first_editor relative-caret-position="171">
+            <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
