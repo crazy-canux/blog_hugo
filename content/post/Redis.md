@@ -99,3 +99,15 @@ sorted set
 
 ***
 
+# Monitoring
+
+通过redis-cli> info查看
+
+    其它指标参考grafana dashboard.
+
+    Redis_mode: cluster/standalone
+
+    >>> replication (master/slave)
+    Connected_slaves:    连接的slave实例个数
+
+    >>> persistence  （rdb和aof的持久化信息）

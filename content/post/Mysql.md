@@ -35,6 +35,8 @@ GUI工具： mysql workbench
 
 mysqld的默认端口是3306.
 
+***
+
 # mysql命令
 
     $ mysql [OPTIONS] [database]
@@ -74,6 +76,8 @@ A command line client for MySQL that can do auto-completion and syntax highlight
 <https://github.com/dbcli/mycli>
 
     $ pip install -U mycli
+
+***
 
 # CLI
 
@@ -244,3 +248,7 @@ issue:
 fix:
 
     set global max_connections = 5000;
+
+***
+
+# Monitoring

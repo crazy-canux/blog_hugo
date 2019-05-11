@@ -8,9 +8,6 @@ author: "Canux"
 draft: false
 ---
 
-
-
-
 # os
 
 提供了操作系统的不依赖平台的接口
@@ -1002,21 +999,12 @@ interface:
 
 ***
 
-## log
-
-###glog
-
-<https://github.com/golang/glog>
-
-### logrus
+# logrus
 
 <https://github.com/sirupsen/logrus>
 
-### zap
+***
 
-<https://github.com/uber-go/zap>
+# cobra
 
-### zerolog
-
-<https://github.com/rs/zerolog>
-
+<https://github.com/spf13/cobra>

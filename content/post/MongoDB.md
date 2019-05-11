@@ -118,3 +118,8 @@ CURD: create update read delete.
     > db.runCommand({closeAllDatabases:1})
 
 ***
+# Monitoring
+
+通过mongo> serverStatus()查看
+
+其它指标参考grafana dashboard.
