@@ -2,7 +2,7 @@
 title: "Logging"
 date: 2018-06-08T09:46:47
 categories: ["DevOps"]
-tags: ["Logging"]
+tags: ["logging"]
 keywords: []
 author: "Canux"
 draft: false

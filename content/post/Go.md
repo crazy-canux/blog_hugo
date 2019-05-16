@@ -803,6 +803,7 @@ init函数:
     # 每个包中可以有任意个init函数.
     # 这些init函数会在main函数执行之前调用.
     # init函数不能有参数和返回值
+    # main中的init最后调用.
     func init() {}
 
 ***

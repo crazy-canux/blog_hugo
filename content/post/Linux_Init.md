@@ -2,7 +2,7 @@
 title: "Init"
 date: 2019-02-03T14:04:05
 categories: ["Linux"]
-tags: ["Init"]
+tags: ["init"]
 keywords: []
 author: "Canux"
 draft: false
@@ -13,7 +13,8 @@ draft: false
 linux系统启动的第一个进程,pid=1的进程.
 
     $ ls -l /sbin/init
-    /sbin/init ->   upstart
+    $ sudo readlink /sbin/init
+    /sbin/init -> upstart
     /sbin/init -> /lib/systemd/systemd
 
 ***
@@ -78,15 +79,58 @@ systemctl命令:
 
 # upstart
 
-如果init指向upstart, service如果在/etc/init.d找不到会去/etc/systemd/system找.
+如果init指向upstart, service命令如果在/etc/init.d找不到会去/etc/systemd/system找.
 
     /etc/init.d/***
+    /etc/init/***.conf
 
-    $ sudo service *** start/stop/status
+    $ sudo service docker start/stop/status/reload/restart
+    $ sudo initctl start/stop/status/reload/restart docker
+    $ sudo initctl list
 
     # 设置开机自动启动
     $ update-rc.d *** defaults
     # 取消开机启动
     $ update-rc.d *** remove
+
+日志管理:
+
+    $ tail -f /var/log/upstart/docker.log
+
+Stanzas功能:
+
+<http://upstart.ubuntu.com/wiki/Stanzas?highlight=%28%28CategoryDoc%29%29#pid>
+
+    # 添加服务
+    $ sudo vim /etc/init/docker.conf
+
+    # docker - container daemon
+    description  "docker"
+
+    start on runlevel [2345]
+    stop on runlevel [!2345]
+
+    respawn
+    # give up if restart occurs 10 times in 100 seconds.
+    respawn limit 10 100
+
+    pre-start script
+        # do something before start
+    end script
+
+    script
+        echo "ERROR: `date`: docker started by init."
+        exec docker
+    end script
+
+    post-start script
+        # do something after start
+    end script
+
+    # 检查语法错误
+    $ sudo init-checkconf /etc/init/docker.conf
+
+    # 注册服务
+    $ sudo initctl reload-configuration
 
 ***
