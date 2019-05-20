@@ -13,15 +13,18 @@ draft: false
 CNI: Container Network Intarface
 
 单台host上的container通信:
+
 * none
 * host
 * bridge
 
 多台host之间的container通信:
+
 * overlay
 * macvlan
 
 提供overlay/macvlan的网络服务:
+
 * flannel
 * cilium
 * kube-router
@@ -77,9 +80,9 @@ bridge网络不能跨主机通信(单网卡情况下), node1上的container不�
 
 # overlay网络
 
-overlay网络可以跨主机通信，swarm默认使用overlay网络，node1上的container能通过container-hostname找到node2上的container.
+overlay网络可以跨主机通信，swarm默认使用overlay网络, container之间可以通过service-name通信.
 
-container能通过ip访问局域网中的其它node, 但是不能通过hostname访问其它node. 局域网中的node 既不能通过container-hostname也不能通过container-ip访问container, 也就是说外部服务只能通过expose port来访问container.
+container能通过ip访问局域网中的其它node, 但是不能通过hostname访问其它node. 局域网中的node 既不能通过container-servicename也不能通过container-hostname/ip访问container, 也就是说外部服务只能通过expose port来访问container.
 
 创建:
 

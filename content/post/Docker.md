@@ -57,46 +57,46 @@ image管理:
 
     $ docker image COMMAND
 ​
-    查看本地镜像:
+    # 查看本地镜像:
     $ docker image ls
     $ docker images -a
 ​
-    根据创建dockerfile，创建新的images:
+    # 根据创建dockerfile，创建新的images:
     $ docker image build
 ​
-    创建tag
+    # 创建tag
     $ docker image tag
 ​
-    删除image
+    # 删除image
     $ docker image rm <IMAGE ID>
     $ docker rmi <IMAGE ID>
 ​
     $ docker rmi $(docker images -a -q) # 删除所有image
 
-container管理
+container管理:
 
     $ docker container COMMAND
 ​
-    列出container:
+    # 列出container:
     $ docker container ls
     $ docker ps -a  # 默认只显示running状态的
 ​
-    运行image,产生一个container:
+    # 运行image,产生一个container:
     $ docker container run <IMAGE ID>/<REPOSITORY> [COMMAND] [ARGS]
 ​
-    在container中执行命令
+    # 在container中执行命令
     $ docker container exec [OPTIONS] <CONTAINER> COMMAND [ARG...]
 ​
-    创建container但不启动
+    # 创建container但不启动
     $ docker container create --name <name> <CONTAINER>
 ​
-    启动container:
+    # 启动container:
     $ docker container start/restart <CONTAINER>
 ​
-    停止container:
+    # 停止container:
     $ docker container stop <CONTAINER>
 ​
-    删除container：
+    # 删除container：
     $ docker container rm <CONTAINER>
     $ docker rm <CONTAINER>
 ​
@@ -293,6 +293,9 @@ ONBUILD
     -f/--file
     -p/--project-name # 默认目录名
     -H/--host
+
+    # 拉取compose文件中指定的镜像
+    $ docker-compose -f service.yml pull
 
     # 根据docker-compose.yml把stack打包成一个Distributed Application Bundles文件.
     $ docker-compose bundle -o <project name>.dab

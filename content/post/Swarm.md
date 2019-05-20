@@ -12,6 +12,8 @@ draft: false
 
 docker swarm 是 docker内置的容器编排工具。
 
+直接在manager上通过compose文件运行服务，通过service-name调用服务，所有node上都需要相关的images。
+
 # swarm命令
 
 创建集群

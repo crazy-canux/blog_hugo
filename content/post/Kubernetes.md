@@ -32,16 +32,16 @@ kubernetes简称k8s, 是开源的容器编排工具。
 
 概念:
 
-- nodes, 运行pod的物理机或虚拟机.
-- namespace, 对资源和对象的抽象集合．pods/deployments/services都属于某个ns.
-- pods,一组紧密关联的容器集合，共享pid,ipc,network,uts,namespace.
+-: nodes, 运行pod的物理机或虚拟机.
+-: namespace, 对资源和对象的抽象集合．pods/deployments/services都属于某个ns.
+-: pods,一组紧密关联的容器集合，共享pid,ipc,network,uts,namespace.
 
 k8s业务类型:
 
-- long-running 长期伺服型 -> RC, RS, Deployment
-- batch 批处理型-> Job
-- node-daemon 节点后台支撑型-> DaemonSet
-- stateful application 有状态应用型-> StatefulSet
+-: long-running 长期伺服型 -> RC, RS, Deployment
+-: batch 批处理型-> Job
+-: node-daemon 节点后台支撑型-> DaemonSet
+-: stateful application 有状态应用型-> StatefulSet
 
 api对象三大类属性:
 
