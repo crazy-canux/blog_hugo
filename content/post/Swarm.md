@@ -14,6 +14,8 @@ docker swarm 是 docker内置的容器编排工具。
 
 直接在manager上通过compose文件运行服务，通过service-name调用服务，所有node上都需要相关的images。
 
+replicated类型service通过service-name访问，global类型通过service-name和hostname都能访问。
+
 # swarm命令
 
 创建集群
@@ -58,7 +60,8 @@ docker swarm 是 docker内置的容器编排工具。
 
 service
 
-    相当于docker-compose.yml里面的service.docker service ls # 列出所有service
+    # 相当于docker-compose.yml里面的service.
+    docker service ls # 列出所有service
     ​
     docker service rm SERVICE
     ​
@@ -91,7 +94,6 @@ service
     compose file
 
     deploy:
-    ​
       mode: global # 部署到匹配的全部node.
     ​
       mode: replicated
@@ -107,12 +109,17 @@ service
         limits:
           cpus: '0.5'
           memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 20M
     ​
       restart_policy:
         condition: on-failure
         delay: 5s
         max_attempts: 3
         window: 10s
+
+      endpoint_mode: vip(default)/dnsrr
     ​
       update_config:
     ​
@@ -120,17 +127,17 @@ service
     ​
 stack
 
-    > stack = n*service
-    > service = n*task(container)
+    # stack = n*service
+    # service = n*task(container)
     docker stack ls # 列出所有stack
     ​
     # 查看stack的service
     docker stack services
     ​
-    查看stack的task/container
+    # 查看stack的task/container
     docker stack ps STACK
     ​
-    根据docker-compose.yml部署应用
+    # 根据docker-compose.yml部署应用
     docker stack deploy -c/--compose-file <docker-compose.yml> STACK
     docker stack deploy --bundle-file <DAB> STACK
     ​

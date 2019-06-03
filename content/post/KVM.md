@@ -18,7 +18,7 @@ Kernel-based Virtual Machine.
 
 安装:
 
+    # install
     $ sudo apt-get install qemu qemu-kvm
 
 ***
-

@@ -44,10 +44,10 @@ Docker包括三个基本概念:
 Install:
 
     windows:
-    https://docs.docker.com/docker-for-windows/install/
+    <https://docs.docker.com/docker-for-windows/install/>
 
     linux:
-    https://docs.docker.com/install/linux/docker-ce/ubuntu/
+    <https://docs.docker.com/install/linux/docker-ce/ubuntu/>
 
 ***
 
@@ -56,66 +56,69 @@ Install:
 image管理:
 
     $ docker image COMMAND
-​
-    # 查看本地镜像:
+
+    > 查看本地镜像:
     $ docker image ls
     $ docker images -a
-​
-    # 根据创建dockerfile，创建新的images:
+
+    > 根据创建dockerfile，创建新的images
     $ docker image build
-​
-    # 创建tag
+
+    > 创建tag
     $ docker image tag
-​
-    # 删除image
+
+    > 删除image
     $ docker image rm <IMAGE ID>
     $ docker rmi <IMAGE ID>
-​
-    $ docker rmi $(docker images -a -q) # 删除所有image
 
-container管理:
+    > 删除所有image
+    $ docker rmi $(docker images -a -q)
 
-    $ docker container COMMAND
-​
+container管理
+
+    $docker container COMMAND
+
     # 列出container:
     $ docker container ls
     $ docker ps -a  # 默认只显示running状态的
-​
+
     # 运行image,产生一个container:
     $ docker container run <IMAGE ID>/<REPOSITORY> [COMMAND] [ARGS]
-​
+
     # 在container中执行命令
     $ docker container exec [OPTIONS] <CONTAINER> COMMAND [ARG...]
-​
+
     # 创建container但不启动
     $ docker container create --name <name> <CONTAINER>
-​
+
     # 启动container:
     $ docker container start/restart <CONTAINER>
-​
+
     # 停止container:
     $ docker container stop <CONTAINER>
-​
+
     # 删除container：
     $ docker container rm <CONTAINER>
     $ docker rm <CONTAINER>
-​
-    $ docker rm $(docker ps -a -q) # 删除所有容器
+
+    # 删除所有容器
+    $ docker rm $(docker ps -a -q) 
 
 制作镜像
 
     # 根据Dockerfile 构建image
     docker build [OPTIONS] PATH | URL | -
-    docker build .  # 默认就是当前目录的Dockerfile
-    docker build -t <repo>/<name>:<tag> .  # 创建tag
-    docker build -f /path/to/mydockerfile . # 也可以指定其它路径的其它文件
-    docker build --target <stage> . # 指定阶段构建.
+    docker build .  // 默认就是当前目录的Dockerfile
+    docker build -t <repo>/<name>:<tag> .  // 创建tag
+    docker build -f /path/to/mydockerfile . // 也可以指定其它路径的其它文件
+    docker build --target <stage> . // 指定阶段构建.
+    docker build ... --network=host // 使用host网络构建.
 
     # 把image导出到tar包
     # 既可以从image也可以从container导出。
     # 从container导出不包含运行后的修改，只导出原始镜像。
-    docker save -o name.tgz <repo1>:<tag1> <repo2>:<tag2> ...
-​
+    $ docker save -o name.tgz <repo1>:<tag1> <repo2>:<tag2> ...
+
     # 从stdin或文件加载image
     docker load [OPTIONS]
     docker load < name.tar.gz
@@ -124,7 +127,7 @@ container管理:
     # 把container导出到tar包，从container导出镜像。
     # 包括container启动后的修改。
     docker export -o name.tar [container]
-​
+
     # 从container导出的包加载成镜像
     docker import name.tar [repo]:[tag]
 
@@ -136,11 +139,11 @@ container管理:
 
     # 创建一个新的container并运行命令
     docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
-    docker run --name [NAME] IMAGE # 运行容器并命名
-    docker run -d IMAGE # 后台运行
-    docker run -it IMAGE /bin/bash # 交互模式启动容器
-    docker run -P IMAGE # 默认将容器的8０端口映射到主机的随机端口
-    docker run -p [host:port]:[containerPort] # 指定映射端口
+    docker run --name [NAME] IMAGE // 运行容器并命名
+    docker run -d IMAGE // 后台运行
+    docker run -it IMAGE /bin/bash // 交互模式启动容器
+    docker run -P IMAGE // 默认将容器的8０端口映射到主机的随机端口
+    docker run -p [host:port]:[containerPort] // 指定映射端口
     --add-host # 相当于修改容器的/etc/hosts,但是容器重启后不会消失
     -h/--hostname # 修改容器的/etc/hostname
     -c, --cpu-shares int             CPU shares (relative weight)
@@ -154,8 +157,8 @@ container管理:
 
     # 在运行的container中执行命令
     docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
-    docker exec -d CONTAINER ... # 在后台运行
-    docker exec -it CONTAINER /bin/bash ... # 进入命令行
+    docker exec -d CONTAINER ... // 在后台运行
+    docker exec -it CONTAINER /bin/bash ... // 进入命令行
 
 其它命令
 
@@ -163,7 +166,7 @@ container管理:
     docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
     docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
 
-    # 查看容器的日志.
+    # 查看容器的日志
     docker logs [OPTIONS] CONTAINER
     docker diff CONTAINER
     docker history [OPTIONS] IMAGE
@@ -174,12 +177,12 @@ register使用
     docker login
     docker login -u/--username <user> -p/--password <password>
 
-    # 从docker hub/store查找images:
-    docker search [OPTIONS] TERM
+    # 从docker hub/store查找images
+    $ docker search [OPTIONS] TERM
     $ docker search
 
     # 从registry获取repository/images到/var/lib/docker：
-    docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+    $ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
     $ docker pull
     $ docker pull ubuntu # 默认下载所有tag
     $ docker pull ubuntu:14.04
@@ -188,7 +191,7 @@ register使用
     $ docker pull registry.docker-cn.com/library/ubuntu:16.04
 
     # 推送到docker hub
-    docker push
+    $ docker push
 
 ***
 
@@ -273,6 +276,11 @@ ONBUILD
 
     ONBUILD ...
 
+stage:
+
+    COPY --from=stage1 / .
+    docker build --target stage1 -t docker:latest . 
+
 ***
 
 # docker-compose
@@ -314,8 +322,9 @@ compose文件
 
     version: "3.6"
     services:
-    mongo:
+      mongo:
         image: mongo:latest
+        hostname: hostname
         networks:
         - mynetwork
         volumes:
@@ -323,6 +332,21 @@ compose文件
         deploy: // for swarm
         ports:
         environment:
+        depends_on:
+
+        # 下列选项不能用于swarm stack部署.
+        build
+        cgroup_parent
+        container_name
+        devices
+        tmpfs
+        external_links
+        links
+        network_mode
+        restart
+        security_opt
+        sysctls
+        userns_mode
     ​
     networks:
     mynetwork:

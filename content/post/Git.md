@@ -17,6 +17,7 @@ SVN: subversion并发式版本控制系统。
 Mercurial: hg分布式版本控制。
 
 和git相关的产品：
+
 1. github
 2. bitbucket
 3. sourceForge
@@ -248,8 +249,8 @@ Gerrit is a code review and project management tool for Git based projects.
 
 # 搭建私有git服务器
 
-    $ sudo groupadd git
-    $ sudo adduser git -g git
+    $sudo groupadd git
+    $sudo adduser git -g git
     $ cd /home/git
     $ mkdir src
     $ git init --bare src

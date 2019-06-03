@@ -100,19 +100,19 @@ api对象:
 
 Basic command
 
-    通过yaml或json文件创建pod/container:
+    # 通过yaml或json文件创建pod/container:
     $ kubectl create -f FILENAME [options]
 
-    创建serivce:
+    # 创建serivce:
     $ kubectl expose
 
-    创建pod/container:
+    # 创建pod/container:
     $ kubectl run (docker run)
     $ kubectl run <name> --image=<image> --labels=<key=value> ...
 
     $ kubectl set
 
-    获取信息:
+    # 获取信息:
     $ kubectl get (docker ps)
     kubectl get nodes/no # 获取node节点信息
     kubectl get namespace/ns # 获取namespace信息
@@ -128,6 +128,7 @@ Basic command
 
 deploy command
 
+    # scale service.
     $ kubectl scale
 
     $ kubectl autoscale
@@ -135,17 +136,20 @@ deploy command
     $ kubectl rollout
 
     $ kubectl rolling-update
-    
+
 debug&troubleshoot
 
-    $ kubectl describe (docker inspect)
+    # like docker inspect
+    $ kubectl describe
 
     # 获取k8s-dashboard的token
     kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
 
-    $ kubectl logs (docker logs)
+    # like docker logs
+    $ kubectl logs
 
-    $ kubectl exec (docker exec)
+    # like docker exec
+    $ kubectl exec
 
     $ kubectl attach
 
@@ -159,6 +163,7 @@ debug&troubleshoot
 
 cluster management
 
+    # top command
     $ kubectl top
 
     $ kubectl cluster-info
