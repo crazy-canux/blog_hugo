@@ -259,8 +259,9 @@ CMD
 
     # 在容器运行过程中运行, 可以被覆盖
     CMD ["executable", "param1", "param2"]  # exec格式
-    CMD ["param2", "param2"]   # entrypoint的参数
     CMD command param1 param2   # shell 格式
+    // 同时有cmd和entrypoint,cmd只是entrypoint的参数.
+    CMD ["param2", "param2"]   # entrypoint的参数
 
 ENTRYPOINT
 

@@ -1,6 +1,6 @@
 ---
 title: "Virtualbox"
-date: 2019-06-05T21:47:54
+date: 2019-06-03T22:53:23+08:00
 categories: ["Virtualization"]
 tags: ["virtualbox"]
 keywords: []
@@ -10,29 +10,37 @@ draft: false
 
 # Virtualbox
 
+虚拟化工具virtualbox.
 
 # vboxmanage
 
 vm
 
-    $ vboxmanage import win7.ova // 导入ova
+    // 导入ova
+    $ vboxmanage import win7.ova 
 
     // 修改虚拟机的网络为hostonly
     $ vboxmanage modifyvm "win764" --nic1 hostonly --hostonlyadapter1 vboxnet0
-
-    $ vboxmanage modifyvm <vm> --name <new-name> // 重命名vm
+    // 重命名vm
+    $ vboxmanage modifyvm <vm> --name <new-name> 
+    // 修改参数
+    $ vboxmanage modifyvm <vm> --memory 4096 --cpus 4 --hwvirtex on --ioapic on
 
     // 启动虚拟机
     $ vboxmanage startvm "Win732"
     $ vboxmanage startvm <vm> --type headless 
     $ VBoxHeadless --startvm <uuid|name> --vrde on
 
-    $ vboxmanage list vms/runningvms // 查看所有/运行虚拟机
+    // 控制虚拟机
+    $ vboxmanage controlvm <vm> pause/resume/reset/poweroff/savestate
+
+    // 查看所有/运行虚拟机
+    $ vboxmanage list vms/runningvms 
 
 snapshot
 
     //查看快照
-    $vboxmanage <vm/uuid> snapshot list 
+    $ vboxmanage <vm/uuid> snapshot list 
 
     $ vboxmanage snapshot "Win732" take <name> --live --pause // 创建快照
 

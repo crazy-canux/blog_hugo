@@ -55,7 +55,6 @@ replicated类型service通过service-name访问，global类型通过service-name
     # 指定该节点满载,不再分派任务,关闭已有任务并重新分派.
     docker node update --availability drain node1
     # 已有任务继续运行,不分配新任务.
-    ​
     docker node update --availability pause node1
 
 service
@@ -68,7 +67,7 @@ service
     docker service inspect SERVICE
     ​
     # 查看service的log
-    docker service logs SERVICE
+    docker service logs -f SERVICE
     ​
     # 查看service的状态,在哪些node上运行,运行状态等
     docker service ps SERVICE
@@ -91,8 +90,8 @@ service
     --user/--group
     --mode global/replicated
     --endpoint-mode vip/dnsrr
-    compose file
 
+    # compose file
     deploy:
       mode: global # 部署到匹配的全部node.
     ​
@@ -125,6 +124,11 @@ service
     ​
       rollback_config:
     ​
+    networks: 
+      lan0: 
+        external: 
+          name: lan0
+
 stack
 
     # stack = n*service

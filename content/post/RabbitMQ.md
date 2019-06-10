@@ -149,18 +149,14 @@ rabbitmq-cluster部署：
 2. 修改所有node的/etc/hosts，配置ip和hostname.
 3. 同步所有node的cookie(/var/lib/rabbitmq/.erlang.cookie).
 4. 启动所有node上的rabbitmq-server.
-5. 在所有slave node运行
+
+        # rabbitmq-server -detached
+
+6. 将所有slave node添加manager组成cluster.
 
         # rabbitmqctl stop_app
         # rabbitmqctl reset
-        # rabbitmqctl start_app
-
-6. 在master node 添加slave node到cluster.
-
-        # rabbitmqctl stop_app
-        # rabbitmqctl reset
-        # rabbitmqctl join_cluster rabbit@<slaveN-host>
-        ...
+        # rabbitmqctl join_cluster rabbit@manager
         # rabbitmqctl start_app
 
 7. 检查cluster状态
@@ -173,7 +169,7 @@ rabbitmq-cluster部署：
 
 haproxy-server部署:
 
-1. 在haproxy servwer安装haproxy
+1. 在haproxy server安装haproxy
 2. 配置haproxy
 
         # sudo vim /etc/haproxy/haproxy.cfg
