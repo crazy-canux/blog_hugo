@@ -1,5 +1,5 @@
 ---
-title: "ftp"
+title: "Ftp"
 date: 2016-07-28T16:08:54
 categories: ["Network"]
 tags: ["ftp"]

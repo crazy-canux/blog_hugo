@@ -1,5 +1,5 @@
 ---
-title: "Amqp"
+title: "HAProxy"
 date: 2018-07-28T16:08:54
 categories: ["Network"]
 tags: ["haproxy"]

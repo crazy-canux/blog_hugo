@@ -12,16 +12,18 @@ draft: false
 
 docker swarm 是 docker内置的容器编排工具。
 
-直接在manager上通过compose文件运行服务，通过service-name调用服务，所有node上都需要相关的images。
+从docker1.12开始swarm内置于docker engine.
 
-replicated类型service通过service-name访问，global类型通过service-name和hostname都能访问。
+swarm mode具有内置kv存储，服务发现，负载均衡，陆游网格，动态伸缩，滚动更新，安全传输等功能。
+
+部署服务之前所有node上都需要相关的images。
 
 # swarm命令
 
 创建集群
 
     docker swarm init
-    --advertise-addr <ip> 指定manager的ip
+    --advertise-addr <ip> 多网卡情况下指定manager的ip
     ​
     docker swarm join --token <token> <host:port>
     ​
@@ -91,13 +93,37 @@ service
     --mode global/replicated
     --endpoint-mode vip/dnsrr
 
-    # compose file
+stack
+
+    # stack = n*service
+    # service = n*task(container)
+    docker stack ls # 列出所有stack
+    ​
+    # 查看stack的service
+    docker stack services
+    ​
+    # 查看stack的task/container
+    docker stack ps STACK
+    ​
+    # 根据docker-compose.yml部署应用
+    docker stack deploy -c/--compose-file <docker-compose.yml> STACK
+    docker stack deploy --bundle-file <DAB> STACK
+    ​
+    docker stack rm STACK
+
+***
+
+# swarm compose
+
+通过compose文件部署服务.
+
     deploy:
       mode: global # 部署到匹配的全部node.
     ​
       mode: replicated
       reoplicas: 3
     ​
+      # global和replicated都可以用placement.
       placement:
         constraints:
           - node.role == manager
@@ -117,35 +143,46 @@ service
         delay: 5s
         max_attempts: 3
         window: 10s
-
-      endpoint_mode: vip(default)/dnsrr
     ​
       update_config:
     ​
       rollback_config:
-    ​
-    networks: 
-      lan0: 
-        external: 
-          name: lan0
 
-stack
+      // 默认是vip,支持route mesh, 自动负载均衡和服务发现.
+      // dnsrr只能用port->mode=host.
+      endpoint_mode: vip
+      ports:
+      - target: 80
+        published: 8080
+        mode: ingress
+        protocol: tcp/udp
+      - 8080:80/tcp
+      endpoint_mode: dnsrr
+      ports:
+      - target: 80
+        published: 8080
+        mode: host
+        protocol: tcp/udp
 
-    # stack = n*service
-    # service = n*task(container)
-    docker stack ls # 列出所有stack
-    ​
-    # 查看stack的service
-    docker stack services
-    ​
-    # 查看stack的task/container
-    docker stack ps STACK
-    ​
-    # 根据docker-compose.yml部署应用
-    docker stack deploy -c/--compose-file <docker-compose.yml> STACK
-    docker stack deploy --bundle-file <DAB> STACK
-    ​
-    docker stack rm STACK
+***
+
+# swarm network
+
+container内部有eth0和eth1两个虚拟网卡。
+
+eth0(overlay) 通过4789/udp跨主机访问其他container.
+
+eth1(docker_gwbridge)通过tcp访问host和外网.
+
+container之间通过service-name调用服务，
+replicated类型service通过service-name访问，global类型通过service-name和hostname都能访问。
+
+外部通过port访问服务，manager通过ingress网络做端口转发和route mesh自动做负载均衡。
+
+endpoint_mode:
+
+* vip: 通过vip这个虚拟ip对外访问，提供负载均衡，不暴露具体的container的ip.
+* dnssr: DNS round-robin, 为每个服务设置dns,连接到其中一个具体的contaier的ip.
 
 ***
 

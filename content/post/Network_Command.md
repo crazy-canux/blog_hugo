@@ -42,9 +42,21 @@ draft: false
 
     ip link
 
+    # 创建vlan
+    ip link add link eth1 name eth1.10 type vlan id 10
+    # 添加ip
+    ip addr add 192.168.100.1/24 brd 192.168.100.255 dev eth1.10
+    # 启动vlan
+    ip link set dev eth1.10 up
+    # 关闭vlan
+    ip link set dev eth1.10 down
+    # 删除vlan
+    ip link delete eth1.10
+
 # route
 
-    route # 操作路由表的命令：
+    route # 操作路由表的命令
+    route -n
 
 # arp
 

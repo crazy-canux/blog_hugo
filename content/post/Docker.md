@@ -59,7 +59,7 @@ image管理:
 
     > 查看本地镜像:
     $ docker image ls
-    $ docker images -a
+    $ docker image -a
 
     > 根据创建dockerfile，创建新的images
     $ docker image build
@@ -70,9 +70,11 @@ image管理:
     > 删除image
     $ docker image rm <IMAGE ID>
     $ docker rmi <IMAGE ID>
-
     > 删除所有image
     $ docker rmi $(docker images -a -q)
+
+    > 清理所有临时images
+    $ docker image prune
 
 container管理
 
@@ -100,9 +102,11 @@ container管理
     # 删除container：
     $ docker container rm <CONTAINER>
     $ docker rm <CONTAINER>
-
     # 删除所有容器
     $ docker rm $(docker ps -a -q) 
+
+    # 清理停止的container
+    $ docker container prune
 
 制作镜像
 
@@ -134,6 +138,9 @@ container管理
     # 根据container的修改创建新的image
     docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
     docker commit -a "author" -c "Dockerfile instruction" -m "commit message" CONTAINER [REPOSITORY[:TAG]]
+
+    # 创建新的tag
+    docker tag <old> <new>
 
 运行容器
 
@@ -332,8 +339,16 @@ compose文件
         - myvolume
         deploy: // for swarm
         ports:
+          - 80:80
+          - 1234:1234/udp
         environment:
+          RABBITMQ_DEFAULT_USER: sandbox
+          RABBITMQ_DEFAULT_PASS: password
+        environment:
+          - RABBITMQ_DEFAULT_USER=sandbox
+          - RABBITMQ_DEFAULT_PASS=password
         depends_on:
+          - service-name
 
         # 下列选项不能用于swarm stack部署.
         build
@@ -350,19 +365,30 @@ compose文件
         userns_mode
     ​
     networks:
-    mynetwork:
+      mynetwork:
         external:
-        name: lan0
+          name: lan0
     ​
     networks:
-    mynetwork:
+      mynetwork:
         driver: bridge
         driver_opts:
-        com.docker.network.bridge.name: lan0
+          com.docker.network.bridge.name: lan0
         ipam:
-        driver: default
-        config:
-        - subnet: 192.168.1.0/24
+          driver: default
+          config:
+            - subnet: 192.168.1.0/24
+
+
+    # compose文件中用到的变量
+    .Service.ID Service ID 
+    .Service.Name Service name 
+    .Service.Labels Service labels 
+    .Node.ID Node ID 
+    .Node.Hostname Node Hostname 
+    .Task.ID Task ID 
+    .Task.Name Task name 
+    .Task.Slot Task slot 
 
 ***
 

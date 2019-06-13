@@ -72,6 +72,8 @@ opt可用的参数:
 
 bridge网络不能跨主机通信(单网卡情况下), node1上的container不能通过container-hostname找到node2上的container.
 
+主要用于container访问host并通过host访问外部网络，container能通过ip访问host和局域网中的其他node,或者通过node访问外网。
+
 创建:
 
     $ docker network create -d bridge ... [name]
@@ -80,12 +82,23 @@ bridge网络不能跨主机通信(单网卡情况下), node1上的container不�
 
 # overlay网络
 
-overlay网络可以跨主机通信，swarm默认使用overlay网络, container之间可以通过service-name通信.
+overlay网络可以实现容器之间的跨主机通信.
 
-container能通过ip访问局域网中的其它node, 但是不能通过hostname访问其它node. 局域网中的node 既不能通过container-servicename也不能通过container-hostname/ip访问container, 也就是说外部服务只能通过expose port来访问container.
+container通过overlay网络实现通信.container能通过service-name/container-ip/container-hostname访问其它container。
+
+局域网中的node 既不能通过container-servicename也不能通过container-hostname/ip访问container, 也就是说外部服务只能通过expose port来访问container.
 
 创建:
 
     $ docker network create -d overlay ... [name]
 
-    $ docker network create --attachable --driver=overlay --gateway=192.168.1.1 --subnet=192.168.1.0/24 --opt com.docker.network.bridge.name=br0 br0
+    $ docker network create --attachable --driver=overlay --gateway=192.168.1.1 --subnet=192.168.1.0/24 --opt com.docker.network.bridge.name=vlan0 vlan0
+
+# macvlan
+
+macvlan不仅支持在interface上创建，还支持sub-interface(vlan).
+
+    ip link set eth1 promisc on  |  
+    ifconfig eth1 promisc 
+
+    docker network create -d macvlan --subnet=192.168.100.0/24 --gateway=192.168.100.1 -o parent=eth1 lan0
