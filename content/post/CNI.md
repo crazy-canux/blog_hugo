@@ -70,9 +70,11 @@ opt可用的参数:
 
 # bridge网络
 
-bridge网络不能跨主机通信(单网卡情况下), node1上的container不能通过container-hostname找到node2上的container.
+bridge网络不能跨主机通信(单网卡情况下), node1上的container不能通过container-hostname/ip访问node2上的container.
 
 主要用于container访问host并通过host访问外部网络，container能通过ip访问host和局域网中的其他node,或者通过node访问外网。
+
+host或局域网中的其它机器能通过container-ip(bridge网络)访问container.
 
 创建:
 
@@ -84,9 +86,9 @@ bridge网络不能跨主机通信(单网卡情况下), node1上的container不�
 
 overlay网络可以实现容器之间的跨主机通信.
 
-container通过overlay网络实现通信.container能通过service-name/container-ip/container-hostname访问其它container。
+container通过overlay网络实现通信.container能通过service-name/container-ip访问其它container。
 
-局域网中的node 既不能通过container-servicename也不能通过container-hostname/ip访问container, 也就是说外部服务只能通过expose port来访问container.
+局域网中的node 既不能通过container-servicename也不能通过container-ip(overlay的ip)访问container, 也就是说外部服务只能通过expose port来访问container.
 
 创建:
 

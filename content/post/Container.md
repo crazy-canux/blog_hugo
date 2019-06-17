@@ -30,3 +30,9 @@ nsenter - run program with namespaces of other processes
     $ nsenter --net=/var/run/docker/netns/lb_atz8r3bly ifconfig
 
     $ nsenter -m/--mount <namespace> <command>
+
+# misc
+
+get host ip(docker/docker_gwbridge) from container:
+
+    ip route | awk '/default/ { print $3 }'

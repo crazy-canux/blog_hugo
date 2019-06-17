@@ -168,16 +168,24 @@ stack
 
 # swarm network
 
-container内部有eth0和eth1两个虚拟网卡。
+global模式container:
 
-eth0(overlay) 通过4789/udp跨主机访问其他container.
+    eth0: overlay(user define overlay)
+    eth1: ingress(swarm define ingress)
+    eth2: docker_gwbridge(swarm define bridge)
 
-eth1(docker_gwbridge)通过tcp访问host和外网.
+replicate模式container:
 
-container之间通过service-name调用服务，
-replicated类型service通过service-name访问，global类型通过service-name和hostname都能访问。
+    eth0: overlay(user define overlay)
+    eth1: docker_gwbridge(swarm define bridge)
 
-外部通过port访问服务，manager通过ingress网络做端口转发和route mesh自动做负载均衡。
+overlay: 通过4789/udp跨主机访问其他container, host不能访问overlay的ip，只有container之间通过container-servicename或者container-overlay的ip相互访问.
+
+vip模式就是访问的虚拟ip,replicated的service如果有多个container,通过servicename访问的就是同一个vip,通过vip解析到背后container的真实overlay-ip(自动负载均衡). 
+
+dnsrr模式就是直接解析container的overlay-ip来访问,如果是replicated的service有多个container,每次访问的就是从dns列表中根据负载均衡算法拿到其中一个overlay-ip.
+
+docker_gwbridge: host和container之间通过ip访问, container能访问host的物理网卡的ip和docker_gwbridge的ip, host也能访问container的docker_gwbridge的ip, 但是container之间不能访问bridge的ip.
 
 endpoint_mode:
 
