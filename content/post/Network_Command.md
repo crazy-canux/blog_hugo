@@ -14,6 +14,14 @@ draft: false
 
 # nc/netcat
 
+    // 有的系统默认安装netcat-traditional
+    $ sudo apt-get install netcat-traditional 
+    // 安装netcat-openbsd
+    $ sudo apt-get install netcat-openbsd
+    // 设置默认值
+    $ sudo update-alternatives --config nc
+    $ sudo update-alternatives --set nc /bin/nc.openbsd
+
     nc -z IP PORT # 查看指定tcp://ip:port是否监听
     nc -zu IP PORT # 查看udp://ip:port是否监听
 
@@ -39,6 +47,8 @@ draft: false
     brctl delif <bridge> <interface> # 删除bridge上的interface
 
 # ip
+
+    $ sudo apt-get install iproute2
 
     ip link
 

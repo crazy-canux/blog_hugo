@@ -144,9 +144,13 @@ stack
         max_attempts: 3
         window: 10s
     ​
-      update_config:
-    ​
-      rollback_config:
+      update_config/rollback_config:
+        parallelism: 0 (default 0 means all)
+        delay:
+        failure_action: pause(default)/continue/rollback
+        monitor: 0s
+        max_failure_ratio:
+        order: stop-first(default)/start-first
 
       // 默认是vip,支持route mesh, 自动负载均衡和服务发现.
       // dnsrr只能用port->mode=host.

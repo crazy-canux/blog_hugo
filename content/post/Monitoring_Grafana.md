@@ -155,3 +155,10 @@ conditions暂不支持template variables.
     $ sudo grafana-cli plugins remove <plugin-id>
 
 ***
+
+# enable https
+
+    $ vim /etc/grafana/grafana.ini
+    protocol=https
+    cert-file=file.crt
+    key-file=file.key

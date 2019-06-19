@@ -17,6 +17,7 @@ draft: false
 安装:
 
     $ sudo apt-get install libvirt-bin (包含virsh命令和libvirtd daemon)
+    // libvirtd在container中无法运行；在container中安装libvirt-bin可以获取virsh命令远程访问libvirt-bin server.
 
     $ sudo apt-get install libvirt-dev # 库, python/go client依赖该库
 
@@ -67,36 +68,41 @@ libvirt操作qemu/kvm.
 
 ssh远程:
 
-    # 需要安装nc和sshpass
-    $ sudo apt-get install netcat-traditional netcat-openbsd
-    $ sudo apt-get install sshpass
+    # libvirt-bin server上需要安装nc和libvirt-bin
+    $ sudo apt-get install netcat-openbsd
+    $ sudo update-alternatives --config nc // netcat-traditional避免使用默认安装
+
+    # ssh用户需要在libvirt和kvm组里
+    $ adduser username libvirtd
+    $ adduser username kvm
+
+    $ sudo apt-get install sshpass // 免密码访问
+
+    # client上需要安装openssh-clients
     $ sshpass -p password virsh -c qemu+ssh://user@127.0.0.1/system list
 
 tcp远程:
 
-    qemu+tcp://host:port/system
+    $ vim /etc/libvirt/libvirtd.conf:
+    listen_tls = 0　　　　　　　　　 #禁用tls登录
+    listen_tcp = 1　　　　　　　　　 #启用tcp方式登录
+    tcp_port = "16509"　　　　　　　 #tcp端口16509
+    listen_addr = "0.0.0.0"         # 允许任意ip访问
+    auth_tcp = "none"　　　　　　    #TCP不使用认证
 
-    vim /etc/libvirt/libvirtd.conf:
-    listen_tls = 0　　　　　　　　　　#禁用tls登录
-    listen_tcp = 1　　　　　　　　　  #启用tcp方式登录
-    tcp_port = "16509"　　　　　　　#tcp端口16509
-    listen_addr = "0.0.0.0"
-    unix_sock_group = "libvirtd"
-    unix_sock_rw_perms = "0770"
-    auth_unix_ro = "none"
-    auth_unix_rw = "none"
-    auth_tcp = "none"　　　　　　   #TCP不使用认证
-    max_clients = 1024　　　　　　  #最大总的连接客户数1024
+    $ sudo service libvirt-bin restart
+
+    $ virsh -c qemu+tcp://127.0.0.1:16509/system list
+
+# libvirtd配置
+
+配置libvirtd：
+
+    $ vim /etc/libvirt/libvirtd.conf
+
+    max_clients = 1024　　　　　　   #最大总的连接客户数1024
     min_workers = 50　　　　　　    #libvirtd启动时，初始的工作线程数目
     max_workers = 200　　　　　　 #同上，最大数目
     max_requests = 1000　　　　　
     #最大同时支持的RPC调用，必须大于等于max_workers
     max_client_requests = 200　　 #每个客户端支持的最大连接数
-
-    vim /etc/default/libvirt-bin:
-    # Start libvirtd to handle qemu/kvm:
-    start_libvirtd="yes"
-    # options passed to libvirtd, add "-l" to listen on tcp
-    libvirtd_opts="-d -l --config /etc/libvirt/libvirtd.conf"
-
-    $ sudo service libvirt-bin restart

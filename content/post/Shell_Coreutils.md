@@ -163,6 +163,12 @@ chmod:
     chgrp
     chattr
 
+adduser:
+
+    adduser 
+
+    addgroup
+
 useradd:
 
     useradd
@@ -171,6 +177,7 @@ useradd:
     userdel
 
     usermod
+    usermod -G g1,g2 -a user // 将用户追加到组
 
     users # 查看当前登陆的用户
 

@@ -22,6 +22,7 @@ windows上支持ssh协议的客户端：
 安装：
 
     $ sudo apt-get install openssh-server
+    $ sudo apt-get install openssh-client
 
 ***
 

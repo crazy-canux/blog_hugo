@@ -41,6 +41,13 @@ Docker包括三个基本概念:
     $ sudo vim /lib/systemd/system/docker.service
     > ExecStart=/usr/bin/dockerd -H fd:// --iptables=false
 
+修改docker存储路径:
+
+    $ service docker stop
+    $ mv /var/lib/docker /opt/ssd/docker
+    $ ln -s /opt/ssd/docker /var/lib/docker
+    $ service docker start
+
 Install:
 
     windows:
@@ -117,6 +124,7 @@ container管理
     docker build -f /path/to/mydockerfile . // 也可以指定其它路径的其它文件
     docker build --target <stage> . // 指定阶段构建.
     docker build ... --network=host // 使用host网络构建.
+    docker build --no-cache // 不使用缓存数据
 
     # 把image导出到tar包
     # 既可以从image也可以从container导出。
