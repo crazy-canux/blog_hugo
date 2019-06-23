@@ -72,6 +72,8 @@ draft: false
 
     arp # 用于确定IP地址的网卡物理地址
 
+# dig
+
 # nslookup
 
     nslookup # 查询IP地址和对应的域名

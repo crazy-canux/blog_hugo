@@ -90,6 +90,10 @@ tcp远程:
     listen_addr = "0.0.0.0"         # 允许任意ip访问
     auth_tcp = "none"　　　　　　    #TCP不使用认证
 
+    $ vim /etc/default/libvirt-bin
+    start_libvirtd="yes"
+    libvirtd_opts="-d -l --config /etc/libvirt/libvirtd.conf"
+
     $ sudo service libvirt-bin restart
 
     $ virsh -c qemu+tcp://127.0.0.1:16509/system list

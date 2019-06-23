@@ -176,7 +176,7 @@ comparison:
 查看所有用户：
 
     SELECT DISTINCT(USER) FROM mysql.user;
-    SELECT user,host FROM mysql.user;
+    SELECT user,host,plugin FROM mysql.user;
 
 查看当前用户：
 
@@ -204,10 +204,6 @@ comparison:
     CREATE DATABASE databasename;
     DROP DATABASE databasename;
 
-使用数据库：
-
-    use databasename
-
 指定数据库对用户授权：
 
     GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'%';
@@ -216,6 +212,10 @@ comparison:
 查看权限：
 
     SHOW GRANTS FOR 'username'@'%';
+
+使用数据库：
+
+    use databasename
 
 查看所有表：
 
@@ -247,7 +247,9 @@ issue:
 
 fix:
 
-    set global max_connections = 5000;
+    show processlist;
+    show variables like 'max_connections';
+    set global max_connections = 2048;
 
 ***
 

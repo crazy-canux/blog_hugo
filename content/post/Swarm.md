@@ -189,7 +189,17 @@ vip模式就是访问的虚拟ip,replicated的service如果有多个container,�
 
 dnsrr模式就是直接解析container的overlay-ip来访问,如果是replicated的service有多个container,每次访问的就是从dns列表中根据负载均衡算法拿到其中一个overlay-ip.
 
+ingress network: 是一个特殊的 overlay 网络，用于服务节点间的负载均衡。当任何 Swarm 节点在发布的端口上接收到请求时，它将该请求交给一个名为 IPVS 的模块。IPVS 跟踪参与该服务的所有IP地址，选择其中的一个，并通过 ingress 网络将请求路由到它。
+
 docker_gwbridge: host和container之间通过ip访问, container能访问host的物理网卡的ip和docker_gwbridge的ip, host也能访问container的docker_gwbridge的ip, 但是container之间不能访问bridge的ip.
+
+修改默认的docker_gwbridge:
+
+    $ docker network create --subnet "172.18.0.0/16"  --ip-range “172.18.1.0/16” \
+    --opt com.docker.network.bridge.name=docker_gwbridge \
+    --opt com.docker.network.bridge.enable_icc=false \
+    --opt com.docker.network.bridge.enable_ip_masquerade=true \
+    docker_gwbridge
 
 endpoint_mode:
 
