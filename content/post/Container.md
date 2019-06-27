@@ -10,9 +10,9 @@ draft: false
 
 # Container
 
-OCI: Open Container Initiative: runc
+OCI: Open Container Initiative.
 
-CRI: Container Runtime Interface: docker-containerd, rkt
+CRI: Container Runtime Interface.
 
 CNI: Container Network Interface.
 

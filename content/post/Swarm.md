@@ -14,9 +14,17 @@ docker swarm 是 docker内置的容器编排工具。
 
 从docker1.12开始swarm内置于docker engine.
 
-swarm mode具有内置kv存储，服务发现，负载均衡，陆游网格，动态伸缩，滚动更新，安全传输等功能。
+swarm mode具有内置kv存储，服务发现，负载均衡，路由网格，动态伸缩，滚动更新，安全传输等功能。
 
 部署服务之前所有node上都需要相关的images。
+
+swarm: 老版本的swarm, 需要kv store, 可以作为独立的container运行, 已废弃, 已经被docker swarm mode 代替.
+
+<https://github.com/docker/swarm>
+
+swarmkit:
+
+<https://github.com/docker/swarmkit>
 
 # swarm命令
 
@@ -125,10 +133,10 @@ stack
     ​
       # global和replicated都可以用placement.
       placement:
+        preferences: // 只支持spreed.
+          - spreed: node.labels.datacenter
         constraints:
           - node.role == manager
-        preferences:
-          - spreed:
     ​
       resources:
         limits:
@@ -139,7 +147,7 @@ stack
           memory: 20M
     ​
       restart_policy:
-        condition: on-failure
+        condition: any(default)/on-failure/none
         delay: 5s
         max_attempts: 3
         window: 10s

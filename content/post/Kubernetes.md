@@ -26,9 +26,14 @@ kubernetes简称k8s, 是开源的容器编排工具。
 
 安装k8s集群:
 
-* kubeadm (k8s内置的，类似于docker swarm.)
+* kubeadm (k8s内置的，类似于docker swarm mode.)
 * kops (目前主要支持aws等云平台)
 * kubespray (通过ansible部署)
+
+k8s发行版：
+
+* openshift(redhat)
+* rancher
 
 概念:
 
@@ -79,6 +84,7 @@ api对象:
 ## addons
 
 * coredns
+* fannel
 * dashboard, web-gui
 * metrics-server, 取代heapster，用于cpu/memory监控
 * ingress-nginx, 为服务提供外网入口

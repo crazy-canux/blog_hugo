@@ -341,12 +341,26 @@ compose文件
       mongo:
         image: mongo:latest
         hostname: hostname
+        deploy: // for swarm
         networks:
         - mynetwork
-        volumes:
-        - myvolume
-        deploy: // for swarm
-        ports:
+        volumes: // short syntax
+        - myvolume:/container/dir
+        volumes: // long syntax
+        - type: valume/bind/tmpfs
+          source: 
+          target:
+          read_only:
+          bind:
+          volume:
+          tmpfs:
+          consistency:
+        ports:  // long syntax
+        - target: 80
+          published: 8080
+          mode: host
+          protocol: tcp/udp
+        ports: // short syntax
           - 80:80
           - 1234:1234/udp
         environment:

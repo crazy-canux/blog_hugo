@@ -37,6 +37,9 @@ vm
     // 查看所有/运行虚拟机
     $ vboxmanage list vms/runningvms 
 
+    // 删除vm
+    $ vboxmanage unregistervm <vm> --delete
+
 snapshot
 
     //查看快照

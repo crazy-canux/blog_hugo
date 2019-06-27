@@ -92,7 +92,7 @@ tcp远程:
 
     $ vim /etc/default/libvirt-bin
     start_libvirtd="yes"
-    libvirtd_opts="-d -l --config /etc/libvirt/libvirtd.conf"
+    libvirtd_opts="-l --config /etc/libvirt/libvirtd.conf"
 
     $ sudo service libvirt-bin restart
 
