@@ -371,6 +371,7 @@ compose文件
           - RABBITMQ_DEFAULT_PASS=password
         depends_on:
           - service-name
+        command: ["./wait-for-it.sh", "db:5432", "--", "python", "app.py"]
 
         # 下列选项不能用于swarm stack部署.
         build

@@ -19,8 +19,10 @@ vm
     // 导入ova
     $ vboxmanage import win7.ova 
 
-    // 修改虚拟机的网络为hostonly
-    $ vboxmanage modifyvm "win764" --nic1 hostonly --hostonlyadapter1 vboxnet0
+    // 添加host网络
+    $ vboxmanage modifyvm "win764" --nic1 hostonly --hostonlyadapter1
+    // 添加bridge网络
+    $ vboxmanage modifyvm "Win732" --nic2 bridged --bridgeadapter2 docker_gwbridge
     // 重命名vm
     $ vboxmanage modifyvm <vm> --name <new-name> 
     // 修改参数
@@ -43,16 +45,16 @@ vm
 snapshot
 
     //查看快照
-    $ vboxmanage <vm/uuid> snapshot list 
+    $ vboxmanage snapshot <vm> list 
 
-    $ vboxmanage snapshot "Win732" take <name> --live --pause // 创建快照
+    $ vboxmanage snapshot <vm> take <name> --live --pause // 创建快照
 
-    $ vboxmanage snapshot delete <snapshot-name/uuid> // 删除快照
+    $ vboxmanage snapshot <vm> delete <snapshot-name/uuid> // 删除快照
 
 hostonly-network
 
     $ vboxmanage hostonlyif crate // 创建hostonly bridge
-    $ vboxmanage hostonlyif ipconfig vboxnet0 --ip 192.168.1.1 // 给hostonly bridge分配ip
+    $ vboxmanage hostonlyif ipconfig vboxnet0 --ip 192.168.1.1 --netmask 255.255.255.0 // 给hostonly bridge分配ip和netmask.
 
     // 查看所有hostonly网路
     $ vboxmanage list hostonlyifs
@@ -67,3 +69,5 @@ extpack
 
     // 安装扩展包
     $ sudo vboxmanage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack
+    $ sudo vboxmanage extpack uninstall \
+    "Oracle VM VirtualBox Extension Pack"

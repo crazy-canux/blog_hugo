@@ -31,7 +31,7 @@ service文件位置:
 
 service文件编写:
 
-<http://www.jinbuguo.com/systemd/systemd.service.html>
+<https://www.freedesktop.org/software/systemd/man/systemd.unit.html#>
 
     [Unit]
     Description=details
@@ -40,6 +40,10 @@ service文件编写:
     Bindsto= #
     Wants=containerd.service # 弱依赖
     Requires= # 强依赖
+    StartLimitInterval=10s
+    StartLimitBurst=5
+
+<https://www.freedesktop.org/software/systemd/man/systemd.service.html#>
 
     [Service]
     Type=simple/notify/dbus/forking/idle/oneshot

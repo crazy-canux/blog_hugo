@@ -53,10 +53,12 @@ mysqld的默认端口是3306.
 本地执行sql语句或mysql客户端命令:
 
     $ mysql -u<username> -p<password> <database> -e/--execute <sql query>
+    $ mysql -u<username> -p<password> <database> < test.sql
 
 远程执行sql语句或mysql客户端命令:
 
     $ mysql -h<host> -P<port> -u<username> -p<password> <database> -e/--execute <sql query>
+    $ mysql -h<host> -P<port> -u<username> -p<password> <database> < test.sql
 
 启用'load data local'命令：
 

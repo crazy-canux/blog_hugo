@@ -130,7 +130,7 @@ draft: false
     -t, --tries=NUMBER    超时重连次数, 0表示不限制, 默认20
     -nc, --no-clobber    不覆盖原有文件
     -N, --timestamping   只下载比本地新的文件
-    -c, --continue    断点续传
+    -c, --continue    断点续传,会覆盖-N
     -T, --timeout=SECONDS    超时时间, 默认900s
     -w, --wait=SECONDS    重连之间的等待时间
     -O, --output-document=FILE, 重命名下载文件
@@ -145,6 +145,9 @@ draft: false
 
     # 同步目录
     wget -Nc -r -np -nH --cut-dirs=3 -R "index.*, *.js, *.css, *.html, *.jpg, *.png, *.gif" -P /path/to/source/ http://host/path/to/dest/
+
+    $ wget -q -N -P /folder url
+    $ wget -q -c -O /path/to/file.ext url
 
 curl:
 

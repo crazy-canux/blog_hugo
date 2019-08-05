@@ -38,6 +38,7 @@ swarmkit:
     # 查看token
     docker swarm join-token manager   获取添加manager命令
     docker swarm join-token worker   获取添加worker命令
+    docker swarm join-token -q worker
     ​
     docker swarm leave -f/--force
     ​
@@ -148,9 +149,9 @@ stack
     ​
       restart_policy:
         condition: any(default)/on-failure/none
-        delay: 5s
-        max_attempts: 3
-        window: 10s
+        delay: 0(default)/5s
+        max_attempts: never give up(default)/3
+        window: decide immediately(default)/10s
     ​
       update_config/rollback_config:
         parallelism: 0 (default 0 means all)

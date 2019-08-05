@@ -82,6 +82,9 @@ host或局域网中的其它机器能通过container-ip(bridge网络)访问conta
 
     $ docker network create --driver=bridge --gateway=192.168.1.1 --subnet=192.168.1.0/24 --opt com.docker.network.bridge.name=br0 br0
 
+    // 定制docker_gwbridge网络
+    $ docker network create --subnet 172.18.0.0/16 --ip-range 172.18.0.0/24 --opt com.docker.network.bridge.name=docker_gwbridge --opt com.docker.network.bridge.enable_icc=true --opt com.docker.network.bridge.enable_ip_masquerade=true docker_gwbridge
+
 # overlay网络
 
 overlay网络可以实现容器之间的跨主机通信.
