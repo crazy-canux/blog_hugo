@@ -40,13 +40,15 @@ functions:
     wait() # 等待子进程结束，返回(pid, status).
     waitpid(pid, options) # 等待指定子进程结束.
     listdir(path)
-    makedirs(path [, mode=0777])
+    makedirs(path [, mode=0o777], exist_ok=False)
     mkdir(path [, mode=0777])
     walk(top, topdown=True, onerror=None, followlinks=False) # 返回 (dirpath, dirnames, filenames) 类型的迭代器
     remove(path) # remove a file
     rmdir(path) # remove a directory
     removedirs(path)
     symlink(src, dst)
+    chown(path, uid, gid)
+    chmod(path, mode=0o777)
     ...
 
     # 使用subprocess模块代替下列函数：
@@ -239,3 +241,19 @@ data:
     import ctypes
 
 ***
+
+# Unix/Linux sytem
+
+## pwd
+
+    import pwd
+
+functions:
+
+    // 根据用户名获取uid和gid
+    pw = getpwnam(user)  
+    pw.pw_uid
+    pw.pw_gid
+
+    getpwuid(uid)
+ 

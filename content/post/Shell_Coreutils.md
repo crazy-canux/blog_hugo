@@ -187,13 +187,25 @@ useradd:
 
     groups # 查看指定用户所属的组，默认当前用户的组
 
-    gpasswd
+gpasswd:
+
     $ gpasswd -d <user> <group> // 从组里删除用户
 
-    chpasswd
+chpasswd:
+
     echo "username:password" | chpasswd # 修改username的密码
 
+passwd
+
     passwd
+
+su:
+
+    su <user> -c <command>
+
+sudo:
+
+    sudo -i
 
 # 文件和目录管理
 

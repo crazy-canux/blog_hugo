@@ -20,7 +20,7 @@ vm
     $ vboxmanage import win7.ova 
 
     // 添加host网络
-    $ vboxmanage modifyvm "win764" --nic1 hostonly --hostonlyadapter1
+    $ vboxmanage modifyvm "win764" --nic1 hostonly --hostonlyadapter1 vboxnet0
     // 添加bridge网络
     $ vboxmanage modifyvm "Win732" --nic2 bridged --bridgeadapter2 docker_gwbridge
     // 重命名vm
@@ -55,6 +55,7 @@ hostonly-network
 
     $ vboxmanage hostonlyif crate // 创建hostonly bridge
     $ vboxmanage hostonlyif ipconfig vboxnet0 --ip 192.168.1.1 --netmask 255.255.255.0 // 给hostonly bridge分配ip和netmask.
+    $ vboxmanage hostonlyif remove <name>
 
     // 查看所有hostonly网路
     $ vboxmanage list hostonlyifs
