@@ -10,3 +10,6 @@ draft: false
 
 # Nginx
 
+    nginx -V
+    nginx -t
+    nginx -s reload

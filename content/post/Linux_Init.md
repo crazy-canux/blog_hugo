@@ -17,6 +17,14 @@ linux系统启动的第一个进程,pid=1的进程.
     /sbin/init -> upstart
     /sbin/init -> /lib/systemd/systemd
 
+    /etc/init.d
+    The directory containing System V init scripts.
+    通过service命令操作
+
+    /etc/init
+    The directory containing upstart jobs.
+    通过initctl命令操作
+
 ***
 
 # systemd
@@ -82,8 +90,6 @@ systemctl命令:
 ***
 
 # upstart
-
-如果init指向upstart, service命令如果在/etc/init.d找不到会去/etc/systemd/system找.
 
     /etc/init.d/***
     /etc/init/***.conf

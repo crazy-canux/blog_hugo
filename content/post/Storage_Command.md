@@ -47,6 +47,8 @@ fsck检查并修复文件系统:
 
 # fdisk
 
+支持msdos，支持2T以下的磁盘.
+
 fdisk管理磁盘分区表:
 
     fdisk
@@ -60,7 +62,11 @@ fdisk管理磁盘分区表:
 
 # parted
 
+支持gpt分区表，支持2T以上的大磁盘.
+
 大存储分区工具,比如nas,raid.
+
+    parted /dev/sda print
 
 # mkfd
 

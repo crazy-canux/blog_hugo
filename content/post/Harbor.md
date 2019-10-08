@@ -19,9 +19,12 @@ Habor是由VMWare中国团队开源的容器镜像仓库, 用于存储和分发d
 1. 下载并解压安装包, https://github.com/goharbor/harbor/releases
 2. 配置harbor.cfg;
 
+修改配置:
+
+    vim harbor.yml
+
 运行安装程序:
 
-    ./install.sh
     ./install.sh --with-notary --with-clair --with-chartmuseum
 
 修改web的port:
@@ -31,24 +34,19 @@ Habor是由VMWare中国团队开源的容器镜像仓库, 用于存储和分发d
       ports:
         - 8080:80 # 默认http是80
         - 4433:443 # 默认https是443
-    $ vim /data/harbor/harbor.cfg
+    $ vim /data/harbor/harbor.yml
     hostname = ip:port
-    $ cd /data/harbor
-    ./prepare
-    $ docker-compose up -d
 
 管理harbor:
 
-    $cd /data/harbor
-    docker-compose stop　停止
-    docker-compose start　恢复
+    # cd /data/harbor
     docker-compose down -v 　停止并删除container
-    docker-cmopose up -d 启动
 
-使用notary/clair/helm:
-
+    > 更新配置
     # ./prepare --with-notary --with-clair --with-chartmuseum
     # docker-compose -f ./docker-compose.yml -f ./docker-compose.notary.yml -f ./docker-compose.clair.yml -f ./docker-compose.chartmuseum.yml up -d
+
+    docker-cmopose up -d 启动
 
 # docker使用harbor
 

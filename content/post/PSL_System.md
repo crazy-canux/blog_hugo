@@ -122,6 +122,10 @@ classes:
     FileHandler(StreamHandler) # 打印到文件
     FileHandler(filename, mode='a', encoding=None, delay=0)
 
+    # from logging.handlers import *
+    WatchedFileHandler
+    RotatingFileHandler
+
 functions:
 
     basicConfig(**kwargs) # 设置log的格式
@@ -256,4 +260,14 @@ functions:
     pw.pw_gid
 
     getpwuid(uid)
+
+## grp
+
+    import grp
+
+functions:
+
+    group = group.getgrnam(<group_name>)
+    group.gr_name // 返回组名
+    group.gr_mem // 返回该组的所有用户
  

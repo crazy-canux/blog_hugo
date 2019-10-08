@@ -18,7 +18,7 @@ draft: false
     func Join(elem ...string) string
     func Dir(path string) string
     func Base(path string) string
-    func Ext(path string) string
+    func Ext(path string) string 
     ...
 
 ***
@@ -43,14 +43,14 @@ draft: false
     func IsAbs(path string) bool
     func Abs(path string) (string, error)
 
-    // 返回 targpath 相对于 basepath 的 路径 （相当于返回 targpath - basepath)
+    // 返回 targpath 相对于 basepath 的 路径 （相当于返回 targpath - basepath), 实际就是文件名.
     func Rel(basepath, targpath string) (string, error)
 
     func Split(path string) (dir, file string)
     func Join(elem ...string) string
     func Dir(path string) string
     func Base(path string) string
-    func Ext(path string) string)
+    func Ext(path string) string) // 包括小数点
     func Walk(root string, walkFn WalkFunc) error
 
 ## WalkFunc

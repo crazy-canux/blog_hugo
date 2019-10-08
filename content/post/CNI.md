@@ -12,23 +12,31 @@ draft: false
 
 CNI: Container Network Intarface
 
-单台host上的container通信:
+## 单台host上的container通信
 
 * none
 * host
 * bridge
 
-多台host之间的container通信:
+## 多台host之间的container通信
 
 * overlay
 * macvlan
 
-提供overlay/macvlan的网络服务:
+### 提供overlay/macvlan的网络服务
 
+vxlan encapsulated:
+
+* canal
 * flannel
+* weave
+
+bgp unencapsulated:
+
+* calico
+* romana
 * cilium
 * kube-router
-* calico
 
 # Docker网络管理
 

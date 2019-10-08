@@ -315,6 +315,9 @@ List, create, or delete branches
     git branch -D [branch-name] # 强制删除分支
     git branch -m [old-name] [new-name] # 重命名
     git branch -M [old-name] [new-name] # 强制重命名
+    git branch -vv   # 查看上游
+    git branch --unset-upstream [branch] # 取消上游
+    git branch -u <origin/branch> [branch] # 设置上游
 
 ## blame
 
@@ -363,6 +366,7 @@ Print lines matching a pattern reinitialize an existing one
 Show commit logs
 
     git log # 显示commit的log
+    git log --pretty=format:'%h' -n 1 // 查看commit id.
 
 ## merge
 

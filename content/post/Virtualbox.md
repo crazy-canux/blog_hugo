@@ -42,6 +42,14 @@ vm
     // 删除vm
     $ vboxmanage unregistervm <vm> --delete
 
+media
+
+    // 列出所有hdd
+    $ vboxmanage list hdds
+
+    // 删除hdd
+    $ vboxmanage closemedium disk <uuid> --delete
+
 snapshot
 
     //查看快照
