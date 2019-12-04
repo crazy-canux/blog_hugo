@@ -432,6 +432,12 @@ str类型是不可变类型(immutable),是标量(scalar),是序列(sequence)通�
     # 三引号续行符前的空格就表示和下一行有空格．
     c = """This is a \
     string"""
+    > This is a string
+
+    c = """line1
+    line2"""
+    > line1\nline2   没有续行符会在行尾加换行符号.
+    
 
 编译时字符串连接：
 

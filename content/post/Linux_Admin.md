@@ -68,6 +68,17 @@ use RDP on windows to connect to ubuntu14.04.
 
     sudo apt-get install build-essential make libssl-dev
 
+## apt mirror
+
+    vim /etc/apt/sources.list
+    # deb http://ip:port/path   ubuntu16/
+    # deb [trusted=yes] https://<user>:<pw>@ip:port/path   ubuntu16/
+    deb [trusted=yes] https://user:pw@mirror.com/mirror ubuntu16/
+
+    vim /etc/apt/apt.conf
+    Acquire::https::mirror.com::Verify-Peer "false";
+    Acqhire::https::mirror.com::Verify-Host "false";
+
 ## 中文输入法
 
 安装一个中文输入法框架fcitx(IBus, SCIM, UIM)：
@@ -192,6 +203,24 @@ ubuntu修改hostname:
         dns-nameservers 8.8.8.8
     $ sudo service networking restart
 
+ubuntu18:
+
+    netplan:
+    $ sudo vim /etc/netplan/*.yaml
+
+    network:
+      version: 2
+      renderer: networkd
+      ethernets:
+        ens160:
+          dhcp4: no
+          addresses: [192.168.1.0/23]
+          gateway4: 193.168.0.1
+          nameservers:
+            addresses: [8.8.8.8]
+
+    $ sudo netplan apply
+
 ## E: Sub-process /usr/bin/dpkg returned an error code (1)
 
 method1:
@@ -216,8 +245,13 @@ method2:
 
     默认python3.5.2， 需要安装2.7.12
     sudo apt-get --yes install python2.7
-    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+
+    # python2指向python2.7
+    sudo update-alternatives --install /usr/bin/python2 python2 /usr/bin/python2.7 1
+    # python3指向python3.5
     sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
+    # python指向python3.5
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5  1
 
 ***
 
@@ -238,11 +272,14 @@ method2:
 设置静态IP:
 
     $ vim /etc/sysconfig/network-scripts/ifcfg-enxxx
-    BOOTPROTO= # dhcp(自动获取), static(固定IP), node(手动设置)
-    IPADDR="192.168.0.1"
+    ONBOOT=yes
+    BOOTPROTO=static # dhcp(自动获取), static(固定IP), node(手动设置)
     PREFIX="21"
+    IPADDR="192.168.0.1"
+    NETMASK="255.255.255.0"
     GATEWAY="192.168.0.0"
     DNS1="192.168.0.0"
+    $ sudo nmcli c reload
 
 设置可以同时访问外网和本地连接的方法：
 

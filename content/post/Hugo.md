@@ -85,8 +85,8 @@ go开发的静态站点生成器.
 
 # 创建文章
 
-    ## content/<category>/page.md
-    $ hugo new Linux/Shell.md
+    ## content/post/page.md
+    $ hugo new post/Shell.md
 
 ***
 

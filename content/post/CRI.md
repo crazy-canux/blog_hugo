@@ -8,19 +8,23 @@ author: "Canux"
 draft: false
 ---
 
-# OCI
-
-Open Container Initiative，也就是常说的OCI，是由多家公司共同成立的项目，并由linux基金会进行管理，致力于container runtime的标准的制定和runc的开发等工作。
-
 # CRI
 
 CRI: Container Runtime Intarface
 
+定义了k8s和container runtime进行交互的接口.
+
+是k8s与container交互的标准.
+
 ## containerd
+
+docker.
 
 <https://github.com/containerd/containerd>
 
 ## CRI-O
+
+redhat.
 
 <https://github.com/cri-o/cri-o>
 
@@ -28,4 +32,8 @@ CRI: Container Runtime Intarface
 
 <https://github.com/kata-containers/runtime>
 
+## rkt
 
+redhat(coreos)
+
+<https://github.com/rkt/rkt>

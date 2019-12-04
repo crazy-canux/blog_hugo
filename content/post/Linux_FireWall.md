@@ -39,14 +39,27 @@ table:
     filter 默认表
     nat
     mangle
+    raw
+    security
 
-chain;
+## filter
+
+chain:
 
     INPUT
     FORWARD
     OUTPUT
 
-iptables命令:
+## nat
+
+chain:
+
+    INPUT
+    OUTPUT
+    PREROUTING
+    POSTROUTING
+
+## iptables命令
 
     -L/--list  [chain [ rulenum]]
     -S/--list-rules [chain [rulenum]]

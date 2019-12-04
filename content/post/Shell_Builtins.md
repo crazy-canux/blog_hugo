@@ -50,7 +50,10 @@ shell命令分为内置命令和外部命令.
     declare
     dirs
     disown
+
     echo
+    echo "_${VAR}_" // 查看变量前后是否有空格.
+
     eval
     exec
     exit

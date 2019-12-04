@@ -227,6 +227,7 @@ bash的优化项目bash-it：
 
     双引号的字符串里面可以有变量，可以出现转义字符.
     var="this is string"
+    "outer \"inner string\" string"
 
     获取字符串长度
     var="this is tring"

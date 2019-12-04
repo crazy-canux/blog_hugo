@@ -85,4 +85,25 @@ pull images from harbor:
 k8s使用harbor:
 
 <https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/>
-​
+
+# 修改存储路径
+
+默认路径是/data/registry
+
+停服务:
+
+    $ docker-compose down -v
+
+修改路径:
+
+    $ mv /data/* /new/path
+    $ vim /new/path/harbor/harbor.yml
+    data_volume: /new/path
+
+    $ vim /new/path/harbor/docker-compose.yml
+    /data => /new/path
+
+启动服务:
+
+    $ cd /new/path
+    $ docker-compose up -d

@@ -162,3 +162,33 @@ conditions暂不支持template variables.
     protocol=https
     cert-file=file.crt
     key-file=file.key
+
+# Provisioning
+
+<https://grafana.com/docs/administration/provisioning/#provisioning-grafana>
+
+datasource
+
+    $ vim /etc/grafana/provisioning/datasources/datasource.yaml
+    - name: MAF
+        type: influxdb
+        access: proxy
+        url: http://influxdb-service:8086
+        database: sandboxav
+        isDefault: true
+        editable: true
+
+dashboard
+
+    $ vim /etc/grafana/provisioning/dashboards/dashboard.yaml
+    apiVersion: 1
+    providers:
+    - name: 'default'
+    orgId: 1
+    folder: ''
+    type: file
+    disableDeletion: false
+    editable: true
+    updateIntervalSeconds: 600
+    options:
+        path: /etc/grafana/dashboards

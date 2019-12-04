@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec326d9-b7cb-4282-a54d-36ae109dc962" name="Default Changelist" comment="k">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Apache.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Apache.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Go_Devops.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Go_Devops.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Helm.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Helm.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Kubernetes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Linux_Admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_Admin.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Linux_FireWall.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Linux_FireWall.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Python.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Python_DevOps.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Python_DevOps.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Sec_CA.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Sec_CA.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Shell.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Shell_Awk.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell_Awk.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Shell_Builtins.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell_Builtins.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/Shell_Sed.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/Shell_Sed.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +27,11 @@
     <session id="1220224465">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -108,7 +121,7 @@
         <entry file="file://$PROJECT_DIR$/content/post/ReStructuredText.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-304">
+              <first_editor relative-caret-position="209">
                 <caret line="11" selection-start-line="11" selection-end-line="11" />
               </first_editor>
               <second_editor>
@@ -122,7 +135,7 @@
         <entry file="file://$PROJECT_DIR$/content/post/WEB.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-1252">
+              <first_editor relative-caret-position="171">
                 <caret line="9" selection-start-line="9" selection-end-line="9" />
               </first_editor>
               <second_editor>
@@ -318,11 +331,11 @@
       <path value="$PROJECT_DIR$/themes/hugo-theme-canux/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-1930" />
-    <option name="y" value="170" />
-    <option name="width" value="1939" />
-    <option name="height" value="1049" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -330,7 +343,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -347,6 +359,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,9 +409,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1927" y="173" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918434" visible="true" weight="0.25989085" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918434" visible="true" weight="0.33492497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5008157" side_tool="true" weight="0.28854024" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -410,7 +423,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.1517129" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.16313213" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -756,18 +769,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/JavaScript/NodeJS_OOP.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="152">
-            <caret line="8" selection-start-line="8" selection-end-line="8" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/content/JavaScript/NodeJS_OOP.md" />
     <entry file="file://$PROJECT_DIR$/content/post/JS_Node.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -925,7 +927,7 @@
     <entry file="file://$PROJECT_DIR$/content/post/ReStructuredText.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-304">
+          <first_editor relative-caret-position="209">
             <caret line="11" selection-start-line="11" selection-end-line="11" />
           </first_editor>
           <second_editor>
@@ -937,7 +939,7 @@
     <entry file="file://$PROJECT_DIR$/content/post/WEB.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-1252">
+          <first_editor relative-caret-position="171">
             <caret line="9" selection-start-line="9" selection-end-line="9" />
           </first_editor>
           <second_editor>
@@ -946,7 +948,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/Wordpress.md">
+    <entry file="file://$PROJECT_DIR$/content/post/WebService.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="171">
@@ -958,7 +960,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/XPATH.md">
+    <entry file="file://$PROJECT_DIR$/content/post/Wordpress.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="171">
@@ -992,7 +994,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/post/WebService.md">
+    <entry file="file://$PROJECT_DIR$/content/post/XPATH.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="171">

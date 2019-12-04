@@ -408,7 +408,16 @@ Update remote refs along with associated objects
 Forward-port local commits to the updated upstream head
 
     git rebase -i [commit] # 修改提交的信息
-    # r commit-id [branch]comment.
+    pick 
+    reword
+    edit
+    squash
+    fixup 
+    exec
+    drop
+    label
+    reset
+    merge
     git rebase --continue
     git rebase --abort
     git rebase --skip

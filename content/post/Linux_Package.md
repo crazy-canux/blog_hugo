@@ -160,15 +160,13 @@ redhat的包管理机制。
 
 rpm的本地前端工具。
 
-rpm -
-
-rpmbuild -
+rpm - RPM Package Manager
 
 ## yum
 
 rpm的远程前端工具。
 
-yum -
+yum - redirecting to DNF Command Reference
 
 ***
 

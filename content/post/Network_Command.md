@@ -146,10 +146,17 @@ draft: false
     # 同步目录
     wget -Nc -r -np -nH --cut-dirs=3 -R "index.*, *.js, *.css, *.html, *.jpg, *.png, *.gif" -P /path/to/source/ http://host/path/to/dest/
 
+    # ssl + basic auth
+    wget --no-check-certificate --user <user> --password <pw> -nv -N -P <dest-folder> <src-url>
+
     $ wget -q -N -P /folder url
     $ wget -q -c -O /path/to/file.ext url
 
-curl:
+# curl
 
     curl
-
+    -X/--request post/patch/delte/get/...
+    -H/--header 'content-type: application/json'
+    -d/--data '{"key": "value"}'
+    -k/--insecure    ignore ssl check.
+    -u/--user <user:password>

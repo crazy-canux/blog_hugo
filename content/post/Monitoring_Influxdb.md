@@ -143,6 +143,7 @@ tag_key, field_key, measurement都需要用双引号.
 The SELECT clause specifies an InfluxQL function.
 
     select "<field_key/tag_key>" from "<measurement>"
+    select "<field_key/tag_key>" as "alias" from "<measurement>"
 
 The INTO clause writes query results to a user-specified measurement.
 
@@ -288,4 +289,14 @@ CQ不能更新，只能删除重建．
 
     DROP CONTINUOUS QUERY <cq_name> ON <database_name>
 
-***
+***    
+
+# Best Practice
+
+    select 1-(mean("part") / mean("all")) as "rate"
+    from (
+        select sum("value") as "smash" from "jobs_type" where "type"='SMASH' and $timeFilter
+    ),(
+        select sum("value") as "all" from "jobs_type" where "type"='reversinglab_cloud' and $timeFilter
+    )
+    group by time($__interval) fill(none)

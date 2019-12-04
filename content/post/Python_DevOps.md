@@ -29,14 +29,14 @@ Linux安装：
 
 标准库的路径：
 
-    C:\Python27\Lib
-    /usr/lib/python2.7/
+    C:\Python*\Lib
+    /usr/lib/python*/
 
 python的IDE：
 
 1. Windows: IDLE
 2. Linux: Vim
-3. Pycharm/IntelliJ
+3. Pycharm/VS
 
 ***
 
@@ -131,23 +131,23 @@ python的版本管理工具,　用于管理多个pyton版本.
 
 第三方库路径：
 
-    C:\Python27\Lib\site-packages
-    ~/.local/lib/python2.7/site-packages
-    /usr/local/lib/python2.7/dist-packages
-    /usr/local/lib/python2.7/site-packages
-    /usr/lib/python2.7/dist-packages
-    /usr/lib/python2.7/site-packages
+    C:\Python*\Lib\site-packages
+    ~/.local/lib/python*/site-packages
+    /usr/local/lib/python*/dist-packages
+    /usr/local/lib/python*/site-packages
+    /usr/lib/python*/dist-packages
+    /usr/lib/python*/site-packages
 
 二进制安装：
 
-    $sudo apt-get install python-packagename
+    $sudo apt-get install python-<packagename>
 
 源码安装第三方库：
 
     $ cd package
     $ python setup.py install
 
-    # 安装到　~/.local/lib/python2.7/site-packages
+    # 安装到　~/.local/lib/python*/site-packages
     $ python setup.py install --user
 
 easy_install(setuptools)安装：
@@ -171,8 +171,6 @@ easy_install(setuptools)安装：
 pip安装：
 
     <https://github.com/pypa/pip>
-    python2.7.9和python3.4和virtualenv自带最新版pip.
-    其它低版本的python需要单独安装pip.
     直接从pypi安装wheel格式和sdist格式(也就是tarball)。
 
     $sudo apt-get install python-pip
@@ -232,9 +230,31 @@ pip命令:
 
     # 手动修改pip的源
     $ sudo vim /etc/pip.conf
+
     [global]
-    trusted-host = pypi.douban.com
-    index-url = http://pypi.douban.com/simple
+    timeout=120
+    no-cache-dir = false
+    trusted-host = pypi.douban.com
+    index-url = http://pypi.douban.com/simple
+    # index-url = https://<user>:<password>@ip:port/simple
+
+    [freeze]
+    timeout = 10
+
+    [install]
+    ignore-installed = true
+    no-dependencies = yes
+    no-compile = no
+
+pip-tools
+
+根据项目中的import导出依赖。
+
+<https://github.com/jazzband/pip-tools>
+
+pipreqs
+
+<https://github.com/bndr/pipreqs>
 
 ***
 
@@ -311,6 +331,7 @@ A python refactoring library
 
     |-- project    项目源代码目录
         |-- __init__.py 包文件
+        |-- <module>.py // 模块名不要和已知的包重名
         ...
     |-- docs       用来存放文档
         |-- conf.py

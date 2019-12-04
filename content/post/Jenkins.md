@@ -47,6 +47,15 @@ jinkens主目录:
 
 添加节点需要安装和master版本一样的java.
 
+on jenkins agent:
+
+1. install java.
+2. create folder and grant permission. (/home/jenkins)
+
+on jenkins:
+
+1. create credential and node.
+
 # blueocean
 
 blueocean是jenkins的一个差劲，提供更好的用户界面.

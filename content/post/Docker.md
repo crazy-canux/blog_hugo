@@ -20,6 +20,8 @@ draft: false
 
 Docker是一个容器引擎, 分为社区版CE, 和企业版EE, Docker不是虚拟机, 也不依赖虚拟化技术．
 
+docker-cli -> dockerd -> containerd -> docker-shim -> runc
+
 Docker包括三个基本概念:
 
 * 仓库repository,集中存放镜像文件的场所,docker hub/store是最大的公开仓库．
@@ -28,12 +30,12 @@ Docker包括三个基本概念:
 
 修改默认register:
 
-    # http://7bd09afa.m.daocloud.io
+    # https://z4yd270h.mirror.aliyuncs.com
+    # http://f1361db2.m.daocloud.io
     # https://docker.mirrors.ustc.edu.cn
-    # https://registry.docker-cn.com
     $ sudo vim /etc/docker/daemon.json
     {
-        "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
+        "registry-mirrors": ["https://registry.docker-cn.com"]
     }
 
 禁止docker修改iptables:
@@ -54,7 +56,7 @@ Install:
     <https://docs.docker.com/docker-for-windows/install/>
 
     linux:
-    <https://docs.docker.com/install/linux/docker-ce/ubuntu/>
+    <https://docs.docker.com/install/linux/docker-ce/>
 
 ***
 
@@ -161,14 +163,19 @@ container管理
     docker run -p [host:port]:[containerPort] // 指定映射端口
     --add-host # 相当于修改容器的/etc/hosts,但是容器重启后不会消失
     -h/--hostname # 修改容器的/etc/hostname
-    -c, --cpu-shares int             CPU shares (relative weight)
     --cpus decimal                   Number of CPUs
+    -c, --cpu-shares int             CPU shares (relative weight)
     --cpuset-cpus string             CPUs in which to allow execution (0-3, 0,1)
     --cpuset-mems string             MEMs in which to allow execution (0-3, 0,1)
+    --cpu-period
+    --cpu-quota
     -m, --memory bytes               Memory limit
     --memory-reservation bytes       Memory soft limit
     --memory-swap bytes              Swap limit equal to memory plus swap: '-1' to enable unlimited swap
     --memory-swappiness int          Tune container memory swappiness (0 to 100) (default -1)
+    --oom-kill-disable
+    --oom-score-adj
+    --kernel-memory
 
     # 在运行的container中执行命令
     docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
@@ -387,11 +394,13 @@ compose文件
         sysctls
         userns_mode
     ​
+    // 使用已经创建好的网络
     networks:
       mynetwork:
         external:
           name: lan0
     ​
+    // 创建bridge网络
     networks:
       mynetwork:
         driver: bridge
@@ -402,6 +411,27 @@ compose文件
           config:
             - subnet: 192.168.1.0/24
 
+    // 创建overlay网络
+    networks:
+      ol0:
+        driver: overlay
+        attachable: true
+        driver_opts:
+          com.docker.network.bridge.name: ol0
+        ipam:
+          driver: default
+          config:
+          - subnet: 172.12.0.0/16
+
+    // 解析为: "line1 line2\n",  会自动加换行符.
+    command: >
+      line1
+      line2
+
+    // 解析为: "line1 line2", 没有换行符.
+    command: >-
+      line1
+      line2
 
     # compose文件中用到的变量
     .Service.ID Service ID 
@@ -439,3 +469,23 @@ compose文件
     --generic-ssh-key ~/.ssh/id_rsa \
     node1
     docker-machine ls
+
+***
+
+# OOM
+
+<https://docs.docker.com/config/containers/resource_constraints/>
+
+<https://github.com/docker/compose/issues/4513>
+
+swarm mode:
+
+swarm模式使用compose format 3来限制资源.
+
+<https://docs.docker.com/compose/compose-file/#resources>
+
+non swarm mode:
+
+非swarm模式可以用compose format 2 来做资源限制.
+
+<https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources>

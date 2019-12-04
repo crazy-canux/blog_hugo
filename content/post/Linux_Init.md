@@ -85,7 +85,7 @@ systemctl命令:
 
 日志管理:
 
-    $ journalctl -xe ***.servivce
+    $ sudo journalctl -fu docker.service
 
 ***
 

@@ -32,7 +32,7 @@ kubernetes简称k8s, 是开源的容器编排工具。
 
 k8s发行版：
 
-* openshift(redhat)
+* openshift-okd(redhat)
 * rancher
 
 概念:
@@ -113,6 +113,8 @@ Basic command
     # 通过yaml或json文件创建pod/container:
     $ kubectl create -f FILENAME [options]
 
+    $ kubectl delete
+
     # 创建serivce:
     $ kubectl expose
 
@@ -126,6 +128,8 @@ Basic command
     $ kubectl get (docker ps)
     kubectl get nodes/no # 获取node节点信息
     kubectl get namespace/ns # 获取namespace信息
+    kubectl get componentstatuses/cs
+    kubectl -n cattle-system get all 
     kubectl -n kube-system get pods/po
     kubectl -n kube-system get deployments/deploy
     kubectl -n kube-system get services/svc
@@ -133,8 +137,6 @@ Basic command
     $ kubectl explain
 
     $ kubectl edit
-
-    $ kubectl delete
 
 deploy command
 

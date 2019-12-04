@@ -59,6 +59,8 @@ snapshot
 
     $ vboxmanage snapshot <vm> delete <snapshot-name/uuid> // 删除快照
 
+    $ vboxmanage snapshot <vm> restore Clean
+
 hostonly-network
 
     $ vboxmanage hostonlyif crate // 创建hostonly bridge

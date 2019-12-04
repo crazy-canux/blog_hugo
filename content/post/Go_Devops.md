@@ -83,6 +83,12 @@ get
     $ git clone https://github.com/golang/crypto.git crypto
     $ go install golang.org/x/crypto/ssh
 
+    go get -u (without any arguments) now only upgrades the direct and indirect dependencies of your current package, and no longer examines your entire module.
+
+    go get -u ./... from your module root upgrades all the direct and indirect dependencies of your module, and now excludes test dependencies.
+
+    go get -u -t ./... is similar, but also upgrades test dependencies.
+
 build
 
 编译包和依赖
@@ -125,6 +131,26 @@ doc
 
     $ go doc [package/symbol]
 
+mod
+
+    go mod init <name>
+    go mod tidy
+    go mod download
+    go mod verify
+
+env
+
+    // 通过env 设置golang的变量，取代系统环境变量
+    go env
+    go env -w GOPATH="$HOME/Src/go"
+    go env -w GOBIN="/usr/local/go/bin"
+    go env -w GOROOT="/usr/local/go"
+
+clean
+
+    go clean -cache
+    go clean -modcache
+
 ***
 
 # 安装第三方包
@@ -133,7 +159,7 @@ go get的功能很有限．
 
 godep和golide都会被官方的dep取代．
 
-## dep
+## dep(deprecated)
 
 <https://github.com/golang/dep>
 
@@ -155,6 +181,49 @@ go官方包管理器
 
     $ dep ensure
     $ dep ensure -update
+
+## module
+
+vgo已经集成到go1.11
+
+通过go mod init初始化两个文件.
+
+go.mod:
+
+    module
+    go
+    require
+    exclude
+    replace
+
+    // 使用本地module,或使用指定repo里面的module
+    replace github.com/crazy-canux/go-devops => /path/to/local/github.com/crazy-canux/go-devops
+
+使用本地module
+
+go.sum:
+
+    go env -w GOSUMDB=off
+
+设置相关环境变量:
+
+    GO111MODULE:
+    // auto/on/off
+    go env -w GO111MODULE=on
+
+    GOPROXY:
+    go env -w GOPROXY=https://goproxy.cn,direct
+    https://proxy.golang.org //默认值
+    https://goproxy.cn
+    https://mirrors.aliyun.com/goproxy/
+
+    GOSUMDB:
+
+    GOPRIVATE
+
+    GONOPROXY
+
+    GONOSUMDB
 
 ***
 

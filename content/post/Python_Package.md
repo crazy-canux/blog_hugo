@@ -210,6 +210,17 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
             # your preinst code here for install.
             install.run(self)
             # your postinst code here for install.
+    
+编译成.so文件:
+
+    $ sudo pip install cython
+    from Cython.Build import cythonize
+    setup(
+        ...
+        ext_modules=cythonize([]),
+        ...
+    )
+    $ python3 setup.py build_ext
 
 创建setup.cfg文件：
 

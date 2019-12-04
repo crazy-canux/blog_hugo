@@ -18,7 +18,7 @@ Open source framework for processing, monitoring, and alerting on time series da
 
 配置:
 
-    hostname = "10.103.1.1"
+    hostname = "kapcitor-service"
 
     # 如果从influxdb读取数据需要配置该选项．
     [[influxdb]]
@@ -83,6 +83,10 @@ Open source framework for processing, monitoring, and alerting on time series da
 ***
 
 # TICKscript
+
+注释:
+
+    // comment
 
 tickscript字符串用单引号和三单引号表示.
 
