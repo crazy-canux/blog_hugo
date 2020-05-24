@@ -46,11 +46,18 @@ draft: false
     brctl addif <bridge> <interface> # 绑定interface到bridge
     brctl delif <bridge> <interface> # 删除bridge上的interface
 
+# route
+
+    route # 操作路由表的命令
+    route -n
+
 # ip
 
     $ sudo apt-get install iproute2
 
-    ip link
+link:
+
+    ip link show
 
     # 创建vlan
     ip link add link eth1 name eth1.10 type vlan id 10
@@ -63,10 +70,17 @@ draft: false
     # 删除vlan
     ip link delete eth1.10
 
-# route
+addr/address
 
-    route # 操作路由表的命令
-    route -n
+    ip addr show
+
+route
+
+    ip route show
+
+rule
+
+    ip rule show
 
 # arp
 
@@ -118,6 +132,8 @@ draft: false
     tcpdump udp port <port> 抓udp 在port端口的包
     tcpdump -i <interface> host <ip>
 
+# traceroute
+
 # wget
 
     wget [option] [URL]
@@ -126,6 +142,8 @@ draft: false
     -o, --output-file=FILE
     -q, --quiet    不输出
     -b, --background
+    -nv, --no-verbose
+    --header "authorization:c2FuZGJveDpTMG5pY3dhbGwK"
 
     -t, --tries=NUMBER    超时重连次数, 0表示不限制, 默认20
     -nc, --no-clobber    不覆盖原有文件
@@ -158,5 +176,11 @@ draft: false
     -X/--request post/patch/delte/get/...
     -H/--header 'content-type: application/json'
     -d/--data '{"key": "value"}'
+    --data-raw DATA  HTTP POST data, '@' allowed (H)
+    --data-ascii DATA  HTTP POST ASCII data (H)
+    --data-binary DATA  HTTP POST binary data (H)
+    --data-urlencode DATA  HTTP POST data url encoded (H)
+    -G, --get           Send the -d data with a HTTP GET (H)
     -k/--insecure    ignore ssl check.
     -u/--user <user:password>
+    -s/--silent        Silent mode

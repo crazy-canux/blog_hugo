@@ -35,18 +35,18 @@ Habor是由VMWare中国团队开源的容器镜像仓库, 用于存储和分发d
         - 8080:80 # 默认http是80
         - 4433:443 # 默认https是443
     $ vim /data/harbor/harbor.yml
-    hostname = ip:port
+    hostname = ip
 
 管理harbor:
 
     # cd /data/harbor
-    docker-compose down -v 　停止并删除container
+    # docker-compose down -v 　停止并删除container
 
     > 更新配置
     # ./prepare --with-notary --with-clair --with-chartmuseum
-    # docker-compose -f ./docker-compose.yml -f ./docker-compose.notary.yml -f ./docker-compose.clair.yml -f ./docker-compose.chartmuseum.yml up -d
 
-    docker-cmopose up -d 启动
+    > 启动
+    # docker-compose up -d
 
 # docker使用harbor
 

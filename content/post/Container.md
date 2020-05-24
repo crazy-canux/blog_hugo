@@ -44,7 +44,35 @@ redhat(coreos)
 
 ***
 
-# nsenter
+# tools
+
+## dumb-init
+
+管理pid=1的进程的子进程:
+
+<https://github.com/Yelp/dumb-init>
+
+## baseimage-docker
+
+处理container中运行多个进程的问题:
+
+<https://github.com/phusion/baseimage-docker>
+
+## watchtower
+
+根据registry中的更新自动更新 container:
+
+<https://github.com/containrrr/watchtower/>
+
+## hadolint
+
+dockerfile 语法检查:
+
+<https://github.com/hadolint/hadolint>
+
+***
+
+# CLI
 
 nsenter - run program with namespaces of other processes
 

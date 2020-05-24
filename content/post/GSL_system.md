@@ -492,6 +492,15 @@ interface:
         Seek(offset int64, whence int) (int64, error)
     }
 
+## ReadWriter
+
+interface:
+
+    type ReadWriter interface {
+        Reader
+        Writer
+    }
+
 ***
 
 # io/ioutil

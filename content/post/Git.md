@@ -132,38 +132,13 @@ git有四个协议：
 
 ***
 
-# github
-
-github的windows版本包含windows的git和对powershell的支持
-
-<https://desktop.github.com/>
-
-1. 注册github帐号
-
-2. 本地创建sshkey
-
-        ssh-keygen -t rsa -b 4096 -C "your-email"
-        eval $(ssh-agent -s)
-        ssh-add ~/.ssh/id_rsa
-
-3. 复制key
-
-        sudo apt-get install xclip
-        xclip -sel clip < ~/.ssh/id_rsa.pub
-
-4. 添加public-key到github的settings的SSH keys。
-
-5. 测试SSH的无密码连接
-
-        ssh -T git@github.com
-
-## projcet/.gitignore
+# projcet/.gitignore
 
 忽略文件
 
 <https://github.com/github/gitignore>
 
-## project/.gitattributes
+# project/.gitattributes
 
 github显示编程语言
 
@@ -370,12 +345,21 @@ Show commit logs
 
 ## merge
 
+merge的5中策略:
+
+* resolve
+* recursive
+* octopus
+* ours
+* subtree
+
 Join two or more development histories together
 
     git merge [branch-name]
     git merge --ff # fast-forward,默认直接两个分支合并，不会产生新的commit,看不到开发分支的分叉．
-    git merge --no-ff # no fast-forward,每次合并会创建新的commit.可以看到开发分支的分叉
     git merge --ff-only
+    git merge --no-ff # no fast-forward,每次合并会创建新的commit.可以看到开发分支的分叉
+    git merge --squash
 
 ## mv
 
@@ -427,10 +411,16 @@ Forward-port local commits to the updated upstream head
 
 Reset current HEAD to the specified state
 
+    // 硬重置, 之后的commit和 修改的文件都没了
     git reset --hard [commit] # 全部回退
+
+    // 软重置, 之后commit没了，修改的文件还在
     git reset --soft [commit]
+
     git reset --mixed [commit]
+
     git reset --merge [commit]
+
     git reset --keep [commit]
 
 ## rm
@@ -451,8 +441,11 @@ Revert some existing commits
 
 Manage reflog information
 
-    git reflog show # 查看所有git操作日
+    // 查看所有执行过的动作的日志
+    git reflog show 
+
     git reflog expire
+
     git reflog delete
 
 ## show

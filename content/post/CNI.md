@@ -38,6 +38,8 @@ bgp unencapsulated:
 * cilium
 * kube-router
 
+***
+
 # Docker网络管理
 
 查看:
@@ -76,6 +78,8 @@ opt可用的参数:
     com.docker.network.bridge.host_binding_ipv4
     com.docker.network.driver.mtu
 
+***
+
 # bridge网络
 
 bridge网络不能跨主机通信(单网卡情况下), node1上的container不能通过container-hostname/ip访问node2上的container.
@@ -91,7 +95,38 @@ host或局域网中的其它机器能通过container-ip(bridge网络)访问conta
     $ docker network create --driver=bridge --gateway=192.168.1.1 --subnet=192.168.1.0/24 --opt com.docker.network.bridge.name=br0 br0
 
     // 定制docker_gwbridge网络
-    $ docker network create --subnet 172.18.0.0/16 --ip-range 172.18.0.0/24 --opt com.docker.network.bridge.name=docker_gwbridge --opt com.docker.network.bridge.enable_icc=true --opt com.docker.network.bridge.enable_ip_masquerade=true docker_gwbridge
+    $ docker network create --subnet 172.18.0.0/16 --ip-range 172.18.0.0/24 --gateway 172.18.0.1 \
+    --opt com.docker.network.bridge.name=docker_gwbridge \
+    --opt com.docker.network.bridge.enable_icc=true \
+    --opt com.docker.network.bridge.enable_ip_masquerade=true \
+    docker_gwbridge
+
+docker0:
+
+    // dockerd 自动的默认bridge网络，不推荐用于production.
+
+    1. 删除docker0:
+
+    // 停止
+    $ ip link set dev docker0 down
+    $ ifconfig docker0 down
+
+    // 删除
+    $ ip link delete docker0
+    $ brctl delbr docker0
+
+    2. 修改默认网络:
+    $ vim /etc/docker/daemon.json
+    {
+        "bip": "192.168.1.5/24",
+        "fixed-cidr": "192.168.1.5/25",
+        "fixed-cidr-v6": "2001:db8::/64",
+        "mtu": 1500,
+        "default-gateway": "10.20.1.1",
+        "default-gateway-v6": "2001:db8:abcd::89",
+        "dns": ["10.20.1.2","10.20.1.3"]
+    }
+    $ service docker restart
 
 # overlay网络
 
@@ -105,7 +140,9 @@ container通过overlay网络实现通信.container能通过service-name/containe
 
     $ docker network create -d overlay ... [name]
 
-    $ docker network create --attachable --driver=overlay --gateway=192.168.1.1 --subnet=192.168.1.0/24 --opt com.docker.network.bridge.name=vlan0 vlan0
+    $ docker network create --attachable --driver=overlay --gateway=192.168.1.1 --subnet=192.168.1.0/24 --ip-range=192.168.0.0/24 \
+    --opt com.docker.network.bridge.name=ol0 \
+    ol0 
 
 # macvlan
 
@@ -115,3 +152,5 @@ macvlan不仅支持在interface上创建，还支持sub-interface(vlan).
     ifconfig eth1 promisc 
 
     docker network create -d macvlan --subnet=192.168.100.0/24 --gateway=192.168.100.1 -o parent=eth1 lan0
+
+***

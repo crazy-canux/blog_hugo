@@ -14,8 +14,9 @@ draft: false
     $ sudo apt-get install sysstat
     # 包括 iostat/mpstat/pidstat/tapestat/cifsiostat
 
-    # 查看diskio信息
-    $ sudo iostat
+    iostat -d -x -k 1 10
+
+    pidstat -d -p pid
 
 # iotop
 

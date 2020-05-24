@@ -64,30 +64,6 @@ kDM(kde)
 
 lightDM
 
-# Linux的shell
-
-查看shell内置命令：
-
-    help [command]
-
-查看shell的外部命令(包括应用程序的命令行)
-
-    man [command]
-    man 1 [command]
-    info [command]
-
-查到包括宏，包，惯用法等
-
-    man 7 <name>
-
-查到系统管理员命令
-
-    man 8 <name>
-
-查到内核的惯用法
-
-    man 9 <name>
-
 # Linux编程
 
 ## Linux程序调用结构：
@@ -99,31 +75,47 @@ lightDM
 
 ## 查看手册：
 
-通过CONFORMING TO可以看到函数遵循什么标准。
+查看man帮助:
+
+    $ man man
+
+手册章节:
+
+1. Executable programs or shell commands
+2. System calls (functions provided by the kernel)
+3. Library calls (functions within program libraries)
+4. Special files (usually found in /dev)
+5. File formats and conventions eg /etc/passwd
+6. Games
+7. Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
+8. System administration commands (usually only for root)
+9. Kernel routines [Non standard]
+
+查看shell命令
+
+    man 1 <cmd>
 
 查到的是系统调用（实际上也是POSIX封装的同名函数）
 
     man 2 <name>
 
+    // 查看系统调用所有函数宏
+    man 2 syscalls
+    // 查看未实现的系统调用
+    man 2 unimplemented
+
 查到的glibc（包括ISO C，POSIX的部分函数，其它库）
 
     man 3 <name>
 
-查看系统调用所有函数宏
+查看标准：
 
-    man syscalls
+    man 7 <name>
 
-查看未实现的系统调用
-
-    man unimplemented
-
-查看glibc
-
-    man libc
-
-查看C和Linux的标准
-
-    man standards
+    // 查看glibc标准
+    man 7 libc
+    // 查看C和Linux的标准
+    man 7 standards
 
 # Grub
 

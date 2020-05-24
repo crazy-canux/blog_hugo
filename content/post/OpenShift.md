@@ -52,3 +52,10 @@ install:
 test:
 
     > https://your.domain.com:8443
+
+# oc
+
+oc command
+
+    $ oc cluster up --enable [*]
+    $ oc cluster add --base-dir=/opt/oc service-catalog

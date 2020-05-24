@@ -39,12 +39,12 @@ functions:
     exec*
     wait() # 等待子进程结束，返回(pid, status).
     waitpid(pid, options) # 等待指定子进程结束.
-    listdir(path)
+    listdir(path) # 列出目录下的文件和目录
     makedirs(path [, mode=0o777], exist_ok=False)
     mkdir(path [, mode=0777])
     walk(top, topdown=True, onerror=None, followlinks=False) # 返回 (dirpath, dirnames, filenames) 类型的迭代器
-    remove(path) # remove a file
-    rmdir(path) # remove a directory
+    remove(path) # 删除文件
+    rmdir(path) # 删除目录
     removedirs(path)
     symlink(src, dst)
     chown(path, uid, gid)
@@ -83,8 +83,8 @@ functions:
     strptime(string, format) # 参数是时间字符串
 
     # 获取时间字符串
-    asctime([tuple])
-    strftime(format[, tuple])
+    asctime([tuple]) # 参数是时间元组
+    strftime(format[, tuple]) # 参数是时间元组
     ctime(seconds) # 参数是时间戳
 
 data:

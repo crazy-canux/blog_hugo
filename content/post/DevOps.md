@@ -107,23 +107,13 @@ Drone is a Continuous Delivery platform built on Docker, written in Go
 
 <https://github.com/drone/drone>
 
-# sentry
-
-Sentry is a cross-platform crash reporting and aggregation platform.
-
-<https://github.com/getsentry/sentry>
-
-<https://github.com/getsentry/raven-python>
-
-<https://github.com/getsentry/raven-java>
-
 # supervisor
 
 Supervisor process control system for UNIX/Linux.
 
 <https://github.com/Supervisor/supervisor>
 
-    $pip install supervisor
+    $ pip install supervisor
 
 ***
 

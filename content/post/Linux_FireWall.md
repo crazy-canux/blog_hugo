@@ -59,6 +59,14 @@ chain:
     PREROUTING
     POSTROUTING
 
+postrouting:
+
+    snat: 内网主机访问外网经过路由时，源ip会发生变化。
+
+prerouting:
+
+    dnat:  外网访问内网经过路由时，目的ip会发生变化。
+
 ## iptables命令
 
     -L/--list  [chain [ rulenum]]
@@ -69,8 +77,8 @@ chain:
     -C/--check chain
     -N/--new chain
 
-    -X/--delete-chain [chain]
-    -F/--flush [chain]
+    -F/--flush [chain] // 删除chain中的rules.
+    -X/--delete-chain [chain] // 删除自定义chain.
 
     -R/--replace chain rulenum
     -D/--delete chain [rulenum]

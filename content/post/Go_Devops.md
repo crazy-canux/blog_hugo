@@ -199,7 +199,6 @@ go.mod:
     // 使用本地module,或使用指定repo里面的module
     replace github.com/crazy-canux/go-devops => /path/to/local/github.com/crazy-canux/go-devops
 
-使用本地module
 
 go.sum:
 
@@ -254,4 +253,12 @@ go.sum:
 
 ***
 
-# CI/CD
+# proxy
+
+goproxy.io
+
+<https://github.com/goproxyio/goproxy>
+
+goproxy.cn
+
+<https://github.com/goproxy/goproxy.cn>

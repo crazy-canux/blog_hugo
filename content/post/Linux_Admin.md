@@ -233,25 +233,38 @@ method2:
     $ sudo apt-get purge package
     $ sudo apt-get install package
 
-## ubuntu14.04安装升级pip
+## ubuntu安装配置python3.7
 
-    # ubuntu14.04 默认python2.7.6, 不带pip
-    $ sudo apt-get install pip # 安装1.5.4
-    $ sudo -H pip install -U pip
-    $ sudo pip install pyopenssl ndg-httpsclient pyasn1
-    $ sudo -H pip install -U pip
+ubuntu16.04自带python3.5, ubuntu18.04自带python3.6.
 
-## ubuntu16.04安装配置python
+测试: ubuntu16.04/18.04安装python3.7
 
-    默认python3.5.2， 需要安装2.7.12
-    sudo apt-get --yes install python2.7
+    $ sudo apt-get install software-properties-common
+    $ sudo add-apt-repository ppa:deadsnakes/ppa
+    $ sudo apt-get update
+    $ sudo apt-get install python3.7 python3.7-gdbm python3.7-dev
 
-    # python2指向python2.7
-    sudo update-alternatives --install /usr/bin/python2 python2 /usr/bin/python2.7 1
-    # python3指向python3.5
-    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
-    # python指向python3.5
-    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5  1
+    $ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
+    $ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7  1
+    $ sudo update-alternatives --config python
+    $ sudo update-alternatives --config python3
+
+    $ sudo apt-get purge python-pip python3-pip
+    $ sudo rm -rf /usr/bin/pip* /usr/local/bin/pip* /usr/lib/python3*/dist-packages/pip /usr/local/lib/python3.*/dist-packages/pip
+
+    $ sudo apt-get install python3-pip
+    $ sudo pip3 install -U pip
+
+    // ubuntu16.04通过apt-get安装的c-binding包默认还是到python3.5.
+    // ubuntu18.04 是到python3.6.
+    #!/usr/bin/env bash
+    for PKG in `find /usr/lib/python3/dist-packages -name "*.so"`
+    do
+        DIR=`dirname ${PKG}`
+        OLD=`basename ${PKG}`
+        NEW=`echo ${OLD} | sed 's/35m/37m/g'`
+        cp -f ${PKG} ${DIR}/${NEW}
+    done
 
 ***
 

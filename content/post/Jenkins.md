@@ -35,14 +35,6 @@ jinkens主目录:
 
 ***
 
-# 系统管理
-
-管理插件，管理用户等.
-
-# 添加credentials
-
-首先添加源代码的credential.比如github/gitlab/p4v/bitbucket.
-
 # nodes
 
 添加节点需要安装和master版本一样的java.
@@ -56,10 +48,6 @@ on jenkins:
 
 1. create credential and node.
 
-# blueocean
-
-blueocean是jenkins的一个差劲，提供更好的用户界面.
-
 ***
 
 # plugins
@@ -68,13 +56,52 @@ blueocean是jenkins的一个差劲，提供更好的用户界面.
 
 备份插件，主要备份jenkins主目录.
 
-***
+## pipeline
 
-# pipeline
+<https://github.com/jenkinsci/pipeline-plugin>
 
 使用pipeline需要先安装pipeline插件.
 
 pipeline是groovy语法的jenkins的DSL.
 
+## blueocean
+
+<https://github.com/jenkinsci/blueocean-plugin>
+
+# git plugin
+
+<https://github.com/jenkinsci/git-plugin>
+
+# docker plugin
+
+<https://github.com/jenkinsci/docker-workflow-plugin>
+
+<https://docs.cloudbees.com/docs/admin-resources/latest/plugins/docker-workflow>
+
+# k8s
+
+<https://github.com/jenkinsci/kubernetes-plugin>
+
 ***
 
+# docker
+
+在docker上执行流水线
+
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            label 'my-defined-label'
+            args  '-v /tmp:/tmp'
+        }
+    }
+
+    agent {
+        // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+        dockerfile {
+            filename 'Dockerfile.build'
+            dir 'build'
+            label 'my-defined-label'
+            additionalBuildArgs  '--build-arg version=1.0.2'
+        }
+    }

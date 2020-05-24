@@ -51,8 +51,11 @@ Linux外部命令的项目是coreutils。
 
 # 系统管理
 
+cpu/mem/load
+
     # 查看cpu/mem/swap/system信息
     vmstat
+    vmstat 1
 
     # 查看进程消耗的cpu/mem/swap/system等系统信息
     top
@@ -64,19 +67,19 @@ Linux外部命令的项目是coreutils。
     htop
     $ sudo apt-get install htop
 
-    uname # 打印linux系统信息
-    $ uname -a
-    cat /etc/issue
-    cat /proc/version
+    $ sudo apt-get install sysstat (包括pidstat)
+    pidstat -u -p pid // cpu
+    pidstat -r -p pid //mem
+
+cpu/load:
+
+    $ sudo apt-get install sysstat (包括mpstat)
+    mpstat -P ALL 1 5 // cpu
 
     uptime
 
-    lsb_release # 查看发行版本信息
-    $ lsb_release -a
-
-    getconf # 查询系统配置的变量，LONG_BIT表示系统位数
-
     lscpu # 显示cpu架构的信息
+
     cat /proc/cpuinfo # 查看cpu信息
     cat /proc/cpuinfo | grep "processor" | wc -l # 逻辑cpu总数
     cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l # 物理cpu个数
@@ -87,10 +90,35 @@ Linux外部命令的项目是coreutils。
     cpu cores: 物理cpu有几个核(如果是超线程技术的cpu,每个核可以运行两个线程，或者说每个核对应两个逻辑cpu）。
     siblings： 每个物理cpu单个核心上的逻辑cpu个数
 
-    free # 显示空闲和使用的系统内存
+    strace
+    strace -c -p pid
+    strace -T -e epoll_wait -p pid
+
+    dmesg
+
+mem:
+
+    free
+    free -m
+
     cat /proc/meminfo # 查看内存信息
 
-    clear
+    pmap
+    pmap -d pid
+
+system:
+
+    uname # 打印linux系统信息
+    $ uname -a
+    cat /etc/issue
+    cat /proc/version
+
+    lsb_release # 查看发行版本信息
+    $ lsb_release -a
+
+    getconf # 查询系统配置的变量，LONG_BIT表示系统位数
+
+process:
 
     ps
     # 格式化输出，逗号后面不能有空格
@@ -130,7 +158,15 @@ editor:
     sudo timedatectl set-timezone Asia/Shanghai # 设置时区
     ls -l /etc/localtime # 应该是一个链接
 
-# Linux管理
+update-alternatives:
+
+    update-alternatives --display python // 查看候选项
+    update-alternatives --config python // 选择候选项
+    update-alternatives --set python /usr/bin/python // 添加候选项
+    update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1 // 设置候选项的link
+    update-alternatives --remove python /usr/bin/python3.5 // 删除候选项的link
+
+# kernel管理
 
     lsmod 查看已加载的模块    # /proc/modules
     modprobe -c 查看已编译可加载的内核模块
@@ -275,11 +311,20 @@ sudo:
     cal
     factor
 
+typeset
+
+    typeset -u VAR // 变量大写
+    VAR='test'
+    echo $VAR # TEST
+
+    typeset -l VAR // 变量小写
+
 tee
 
     main > 2>&1 log1.log | tee log2.log # 同时重定向到两个文件
     main 2>&1 | tee ${LOG} # 同时将stdout和stderr输出到终端和日志文件.
     $ echo "content" | sudo tee filename # 写入到root权限的文件
+    $ echo "text" | sudo tee -a filename # append
 
 lsof查看打开的文件资源:
 
@@ -359,6 +404,9 @@ tar(.tar)
     -u, --update    # 更新归档文件
     -x, --extract, --get    # 提取归档
 
+    tar cvf name.tar folder
+    tar xvf name.tar
+
     compression options:
     -j, --bzip2
     -J, --xz
@@ -397,6 +445,11 @@ xz(.xz)
     unxz
     tar Jxvf file.tar.xz
 
+gzip/gunzip
+
+    gunzip name.gz
+    gzip -d name.gz
+
 zip(.zip)
 
     zip
@@ -404,6 +457,6 @@ zip(.zip)
 
 7z(.7z)
 
-    $ sudo apt-get install p7zip
-    p7zip
+    $ sudo apt-get install p7zip/p7zip-full/p7zip-rar
+    7z
 

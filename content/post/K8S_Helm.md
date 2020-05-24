@@ -13,7 +13,7 @@ draft: false
 helm有两个组件:
 
 * helm: 客户端
-* tiller: 服务端
+* tiller: 服务端(helm3被移除)
 
 概念:
 
@@ -27,20 +27,26 @@ helm和kubectl一样，访问指定配置的k8s集群。
 
 本地二进制安装helm:
 
-    mv linux-amd64/helm /usr/local/bin/helm && chmod +x /usr/local/bin/helm
+    // 下载helm二进制文件
+    $ mv linux-amd64/helm /usr/local/bin/helm && chmod +x /usr/local/bin/helm
 
-安装tiller到k8s上:
+helm2需要安装tiller到k8s上:
 
-    kubectl --kubeconfig=kube_configxxx.yml -n kube-system create serviceaccount tiller
-    kubectl --kubeconfig=kube_configxxx.yml create clusterrolebinding tiller \
+    $ docker pull registry.aliyuncs.com/google_containers/tiller:v2.16.1
+    $ kubectl --kubeconfig=kube_configxxx.yml -n kube-system create serviceaccount tiller
+    $ kubectl --kubeconfig=kube_configxxx.yml create clusterrolebinding tiller \
     --clusterrole cluster-admin --serviceaccount=kube-system:tiller
 
-    helm_version=`helm version |grep Client | awk -F""\" '{print $2}'`
-    helm init --kubeconfig=$kubeconfig \
-    --service-account tiller --skip-refresh \
-    --tiller-image registry.cn-shanghai.aliyuncs.com/rancher/tiller:$helm_version
+    $ helm init --kubeconfig=$kubeconfig --service-account tiller --skip-refresh 
+
+helm3+不再需要安装tiller,也不需要helm init.
 
 # 命令
+
+安装chart:
+
+    helm install [name] [chart] [flags]
+    helm install redis ./redis
 
 查看release:
 

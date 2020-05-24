@@ -37,6 +37,8 @@ bool:
 
 string:
 
+    > 只能用双引号.
+
     python -> str
     go -> string
     go -> []byte -> base64编码字符串

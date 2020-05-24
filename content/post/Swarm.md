@@ -16,8 +16,6 @@ docker swarm 是 docker内置的容器编排工具。
 
 swarm mode具有内置kv存储，服务发现，负载均衡，路由网格，动态伸缩，滚动更新，安全传输等功能。
 
-部署服务之前所有node上都需要相关的images。
-
 swarm: 老版本的swarm, 需要kv store, 可以作为独立的container运行, 已废弃, 已经被docker swarm mode 代替.
 
 <https://github.com/docker/swarm>
@@ -117,6 +115,10 @@ stack
     # 根据docker-compose.yml部署应用
     docker stack deploy -c/--compose-file <docker-compose.yml> STACK
     docker stack deploy --bundle-file <DAB> STACK
+
+    # 默认所有node从docker hub pull, 如果是私有镜像，需要加参数
+    # 需要先docker login private-registry
+    docker stack deploy --with-registry-auth -c test.yml test
     ​
     docker stack rm STACK
 
@@ -130,7 +132,7 @@ stack
       mode: global # 部署到匹配的全部node.
     ​
       mode: replicated
-      reoplicas: 3
+      replicas: 3
     ​
       # global和replicated都可以用placement.
       placement:
@@ -138,6 +140,7 @@ stack
           - spreed: node.labels.datacenter
         constraints:
           - node.role == manager
+          - node.labels.role == "lable-name"
     ​
       resources:
         limits:
@@ -155,27 +158,39 @@ stack
     ​
       update_config/rollback_config:
         parallelism: 0 (default 0 means all)
-        delay:
+        delay: 10s (容器升级间隔时间)
         failure_action: pause(default)/continue/rollback
-        monitor: 0s
-        max_failure_ratio:
+        monitor: 0s (更新完成后确认成功的时间)
+        max_failure_ratio: 更新期间允许的失败率
         order: stop-first(default)/start-first
 
-      // 默认是vip,支持route mesh, 自动负载均衡和服务发现.
-      // dnsrr只能用port->mode=host.
+    // 默认是vip,支持route mesh, 自动负载均衡和服务发现.
+    deploy:
       endpoint_mode: vip
-      ports:
-      - target: 80
-        published: 8080
-        mode: ingress
-        protocol: tcp/udp
-      - 8080:80/tcp
+    ports:
+    - target: 80
+      published: 8080
+      mode: ingress
+      protocol: tcp/udp
+    - 8080:80/tcp
+
+    // dnsrr 模式
+    deploy:
       endpoint_mode: dnsrr
-      ports:
-      - target: 80
-        published: 8080
-        mode: host
-        protocol: tcp/udp
+      update_config:
+        // 如果expose端口，不能start-first, 否则报错no suitable node (host-mode port already in use on 1 node
+        order: stop-first 
+    // dnsrr只能用port->mode=host.
+    // 设置iptables规则，外部访问8080通过prerouting做dnat指定目的ip，通过forward转发给container的80.
+    // iptables->nat->prerouting: 
+    // DNAT tcp -- !docker_gwbridge * 0.0.0.0/0 0.0.0.0/0 tcp dpt:8080 to:172.18.0.16:80
+    // iptables->filter->forward
+    // ACCEPT tcp -- enp5s0 * 0.0.0.0/0 0.0.0.0/0 multiport dports 80
+    ports:
+    - target: 80
+      published: 8080
+      mode: host
+      protocol: tcp/udp
 
 ***
 
@@ -192,7 +207,11 @@ replicate模式container:
     eth0: overlay(user define overlay)
     eth1: docker_gwbridge(swarm define bridge)
 
-overlay: 通过4789/udp跨主机访问其他container, host不能访问overlay的ip，只有container之间通过container-servicename或者container-overlay的ip相互访问.
+overlay: 通过4789/udp跨主机访问其他container, host不能访问overlay的ip，只有container之间通过container-servicename或者container-overlay的ip相互访问. 
+
+overlay 问题: 通过overlay连接，默认15分钟timeout, 所以数据库建议用dnsrr模式; 如果用vip模式，需要修改内核网络参数:  
+
+    $ sudo sysctl -w net.ipv4.tcp_keepalive_time=600 net.ipv4.tcp_keepalive_intvl=60 net.ipv4.tcp_keepalive_probes=3
 
 vip模式就是访问的虚拟ip,replicated的service如果有多个container,通过servicename访问的就是同一个vip,通过vip解析到背后container的真实overlay-ip(自动负载均衡). 
 
@@ -204,11 +223,18 @@ docker_gwbridge: host和container之间通过ip访问, container能访问host的
 
 修改默认的docker_gwbridge:
 
+    // 对于已存在的，要先删除
+    $ service docker stop
+    $ sudo ip link set docker_gwbridge down
+    $ sudo ip link del dev docker_gwbridge
+    // 创建swarm之前创建好网络
     $ docker network create --subnet "172.18.0.0/16"  --ip-range “172.18.1.0/16” \
     --opt com.docker.network.bridge.name=docker_gwbridge \
     --opt com.docker.network.bridge.enable_icc=false \
     --opt com.docker.network.bridge.enable_ip_masquerade=true \
     docker_gwbridge
+    // 创建swarm
+    $ docker swarm init
 
 endpoint_mode:
 

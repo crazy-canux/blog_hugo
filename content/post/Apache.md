@@ -74,8 +74,8 @@ a2dismod
     ln -sf ../mods-available/rewrite.load rewrite.load
     ln -sf ../mods-available/ssl.conf ssl.conf
     ln -sf ../mods-available/ssl.load ssl.load
-    ln -sf ../mods-available/slotmem_shm.load slotmem_shm.load
-    ln -sf ../mods-available/socache_shmcb.load socache_shmcb.load
+    #ln -sf ../mods-available/slotmem_shm.load slotmem_shm.load
+    #ln -sf ../mods-available/socache_shmcb.load socache_shmcb.load
 
 修改site-avaliable/site.conf
 
@@ -83,6 +83,7 @@ a2dismod
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www
 
+        // 将http重定向到https, 如果注释掉，http和https都可以访问.
         RewriteEngine on
         RewriteCond %{SERVER_PORT} !^443$
         RewriteRule ^/(.*) https://%{HTTP_HOST}/$1 [NC,R=301,L]

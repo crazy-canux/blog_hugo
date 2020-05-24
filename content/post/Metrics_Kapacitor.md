@@ -80,6 +80,20 @@ Open source framework for processing, monitoring, and alerting on time series da
         }
     }
 
+操作task:
+
+    // 修改已存在的task的参数:
+    $ curl -H 'content-type: application/json' -X PATCH -d '{"vars": {"warn":{"value":90, "type":"int"}}}' http://kapacitor-service:9092/kapacitor/v1/tasks/cpu
+
+操作alert:
+
+    // 列出所有topic:
+    $ curl -H 'content-type: application/json' -X GET http://kapacitor-service:9092/kapacitor/v1/alerts/topics
+    // 列出指定topic的所有events:
+    $ curl -H 'content-type: application/json' -X GET http://kapacitor-service:9092/kapacitor/v1/alerts/topics/<topic>/events
+    // 列出指定events
+    $ curl -H 'content-type: application/json' -X GET http://kapacitor-service:9092/kapacitor/v1/alerts/topics/<topic>/events/<event>?min-level=CRITICAL
+
 ***
 
 # TICKscript
@@ -336,6 +350,8 @@ options:
     mode
 
 写入到log.
+
+## slack
 
 ## post
 

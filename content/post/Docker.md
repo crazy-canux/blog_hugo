@@ -20,28 +20,17 @@ draft: false
 
 Docker是一个容器引擎, 分为社区版CE, 和企业版EE, Docker不是虚拟机, 也不依赖虚拟化技术．
 
-docker-cli -> dockerd -> containerd -> docker-shim -> runc
+docker-cli -> dockerd -> containerd -> shim -> runc
+
+containerd是容器运行时管理引擎.
+
+shim用于管理容器生命周期.
 
 Docker包括三个基本概念:
 
 * 仓库repository,集中存放镜像文件的场所,docker hub/store是最大的公开仓库．
 * 镜像image, 镜像是一个文件系统.
 * 容器container, 容器是镜像的运行的实例．
-
-修改默认register:
-
-    # https://z4yd270h.mirror.aliyuncs.com
-    # http://f1361db2.m.daocloud.io
-    # https://docker.mirrors.ustc.edu.cn
-    $ sudo vim /etc/docker/daemon.json
-    {
-        "registry-mirrors": ["https://registry.docker-cn.com"]
-    }
-
-禁止docker修改iptables:
-
-    $ sudo vim /lib/systemd/system/docker.service
-    > ExecStart=/usr/bin/dockerd -H fd:// --iptables=false
 
 修改docker存储路径:
 
@@ -58,9 +47,75 @@ Install:
     linux:
     <https://docs.docker.com/install/linux/docker-ce/>
 
+# 配置
+
+<https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file>
+
+docker配置文件:
+
+    /etc/docker/daemon.json
+    /lib/systemd/system/docker.service
+
+    {
+        // debug
+        "debug": true
+
+        //容器访问外网:
+        ip-forward=true 会设置 net.ipv4.ip_forward=1, 才能访问外网
+        // 容器之间访问:
+        icc=true, 
+        iptables=true  会修改iptables的forward策略为accept,
+
+        // 修改默认docker0
+        "bridge":
+        "bip": "10.0.0.1/16"  // subnet + gateway
+        "fixed-cidr": "10.41.0.0/24" // iprange
+        "fixed-cidr-v6": "",
+        "mtu": 1500
+        "default-gateway":
+    	"default-gateway-v6": "",
+
+        // 修改默认dns
+        "dns" : [
+            "114.114.114.114",
+            "8.8.8.8"
+        ]
+	    "dns-opts": [],
+	    "dns-search": [],
+
+        // ipv6
+        "ipv6": true
+
+        // private registry
+      	"insecure-registries": [],
+
+        // 修改registry
+        "registry-mirrors": [
+            "https://registry.docker-cn.com",
+            "https://z4yd270h.mirror.aliyuncs.com",
+            "http://f1361db2.m.daocloud.io",
+            "https://docker.mirrors.ustc.edu.cn"
+        ]
+
+        "hosts": [],
+        "log-level": "",
+        "tls": true,
+        "tlsverify": true,
+        "tlscacert": "",
+        "tlscert": "",
+        "tlskey": "",
+    }
+
 ***
 
 # docker命令
+
+system:
+
+    $ docker system df	// Show docker disk usage
+    $ docker system events	// Get real time events from the server
+    $ docker system info	// Display system-wide information
+    $ docker system prune	// Remove unused data
 
 image管理:
 
@@ -163,12 +218,16 @@ container管理
     docker run -p [host:port]:[containerPort] // 指定映射端口
     --add-host # 相当于修改容器的/etc/hosts,但是容器重启后不会消失
     -h/--hostname # 修改容器的/etc/hostname
+
+    // cpu
     --cpus decimal                   Number of CPUs
     -c, --cpu-shares int             CPU shares (relative weight)
     --cpuset-cpus string             CPUs in which to allow execution (0-3, 0,1)
     --cpuset-mems string             MEMs in which to allow execution (0-3, 0,1)
     --cpu-period
     --cpu-quota
+
+    // memory
     -m, --memory bytes               Memory limit
     --memory-reservation bytes       Memory soft limit
     --memory-swap bytes              Swap limit equal to memory plus swap: '-1' to enable unlimited swap
@@ -177,10 +236,51 @@ container管理
     --oom-score-adj
     --kernel-memory
 
+    // io
+    --blkio-weight
+    --blkio-weight-device
+    --device-read-bps
+    --device-write-bps
+    --device-read-iops
+    --device-write-iops
+
+    // security
+    // https://docs.docker.com/engine/security/apparmor/
+    // https://docs.docker.com/engine/security/seccomp/
+    // https://docs.docker.com/engine/security/userns-remap/
+    // https://docs.docker.com/engine/security/rootless/
+    privileged
+    sysctl
+    ulimit
+    user
+    userns
+    security_ops
+    cgroup_parent
+    cap_add
+    cap_drop
+
     # 在运行的container中执行命令
     docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
     docker exec -d CONTAINER ... // 在后台运行
     docker exec -it CONTAINER /bin/bash ... // 进入命令行
+
+    # metrics
+    docker stats
+
+    # resource
+    docker top
+
+log:
+
+    // 查看log driver
+    // 默认driver是 json-file, 不同的driver，option不同
+    // driver是json-file, journald, 通过docker logs docker-compose logs 才能看到log
+    $ docker inspect -f '{{.HostConfig.LogConfig.Type}}' <ID>
+
+    docker run -it --log-driver <driver> --log-opt mode=blocking --log-opt max-buffer-size=4m alpine ash  
+    // --log-driver json-file
+    // --log-opt mode blocking/non-blocking
+    // --log-opt max-buffer-size 
 
 其它命令
 
@@ -192,6 +292,8 @@ container管理
     docker logs [OPTIONS] CONTAINER
     docker diff CONTAINER
     docker history [OPTIONS] IMAGE
+
+    docker system prune
 
 register使用
 
@@ -215,9 +317,21 @@ register使用
     # 推送到docker hub
     $ docker push
 
+secret
+
+    // 保存敏感数据
+    $ docker secret
+
+config
+
+    // 保存非敏感数据
+    $ docker config
+
 ***
 
 # Dockerfile
+
+每个命令都会创建一个layer,尽可能合并相同的命令。
 
 ADD
 
@@ -227,9 +341,14 @@ ADD
 
 COPY
 
-    # 只能操作本地文件
+    # 只能操作本地文件, 目标路径不需要创建，不存在会自动创建.
     COPY [--chown=<user>:<group>] <src>... <dest>
     COPY [--chown=<user>:<group>] ["<src>",... "<dest>"]
+    COPY file /path/to/file  相当于 COPY file /path
+    # 不会创建目录
+    COPY folder /path 相当于 COPY folder/* /path/
+    # 需要手动指定
+    COPY folder  /path/to/folder 
 
 ENV
 
@@ -268,7 +387,7 @@ VOLUME
 
 WORKDIR
 
-    # 对run/cmd/entrypoint有效的工作目录
+    # 指定后的操作都以该目录为当前目录，目录不存在会自动创建
     WORKDIR /path/to/workdir
 
 RUN
@@ -277,11 +396,15 @@ RUN
     RUN <command>  # shell 格式
     RUN ["executable", "param1", "param2"]   # exec 格式
 
+    RUN set -ex \
+    && cmd1 \
+    && cmd2......
+
 CMD
 
     # 在容器运行过程中运行, 可以被覆盖
     CMD ["executable", "param1", "param2"]  # exec格式
-    CMD command param1 param2   # shell 格式
+    CMD command param1 param2   # shell 格式,通过/bin/bash 或 /bin/sh 执行.
     // 同时有cmd和entrypoint,cmd只是entrypoint的参数.
     CMD ["param2", "param2"]   # entrypoint的参数
 
@@ -293,6 +416,7 @@ ENTRYPOINT
 
 ARG
 
+    # 指定构建环境的变量
     ARG <name>[=<default value>]
 
 ONBUILD
@@ -304,144 +428,16 @@ stage:
     COPY --from=stage1 / .
     docker build --target stage1 -t docker:latest . 
 
-***
+.dockerignore 
 
-# docker-compose
-
-<https://github.com/docker/compose>
-
-通过一个yaml文件来管理容器中的服务，包括网络和存储。
-
-安装:
-
-    https://docs.docker.com/compose/install/
-    $ sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-    $ sudo chmod +x /usr/local/bin/docker-compose
-
-## docker-compose命令
-
-    docker-compose [-f <arg>...] [options] [COMMAND] [ARGS...]
-    -f/--file
-    -p/--project-name # 默认目录名
-    -H/--host
-
-    # 拉取compose文件中指定的镜像
-    $ docker-compose -f service.yml pull
-
-    # 根据docker-compose.yml把stack打包成一个Distributed Application Bundles文件.
-    $ docker-compose bundle -o <project name>.dab
-
-    $ docker-compose start [servoce...]
-    $ docker-compose stop [service...]
-    $ docker-compose restart [service...]
-    $ docker-compose up -d [service...]
-    $ docker-compose down -v
-
-    $ docker-compose logs -f
-
-## docker-compose.yml
-
-compose文件
-
-    version: "3.6"
-    services:
-      mongo:
-        image: mongo:latest
-        hostname: hostname
-        deploy: // for swarm
-        networks:
-        - mynetwork
-        volumes: // short syntax
-        - myvolume:/container/dir
-        volumes: // long syntax
-        - type: valume/bind/tmpfs
-          source: 
-          target:
-          read_only:
-          bind:
-          volume:
-          tmpfs:
-          consistency:
-        ports:  // long syntax
-        - target: 80
-          published: 8080
-          mode: host
-          protocol: tcp/udp
-        ports: // short syntax
-          - 80:80
-          - 1234:1234/udp
-        environment:
-          RABBITMQ_DEFAULT_USER: sandbox
-          RABBITMQ_DEFAULT_PASS: password
-        environment:
-          - RABBITMQ_DEFAULT_USER=sandbox
-          - RABBITMQ_DEFAULT_PASS=password
-        depends_on:
-          - service-name
-        command: ["./wait-for-it.sh", "db:5432", "--", "python", "app.py"]
-
-        # 下列选项不能用于swarm stack部署.
-        build
-        cgroup_parent
-        container_name
-        devices
-        tmpfs
-        external_links
-        links
-        network_mode
-        restart
-        security_opt
-        sysctls
-        userns_mode
-    ​
-    // 使用已经创建好的网络
-    networks:
-      mynetwork:
-        external:
-          name: lan0
-    ​
-    // 创建bridge网络
-    networks:
-      mynetwork:
-        driver: bridge
-        driver_opts:
-          com.docker.network.bridge.name: lan0
-        ipam:
-          driver: default
-          config:
-            - subnet: 192.168.1.0/24
-
-    // 创建overlay网络
-    networks:
-      ol0:
-        driver: overlay
-        attachable: true
-        driver_opts:
-          com.docker.network.bridge.name: ol0
-        ipam:
-          driver: default
-          config:
-          - subnet: 172.12.0.0/16
-
-    // 解析为: "line1 line2\n",  会自动加换行符.
-    command: >
-      line1
-      line2
-
-    // 解析为: "line1 line2", 没有换行符.
-    command: >-
-      line1
-      line2
-
-    # compose文件中用到的变量
-    .Service.ID Service ID 
-    .Service.Name Service name 
-    .Service.Labels Service labels 
-    .Node.ID Node ID 
-    .Node.Hostname Node Hostname 
-    .Task.ID Task ID 
-    .Task.Name Task name 
-    .Task.Slot Task slot 
+    # comment
+    /path/folder
+    path/folder
+    */tmp*
+    */*/tmp*
+    tmp?
+    *.md
+    !README.md  
 
 ***
 

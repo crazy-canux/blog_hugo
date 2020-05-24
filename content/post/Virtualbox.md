@@ -42,6 +42,12 @@ vm
     // 删除vm
     $ vboxmanage unregistervm <vm> --delete
 
+    // linux上执行命令
+    $ vboxmanage guestcontrol {} --username {} --password {} run --exe /bin/bash -- -l -c 'pwd'
+
+    // windows上执行命令
+    $ vboxmanage guestcontrol {} --username 'Administrator' run --exe 'C:\\Program Files\\Oracle\\VirtualBox Guest Additions\\uninst.exe' -- uninst.exe /S
+
 media
 
     // 列出所有hdd
@@ -59,7 +65,7 @@ snapshot
 
     $ vboxmanage snapshot <vm> delete <snapshot-name/uuid> // 删除快照
 
-    $ vboxmanage snapshot <vm> restore Clean
+    $ vboxmanage snapshot <vm> restore <name>
 
 hostonly-network
 

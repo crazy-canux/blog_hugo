@@ -25,3 +25,40 @@ Node.js 的包管理器npm，是全球最大的开源库生态系统.
     $ sudo apt-get install nodejs
 
 ***
+
+# npm
+
+npm加速:
+
+    $ npm config set registry https://registry.npm.taobao.org
+    $ npm config get registry
+
+安装:
+
+    // 安装到当前目录的 node_modules
+    $ npm install <name>
+    // 安装到全局的node_modules
+    $ npm install -g <name>
+
+    // 查看安装了哪些包
+    $ npm list --depth=0 --global
+
+配置:
+
+    // 查看配置
+    $ npm config ls -l
+
+***
+
+# module
+
+nodejs加载的路径:
+
+    1. 当前目录
+    2. $HOME/.node_modules
+       $HOME/.node_libraries
+       $PREFIX/lib/node_modules
+    3. $NODE_PATH
+
+    // 查看prefix (也是-g 安装的目录)
+    $ npm config ls -l | grep prefix

@@ -194,7 +194,7 @@ bash的优化项目bash-it：
     不能用标点符号和关键字
 
     var=`ls /etc`  # 返回的是stdout+stderr
-    var=$(ls /etc)
+    var=$(ls /etc) # 返回的是stdou+stderr
 
 使用变量：
 
@@ -372,7 +372,7 @@ exit直接退出主程序
         ...
     }
 
-函数返回值:
+函数返回码:
 
     $?
 

@@ -97,7 +97,6 @@ python2和python3共同的内置函数：
     min(a, b, c, ...[, key=func])  # 返回a,b,c...中的最小元素
     max(iterable[, key=func]) # 和min相反
     max(a, b, c, ...[, key=func]) # 和min相反
-    sorted(iterable, cmp=None, key=None, reverse=False) # 返回可迭代对象iterable的元素排序后组成的列表．
     all(iterable) # 如果可迭代的参数iterable中所有的元素都不是0,False,''则返回True,iterable为空也返回True,否则返回False
     any(iterable) # 如果可迭代的参数iterable中所有的元素都是0,False,''则返回False,　否则返回True
     sum(sequence[, start]) # 返回数字序列sequence的所有元素加上start的和，start默认是０．
@@ -122,9 +121,9 @@ python2和python3共同的内置函数：
     ascii(object) # 和repr()函数等效．
     print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) # python2中是一个关键字，python3才是内置函数．
 
-python2.7中有，python3中被废弃的内置函数：
+[Deprecated]python2.7中有，python3中被废弃的内置函数：
 
-    [Deprecated]apply(object[, args[, kwargs]]) # 直接使用函数定义的可变长参数形式, function_name(*args, **kwargs)
+    apply(object[, args[, kwargs]]) # 直接使用函数定义的可变长参数形式, function_name(*args, **kwargs)
 
     # python2中还可以使用的函数
     coerce(x, y)
@@ -138,6 +137,19 @@ python2.7中有，python3中被废弃的内置函数：
     cmp(x, y) # 参考python3的operator.cmp()
     reduce(function, sequence[, initial]) # 参考python3的functools.reduce()
     reload(module) # 参考python3的imp.reload()
+
+[Changed]python3中发生变化的函数:
+
+    // python2
+    sorted(iterable, cmp=None, key=None, reverse=False) # 返回可迭代对象iterable的元素排序后组成的列表．
+
+    // python3
+    sorted(iterable, key=None, reverse=False)
+    // 多维数据排序
+    dict = {'a': 3, 'b': 2, 'c': 1}
+    sorted(dict.items(), key=lambda x:x[1], reverse=False)
+    json = [{"time": 1, "data": "message"}, {"time": 2, "data": "message"}]
+    sorted(json, key=lambda k:k["time"])
 
 ***
 

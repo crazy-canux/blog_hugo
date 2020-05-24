@@ -12,7 +12,7 @@ draft: false
 
 日志采集，存储，可视化.
 
-主要有Elastic stack 和　splunk.
+主要有Elastic stack, splunk, loki.
 
 ***
 

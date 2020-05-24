@@ -93,7 +93,12 @@ ini格式:
 
     定义主机和主机变量
     [host1]
-    node1 ansible_connection=ssh ansible_host=host ansible_port=port ansible_user=user ansible_ssh_pass=password
+    node1 
+    ansible_connection=ssh 
+    ansible_host=host 
+    ansible_port=port 
+    ansible_user=user 
+    ansible_ssh_pass=password
 
     定义分组和分组变量
     [group1]
@@ -114,7 +119,7 @@ ini格式:
     ansible_become_exe=
     ansible_become_flags=
 
-    定义分组的分组
+    定义分组的分组, children是固定写法
     [big-group:children]
     group1
     group2
@@ -132,10 +137,12 @@ yaml:
           hosts:
             node1:
           vars:
-            proxy:
+            key: value
         group2:
           hosts:
             node2:
+          vars:
+            key: value
         big-group: # 定义分组的分组
           children:
             group1:

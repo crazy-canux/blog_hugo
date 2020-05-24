@@ -31,6 +31,8 @@ sync用于goroutine同步.
 
 ## Pool
 
+ Pool是一个可以分别存取的临时对象的集合。
+
 ## Once
 
 只执行一次动作的对象(单例模式)
@@ -46,9 +48,13 @@ method:
 
 互斥锁,锁和线程无关，可以由不同的线程加锁和解锁.
 
+Mutex的初始值为未锁的状态，并且Mutex通常作为结构体的匿名成员存在。
+
 同一时刻只能有一个线程进入临界区.
 
     type Mutex struct {}
+
+    Mutex
 
 method:
 
@@ -132,5 +138,3 @@ int32, int64, uint32, uint64, uintptr, pointer.
     func AddInt32(addr *int32, delta int32) (new int32)
     func SwapInt32(addr *int32, new int32) (old int32)
     func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)
-
-

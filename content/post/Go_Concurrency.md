@@ -44,8 +44,6 @@ go关键字会启动一个新的goroutine并执行.
 
 主进程main结束了，goroutine也结束．
 
-***
-
 # 竟态
 
 race condition: 竞争状态，多个goroutine同时操作同一资源.
@@ -55,17 +53,28 @@ race condition: 竞争状态，多个goroutine同时操作同一资源.
 
 所以要解决goroutine间的消息传递和同步的问题.
 
-# 同步
+通过通信共享内存，而不是通过共享内存而通信,说明解决并发问题优先使用chan，而不是sync包。
 
-通过对资源上锁来保持同步.
+channel还是mutex,选择的依据是他们的能力/特性.
 
-golang的同步通过sync和sync/atomic两个包实现.
+channel的能力是让数据流动起来，擅长的是数据流动的场景:
 
-# 消息传递
+* 传递数据的所有权，即把某个数据发送给其他协程
+* 分发任务，每个任务都是一个数据
+* 交流异步结果，结果是一个数据
+
+sync的能力是数据不动，某段时间只给一个协程访问数据的权限擅长数据位置固定的场景:
+
+* 缓存
+* 状态
+
+***
+
+# channel
 
 goroutine通过channel来传递消息.
 
-channels是引用类型.
+channels是引用类型,chan是线程安全的，并且不会有数据冲突。
 
 channel可以共享内置类型，命名类型，结构类型，引用类型的值或指针.
 
@@ -138,15 +147,98 @@ chan的方向：
     // 如果chan关闭ok=false, v为零值.
     v, ok := <-ch
 
+# sync
+
+通过对资源上锁来保持同步.
+
+golang的同步通过sync和sync/atomic两个包实现.
+
 ***
 
 ## select
 
-监听chan的数据流，类似于switch-case, 处理多个chan的情况
+监听chan的数据流，类似于switch-case, 可用于处理多个chan的情况
 
-select默认是阻塞的，只有监听的chan中有数据才执行.
+运行规则：
 
-select类似switch, default是监听的chan都没有准备好的时候默认执行的．
+1. 每次执行select都只会执行一个case或者执行default；当有case可以执行，default不会执行；没有case执行时才执行default。
+2. 当没有case或default可以执行，select阻塞等待。
+3. 当有多个case可以执行，select随机选择一个执行。
+4. case后面必须是读或写chan的操作，否则编译出错。
+
+    select {
+    case condition1:
+        do something
+    case condition2:
+        do something
+    ...
+    default:    // default可以省略
+        do default thing.
+}
 
 ***
+
+# 退出goroutine
+
+## for-range
+
+range能感知channel关闭，当channel被发送数据的goroutine关闭时，range就会结束，然后退出for循环。
+
+    go func(in <-chan int) {
+        for x := range in {
+            ...
+        }
+    }(inCh)
+
+## for-select
+
+select有多路复用能力，for-select 可以持续处理多路多个channel的能力。但select不能感知channel的关闭.
+
+通道关闭退出goroutine：
+
+    go func() {
+        for {
+            select {
+            case x, ok := <-in:
+                if !ok {
+                    return
+                }
+            case <-t.C:
+                ...
+            }
+        }
+    }
+
+某个通道关闭，不再处理该通道，但是继续处理其它channel,select不会在nil的通道上进行等待:
+
+    go func() {
+        for {
+            select {
+            case x, ok := in1:
+                if !ok {
+                    in1 = nil   把只读channel设置为nil,select不会在这里阻塞。
+                }
+            case y, ok :=<-in2:
+                if !ok {
+                    in2 = nil
+                }
+            if in1 == nil && in2 == nil {
+                return
+            }
+        }
+    }()
+
+使用专门channel发送退出信号,只需要在main中关闭channel，所有goroutine都会接收到信号退出:
+
+    go func() {
+        for {
+            select {
+            case <- stopCh:
+                ...
+                return
+            case <- t.C:
+                ...
+            }
+        }
+    }()
 

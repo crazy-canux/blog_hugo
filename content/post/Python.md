@@ -384,6 +384,10 @@ sequence成员运算：
 
     bool类型只有True和False两个值．
 
+        bool类型取反: 
+        a = True
+        b = bool(1-a) # b=False
+
 * [Deprecated in python 3]long
 
     python2在整数值后面加l/L表示长整型．
@@ -437,7 +441,6 @@ str类型是不可变类型(immutable),是标量(scalar),是序列(sequence)通�
     c = """line1
     line2"""
     > line1\nline2   没有续行符会在行尾加换行符号.
-    
 
 编译时字符串连接：
 
@@ -467,40 +470,47 @@ UFT-8: Unicode Transformation Format
 
 python2因为比unicode出现要早，所以python2默认使用的是ASCII编码．
 
-python3默认使用的是UTF-8编码．
+python3 默认使用utf-8编码。
 
     # 获取默认编码
     import sys
     print(sys.getdefaultencoding())
 
+    // python2
     a = u'测试'
     type(a) # unicode
     a # u'\u6d4b\u8bd5',　十六进制表示
 
+    // python2
     # str类型
     b = '测试'
     type(b) # str
     b # \xe6\xb5\x8b\xe8\xaf\x95
 
+    // python2
     # encode将unicode类型编码成str类型用于数据传输．
     encode([encoding[,errors]]) # 编码
     c = a.encode('uft-8')
     type(c) # str
     c # \xe6\xb5\x8b\xe8\xaf\x95
 
+    // python2
     # decode将str类型根据原来的编码类型解码成unicode类型进行阅读．
     decode([encoding[,errors]]) # 解码
     d = c.decode('utf-8') # 参数必须是原来的编码的类型
     type(d) # unicode
     d # u'\u6d4b\u8bd5'
 
+    // python2
     # python2默认ascii编码，所以encode和decode默认都是ascii. 不能处理中文
     u'测试'.encode() # UnicodeEncodeError
 
+    // python2
     # str+unicode, str会隐式的转换成unicode.
     '测' + u'试' -> '测'.decode() + u'试' # 因为decode默认是ascii不能解码中文,UnicodeDecodeError．
     '测'.decode('uft-8') + u'试'
 
+    // python2
     # 对非unicode进行encode编码，会先隐式解码成unicode再编码
     '测试'.encode('utf-8') # UnicodeDecodeError, 因为'测试'.decode()默认用ascii解码
     '测试'.decode('utf-8').decode('utf-8')
@@ -511,6 +521,10 @@ python3默认使用的是UTF-8编码．
     # 只在写入文件／数据库／网络时才调用编码函数encode().
     # 只在读回数据时才调用解码函数decode().
     # 始终使用utf-8编码．否则容易出现乱码．
+
+    // python3 默认类型非str，而是bytes。
+    str.encode()  # str类型通过encode编码成types类型
+    bytes.decode() # bytes类型通过decode解码成str类型
 
 可迭代对象转换成字符串：
 
