@@ -18,10 +18,11 @@ kubeadm是k8s自带的部署集群的工具.
 
 在每台机器上安装 kubeadm, kubelet, kubectl:
 
+    $ curl -fsSL https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add - 
     $ echo "deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
     $ sudo apt-get update
     $ sudo apt-get --yes --allow-unauthenticated install kubeadm kubelet kubectl
-    $ apt-mark hold kubelet kubeadm kubect
+    $ sudo apt-mark hold kubelet kubeadm kubect
 
 # Kubeadm
 
@@ -50,9 +51,13 @@ token:
 
 # 部署Cluster
 
-初始化master:
+## 部署master
+
+关闭swap
 
     $ sudo swapoff -a
+
+初始化
 
     $ sudo kubeadm init \
     // --config=/var/lib/kubelet/config.yaml \
@@ -65,23 +70,52 @@ token:
     // --pod-network-cidr=10.244.0.0/16 是固定用法，表示选择flannel为网络插件。
     // --image-repository 指定registry, 默认是gcr
 
-部署node:
+配置当前帐号
+
+    mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+部署网络插件flannel
+
+    // 在所有node上部署cni-plugin:
+    // <https://github.com/containernetworking/plugins/releases>
+    $ sudo mkdir -p /opt/cni/bin
+    // 下载并解压所有插件命令到该目录.
+
+    $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+配置master是否部署pod
+
+    # enable master deploy pod (默认不部署pod到master)
+    kubectl taint nodes --all node-role.kubernetes.io/master-
+
+    # disable master deploy pod
+    kubectl taint nodes <node> node-role.kubernetes.io/master=true:NoSchedule
+
+## 部署node
 
     $ sudo swapoff -a
+
+    // 在所有node上部署cni-plugin:
+    // <https://github.com/containernetworking/plugins/releases>
+    $ sudo mkdir -p /opt/cni/bin
+    // 下载并解压所有插件命令到该目录.
 
     $ sudo kubeadm join 192.168.1.1:6443 \
     --token 8po0v5.m1qlbc7w0btq15of \
     --discovery-token-ca-cert-hash sha256:21d8365e336d5218637ddf26e2ec5d91c7dd2de518dbe47973e089837b13265b
 
-允许将pod部署在master节点(默认不会):
+## 验证
 
-    $ kubectl taint nodes --all node-role.kubernetes.io/master-
+    $ kubectl get pods -n kube-system
+    $ kubectl get nodes
 
-# 删除cluster
+## 删除cluster
 
 所有node运行:
 
-    $ sudo kubectl reset -f
+    $ sudo kubeadm reset -f
 
 所有node上删除flannel的网络配置
 
@@ -89,42 +123,22 @@ token:
     $ sudo brctl delbr cni0
     $ sudo ifconfig flannel.1 down
 
-***
+所有node清空iptables
 
-# flannel
-
-此时状态是notReady, 需要网络插件
-
-    $ kubectl get nodes (notReady)
-
-在所有node上部署cni-plugin:
-
-<https://github.com/containernetworking/plugins/releases>
-
-    $ sudo mkdir -p /opt/cni/bin
-    // 下载并解压所有插件命令到该目录.
-
-network-addon(master上操作即可):
-
-    $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-
-veryfy:
-
-    $ kubectl get nodes
-    $ kubectl get pod --all-namespaces
+    $ sudo iptables -F
+    $ sudo iptables -X
+    $ sudo iptables -t nat -F
+    $ sudo iptables -t nat -X
 
 ***
 
-# ingress-nginx
+# metrics-server
 
-<https://github.com/kubernetes/ingress-nginx>
+<https://github.com/kubernetes-sigs/metrics-server>
 
-    // 部署
-    $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
-    $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/service-nodeport.yaml
-
-    // 验证部署
-    $ kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch
+    # deploy 0.3.6
+    # 修改image为  registry.aliyuncs.com/google_containers/metrics-server-amd64:v0.3.6
+    $ kubectl apply -f ./components.yaml
 
 ***
 
@@ -175,6 +189,9 @@ veryfy:
     // 创建admin账号
     $ kubectl apply -f auth.yaml
 
+    // check
+    $ kubectl -n kubernetes-dashboard get pods --watch
+
     // 获取token
     $ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
 
@@ -183,13 +200,3 @@ veryfy:
 
     // 删除已安装的dashboard
     $ kubectl delete ns kubernetes-dashboard
-
-# metrics-server
-
-<https://github.com/kubernetes-sigs/metrics-server>
-
-    # deploy 0.3.6
-    # 修改image为  registry.aliyuncs.com/google_containers/metrics-server-amd64:v0.3.6
-    $ kubectl apply -f ./components.yaml
-
-

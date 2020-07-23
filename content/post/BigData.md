@@ -1,10 +1,11 @@
 ---
 title: "BigData"
 date: 2016-04-11T22:57:37+08:00
-categories:
-- BigData
-tags:
-- bigdata
+categories: ["BigData"]
+tags: ["bigdata"]
+keywords: []
+author: "Canux"
+draft: false
 ---
 
 # BigData

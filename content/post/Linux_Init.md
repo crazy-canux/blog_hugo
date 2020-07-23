@@ -62,9 +62,10 @@ service文件编写:
     ExecStopPost=
     ExecReload=
     KillMode=node/mixed/process/control-group
-    Restart=no/on-success/on-failure/on-abnormal/-on-abort/on-watchdog/always
+    Restart=no/on-success/on-failure/on-abnormal/on-abort/on-watchdog/always # always总是开机启动，即使systemctl enable.
     RestartSec=3s # 重启之前等待的时间.
     TimeoutSec=  # TimeoutStartSec+TimeoutStopSec
+    LimitNOFILE=49152 # 限制单个service的fd
 
     [Install]
     WantedBy=multi-user.target

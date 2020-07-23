@@ -12,51 +12,53 @@ draft: false
 
 debian的包管理机制。
 
+***
+
 ## dpkg
 
 dpkg的本地前端工具。
 
-deb - Debian binary package format
+### deb - Debian binary package format
 
-dpkg - package manager for Debian
+### dpkg - package manager for Debian
 
     dpkg
     dpkg -X  ./xxx.deb  xxx  # 将deb包解压到xxx目录
     dpkg -e  ./xxx.deb  xxx/DEBIAN # 将control信息解压
     dpkg -l | grep pkg # 查看安装的包
 
-dpkg-reconfigure - reconfigure an already installed package
+### dpkg-reconfigure - reconfigure an already installed package
 
     dpkg-reconfigure
 
-dpkg-deb - Debian package archive (.deb) manipulation tool
+### dpkg-deb - Debian package archive (.deb) manipulation tool
 
-    # 创建debian包
-    dpkg-deb -b|--build <directory> [<deb>]
+目录结构, DEBIAN/control是必需的
 
-    # <directory> 结构, DEBIAN/control　是必需的
     |- debian_root
        |- DEBIAN
+          |- control
           |- preinst/preinstallation # 解压deb包之前执行
           |- prerm/preremove
-          |- control
           |- postinst/postinstallation # 解压完成之后执行，通常用来配置
           |- postrm/postremove
           |- copyright
           |- changelog
           |- conffiles
        |- etc
-          |- init.d
+          |- init.d/systemd
              |- <service>
           |- logrotate.d
              |- <service>
        |- user/local/...
        |- opt/...
 
-    # control文件
+control:
+
     Package
     Version
     Description
+    Maintain:
     Section: utils/net/mail/text/x11/...
     Priority: required/standard/optional/extra/...
     Essential: yes/no
@@ -67,14 +69,47 @@ dpkg-deb - Debian package archive (.deb) manipulation tool
     Recommends:
     Suggests:
     ...
-    最后一行需要空行
 
-    # 查看包信息
-    dpkg-deb -I XXX.deb
+postrm:
 
-dpkg-query - a tool to query the dpkg database
+    case "$1" in
+        remove)
+            remove
+            echo "Remove complete"
+        ;;
+
+        purge)
+            purge
+            echo "Purge complete"
+        ;;
+
+        upgrade|failed-upgrade|disappear)
+            echo "Do nothing"
+        ;;
+
+        abort-install|abort-upgrade)
+            echo "Do nothing"
+        ;;
+
+        *)
+            echo "$0 called with unknown argument \`$1'" 1>&2
+            exit 1
+        ;;
+    esac
+
+创建debian包
+
+    $ dpkg-deb -b|--build <directory> [<deb>]
+
+查看包信息
+
+    $ dpkg-deb -I XXX.deb
+
+### dpkg-query - a tool to query the dpkg database
 
     dpkg-query
+
+***
 
 ## gdebi - Simple tool to install deb files
 
@@ -92,6 +127,8 @@ dpkg的本地前端工具。
 使用gdebi:
 
     sudo gdebi XXX.deb # install package
+
+***
 
 ## apt - command-line interface
 
@@ -147,8 +184,6 @@ apt-cache - query the APT cache
     $ apt-cache depends <pkg>
     # 查看依赖，　以及依赖的依赖
     $ apt-cache --recurse depends <pkg>
-
-# install
 
 ***
 

@@ -35,25 +35,43 @@ shell命令分为内置命令和外部命令.
     enable
     help
 
+    caller
     alias
     bg
     bind
     break
     builtin
-    caller
-    cd
     command
     compgen
     complete
     compopt
     continue
     declare
-    dirs
     disown
-
-    echo
-    echo "_${VAR}_" // 查看变量前后是否有空格.
-
+    let
+    local
+    logout
+    mapfile
+    popd
+    printf
+    pushd
+    read
+    readarray
+    readonly
+    return
+    shift
+    shopt
+    source
+    suspend
+    times
+    trap
+    true
+    typeset
+    ulimit
+    umask
+    unalias
+    unset
+    wait
     eval
     exec
     exit
@@ -65,32 +83,29 @@ shell命令分为内置命令和外部命令.
     hash
     history
     jobs
-    kill
-    let
-    local
-    logout
-    mapfile
-    popd
-    printf
-    pushd
-    pwd
-    read
-    readarray
-    readonly
-    return
-    set
-    shift
-    shopt
-    source
-    suspend
-    test
-    times
-    trap
-    true
-    typeset
-    ulimit
-    umask
-    unalias
-    unset
-    wait
 
+路径相关:
+
+    cd
+    dirs
+    pwd
+
+test:
+
+    test
+
+set:
+
+    set
+    set -e 命令失败立即退出
+    set -o pipefail 对于有管道的操作，返回最后一个非零返回值的命令的返回码.
+
+echo: 
+
+    echo
+    echo 'origin'  # 不打印变量
+    echo "_${VAR}_" # 查看变量前后是否有空格.
+
+kill:
+
+    kill

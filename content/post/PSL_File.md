@@ -77,7 +77,6 @@ functions:
     [section]
     option-key = option-value
 
-
 导入：
 
     import ConfigParser
@@ -105,6 +104,23 @@ issue:
     默认是全部小写写入.
     config = ConfigParser.ConfigParser(allow_no_value=True)
     config.optionxform =str # 原样写入
+
+    from configparser import ConfigParser, ExtendedInterpolation
+
+变量:
+
+    // 默认interpolation只支持section之间变量
+    [section1]
+    1var1 = /opt
+    1var2 = %(1var1)s/test
+
+    // 扩展interpolation支持section变量引用
+    config = ConfigParser(interpolation=ExtendedInterpolation())
+
+    [section1]
+    1var1 = /opt
+    [section2]
+    2var1 = ${section1:1var1}/test
 
 ***
 

@@ -13,8 +13,7 @@ draft: false
 <https://github.com/kubernetes/ingress-nginx>
 
     // 部署
-    $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
-    $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/service-nodeport.yaml
+     $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.34.1/deploy/static/provider/baremetal/deploy.yaml
 
     // 验证部署
     $ kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch

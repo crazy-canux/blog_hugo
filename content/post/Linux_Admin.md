@@ -221,6 +221,60 @@ ubuntu18:
 
     $ sudo netplan apply
 
+## ubuntu vlan
+
+vlan需要内核模块8021q
+
+    $ echo "8021q" >> /etc/modules
+
+    auto vlan1023
+    iface vlan1023 inet static
+        address 18.28.4.123
+        netmask 255.255.255.0
+        gateway 18.28.4.1
+        vlan-raw-device eth0
+
+创建vlan
+
+    // 创建vlan(eth0.10), attach到interface(eth0)
+    auto eth0.10
+    iface eth0.10 inet manual
+        vlan-raw-device eth0
+
+## ubuntu bridge
+
+    # 需要绑定到interface才需要配置interface.
+    auto eth0
+    iface eth0 inet manual
+
+    auto br0
+    iface br0 inet dhcp
+    # For static configuration delete or comment out the above line and uncomment the following:
+    # iface br0 inet static
+    #  address 192.168.1.10
+    #  netmask 255.255.255.0
+    #  gateway 192.168.1.1
+    #  dns-nameservers 192.168.1.5
+    #  dns-search example.com
+    bridge_ports eth0
+    # 不绑定到interface就是none
+    # bridge_ports none 
+    bridge_stp off
+    bridge_fd 0
+    bridge_maxwait 0
+
+创建bridge
+
+    // 创建bridge，attach到vlan.
+    auto br0
+    iface br0 inet static
+        address 172.16.0.4
+        netmask 255.255.240.0
+        bridge_ports eth0.10
+        bridge_stp off
+        bridge_fd 0
+        bridge_vlan_aware yes
+
 ## E: Sub-process /usr/bin/dpkg returned an error code (1)
 
 method1:

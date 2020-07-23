@@ -166,14 +166,6 @@ update-alternatives:
     update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1 // 设置候选项的link
     update-alternatives --remove python /usr/bin/python3.5 // 删除候选项的link
 
-# kernel管理
-
-    lsmod 查看已加载的模块    # /proc/modules
-    modprobe -c 查看已编译可加载的内核模块
-    modprobe <name> 加载模块 # /etc/modules
-    modprobe -r <name> 删除模块
-    rmmod <name> 删除模块
-
 # 用户和权限管理
 
     id
@@ -199,6 +191,11 @@ chmod:
     chgrp
     chattr
 
+usermod
+
+    # 禁止root登录
+    usermod --shell /sbin/nologin root
+
 adduser:
 
     adduser 
@@ -208,7 +205,12 @@ adduser:
 useradd:
 
     useradd
-    useradd -r -m -G sudo -s /bin/bash <user>
+    useradd -r -m -U -G sudo -s /bin/bash <user>
+    -U, --user-group      create a group with the same name as the user
+    -m, --create-home     create the user's home directory
+    -s, --shell SHELL     login shell of the new account
+    -r, --system          create a system account
+    -G, --groups GROUPS   list of supplementary groups of the new account
 
     userdel
 

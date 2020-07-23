@@ -184,6 +184,13 @@ data:
 
 ## shelve
 
+    import shelve
+
+    with shelve.open(f, flag='n', writeback=True) as f:
+    r/w: 不存在报错
+    c: read-write to new/existing，不存在创建
+    n: read-write to new. 总是创建新的
+
 ## anydbm
 
 ## whichdb

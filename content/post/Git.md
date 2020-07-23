@@ -90,11 +90,12 @@ git有四个协议：
 
     设置http代理：
 
-        git config --global http.proxy "http://<proxy>:<port>"
-        git config --global http.proxy "http://<username>:<password>@<proxy>:<port>"
+        git config --global http.proxy "http://<server>:<port>"
+        git config --global http.proxy "https://<username>:<password>@<proxy>:<port>"
+        git config --global https.proxy "https://<server>:<PORT>"
         # In gitconfig file
         [http]
-            proxy = http://<proxy>:<port>
+            proxy = http://<server>:<port>
 
 4. Git协议
 

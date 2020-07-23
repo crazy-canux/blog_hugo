@@ -59,6 +59,44 @@ a2dismod
 
 # 配置    
 
+配置站点site-enable/site.conf:
+
+    <VirtualHost *:8080>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /opt
+
+        # 适合多目录
+        Alias /qa /opt/qa
+        Alias /dev /opt/dev
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+
+修改权限apache2.conf:
+
+    <Directory /opt/qa>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+
+    <Directory /opt/dev>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+
+修改端口ports.conf:
+
+    Listen 8080
+    <IfModule ssl_module>
+            Listen 4433
+    </IfModule>
+    <IfModule mod_gnutls.c>
+            Listen 4433
+    </IfModule>
+
 配置ssl和basic auth
 
     # 安装创建账号的工具

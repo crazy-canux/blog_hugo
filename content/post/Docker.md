@@ -106,6 +106,10 @@ docker配置文件:
         "tlskey": "",
     }
 
+proxy for pull image from google(gcr):
+
+<https://docs.docker.com/config/daemon/systemd/#httphttps-proxy>
+
 ***
 
 # docker命令

@@ -309,6 +309,16 @@ classes:
     send
     sendto
 
+class SocketIO:
+
+    class SocketIO(io.RawIOBase)
+    sio = SocketIO(sock, mode)
+
+    methods:
+    close()
+    readinto(b)
+    write(b)
+
 functions:
 
     create_connection(address, timeout=<object object>, source_address=None)

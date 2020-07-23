@@ -248,6 +248,12 @@ bash的优化项目bash-it：
 
 ## shell控制流
 
+    # [[ 里面不能用 -o/-a ]]
+    if [[ $status1 -eq 0 ]] || [[  $status2 -eq 0 ]]
+    if [[ $status1 -eq 0 ]] && [[  $status2 -eq 0 ]]
+    # [ 单层可以用-o/-a ]
+    if [ $status1 -eq 0 -o $status2 -eq 0 ]
+
 if
 
     if []; then command; ...; fi

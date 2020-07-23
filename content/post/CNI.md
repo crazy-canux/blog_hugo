@@ -95,10 +95,10 @@ host或局域网中的其它机器能通过container-ip(bridge网络)访问conta
     $ docker network create --driver=bridge --gateway=192.168.1.1 --subnet=192.168.1.0/24 --opt com.docker.network.bridge.name=br0 br0
 
     // 定制docker_gwbridge网络
-    $ docker network create --subnet 172.18.0.0/16 --ip-range 172.18.0.0/24 --gateway 172.18.0.1 \
+    $ docker network create --subnet 172.26.0.0/16 --ip-range 172.26.0.0/16 --gateway 172.26.0.1 \ 
     --opt com.docker.network.bridge.name=docker_gwbridge \
-    --opt com.docker.network.bridge.enable_icc=true \
-    --opt com.docker.network.bridge.enable_ip_masquerade=true \
+    --opt com.docker.network.bridge.enable_icc=true \ 
+    --opt com.docker.network.bridge.enable_ip_masquerade=true \ 
     docker_gwbridge
 
 docker0:
@@ -140,9 +140,7 @@ container通过overlay网络实现通信.container能通过service-name/containe
 
     $ docker network create -d overlay ... [name]
 
-    $ docker network create --attachable --driver=overlay --gateway=192.168.1.1 --subnet=192.168.1.0/24 --ip-range=192.168.0.0/24 \
-    --opt com.docker.network.bridge.name=ol0 \
-    ol0 
+    $ docker network create --attachable --driver=overlay --gateway=172.27.0.1 --subnet=172.27.0.0/24 --ip-range=172.27.0.0/24 --opt com.docker.network.bridge.name=ol0 ol0
 
 # macvlan
 

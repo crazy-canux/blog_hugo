@@ -72,11 +72,13 @@ pod
         runAsuser: 1000
         runAsGroup: 3000
         fsGroup: 2000
+
       initContainers: // 
       - name: init
         image: my-image
         command: ...
         args: ...
+
       containers:
       - name: test
         image: image
@@ -100,12 +102,17 @@ pod
         - name: foo
           mountPath: "/etc/foo"
           readOnly: true
+
       volumes:
       - name: foo // 指定要挂载的secret
         secret:
           secretName: mysecret
+
       imagePullSecrets:  // 私有镜像授权
       - name: regcred
+
+      nodeSelector: // 将pod部署到指定node
+        key: value
 
 pod中的container共享存储(pod volume):
 
@@ -289,6 +296,15 @@ secret
       username: name 
       password: pw
 
+创建私有镜像账号
+
+<https://kubernetes.io/zh/docs/tasks/configure-pod-container/pull-image-private-registry/>
+
+    kubectl create secret docker-registry regcred --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+
+    $ docker login https://harbor.domain.com
+    $ kubectl create secret docker-registry regcred --docker-server=https://harbor.domain.com --docker-username=user --docker-password=pw --docker-email=canuxcheng@gmail.com
+
 ***
 
 # ServiceAccont
@@ -312,9 +328,11 @@ secret
 
 ***
 
-# PV/PVC
+# PV
 
-static volume provisioning
+pv没有namespace
+
+## static volume provisioning
 
     apiVersion: v1
     kind: PersistentVolume
@@ -329,19 +347,23 @@ static volume provisioning
       csi:
         driver: ...
 
-pvc:
+## dynamic volume provisioning
+
+***
+
+# pvc
 
     apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
       name: nsa-pvc
+      namespace: test
     spec:
       accessModes:
       - ReadWriteMany
       resources:
         requests:
           storage: 5Gi 
-          
 
     apiVersion: v1
     kind: Pod
@@ -355,6 +377,45 @@ pvc:
         volumeMounts:
         - name: nas-pvc
           mountPath: /data  
+
+***
+
+# StatefulSet
+
+StatefulSet 中的 Pod 拥有一个唯一的顺序索引和稳定的网络身份标识。
+
+    apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      name: web
+    spec:
+      serviceName: "nginx"
+      replicas: 2
+      selector:
+        matchLabels:
+          app: nginx
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          containers:
+          - name: nginx
+            image: k8s.gcr.io/nginx-slim:0.8
+            ports:
+            - containerPort: 80
+              name: web
+            volumeMounts:
+            - name: www
+              mountPath: /usr/share/nginx/html
+      volumeClaimTemplates:
+      - metadata:
+          name: www
+        spec:
+          accessModes: [ "ReadWriteOnce" ]
+          resources:
+            requests:
+              storage: 1Gi
 
 
 

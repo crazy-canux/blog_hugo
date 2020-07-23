@@ -58,6 +58,9 @@ expose:
     # 创建serivce:
     $ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP] [--target-port=...] [--name=...] [--external-ip=...] [--type=type] [options]
 
+    # 创建service，并且使用NodePort
+    $ kubectl expose deployment hello-world --type=NodePort --name=example-service
+
 run:
 
     # 创建pod/container(docker run):
@@ -81,6 +84,8 @@ get:
     -o--output json/yaml/json/wide/name/...
     -w/--watch
     --watch-only
+
+    kubectl get nodes --show-labels
 
     kubectl get nodes/no # 获取node节点信息
     kubectl get namespace/ns # 获取namespace信息
@@ -143,6 +148,9 @@ rollout:
     // 回滚
     $ kubectl rollout
 
+    // 暂停/恢复/重启 deployment.
+    kubectl rollout pause/resume/restart  deploy/katib-mysql -n kubeflow
+
 rolling-update:
 
     $ kubectl rolling-update
@@ -187,15 +195,30 @@ exec:
     -i/--stdin
     -t/--tty
 
+    $ kubectl exec -it <pod> -n <ns> -- /bin/bash
+
+port-forward:
+
+由于已知的限制，目前的端口转发仅适用于 TCP 协议
+
+    $ kubectl port-forward
+
+    // 转发本地端口到deploy/rs/svc/pod
+    $ kubectl port-forward svc/redis-service 6379:6379 -n redis
+
+proxy:
+
+    $ kubectl proxy
+
 attach:
 
     $ kubectl attach
 
-    $ kubectl port-forward
-
-    $ kubectl proxy
+cp:
 
     $ kubectl cp
+
+auth:
 
     $ kubectl auth
 
@@ -219,9 +242,18 @@ top:
     
 # Settings Commands
 
+label
+
     label          Update the labels on a resource
 
+    kubectl label nodes <your-node-name> disktype=ssd
+
+
+annotate:
+
     annotate       Update the annotations on a resource
+
+completion:
 
     completion     Output shell completion code for the specified shell (bash or zsh)
 

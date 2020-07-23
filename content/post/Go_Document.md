@@ -37,3 +37,7 @@ go自带的文档命令行接口,在浏览器查看文档
     https://godoc.org
 
 ***
+
+# go.dev
+
+<https://pkg.go.dev>
