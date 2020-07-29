@@ -30,17 +30,41 @@ veryfy:
     $ kubectl get nodes
     $ kubectl get pod --all-namespaces
 
-重新部署网络插件:
+删除插件:
 
+删除插件会影响已经部署的pod.
+
+    // 删除flannel 
     $ kubectl delete -f X.yml  
+    $ sudo systemctl stop kubelet docker
 
     // 第二步，在node节点清理flannel网络留下的文件
     ifconfig cni0 down
-    ip link delete cni0
+    ip link delete cni0 
     ifconfig flannel.1 down
-    ip link delete flannel.1
-    rm -rf /var/lib/cni/
-    rm -f /etc/cni/net.d/*
+    ip link delete flannel.1 
+    rm -rf /var/lib/cni /etc/cni /run/flannel
+    $ sudo rm -rf /var/lib/kubelet /var/lib/etcd
     
     // 重启kubelet
-    $ sudo systemctl restart kubelet
+    $ sudo systemctl start kubelet docker
+
+# kubeadm
+
+kubeadm init必须指定flannel的Network参数:
+
+    --pod-network-cidr=10.244.0.0/16
+
+# configuration
+
+/etc/kube-flannel/net-conf.json
+
+    {
+      "Network": "10.244.0.0/16",
+      "SubnetLen": 24,
+      "SubnetMin": "10.244.0.0",
+      "SubnetMax": "10.244.255.0",
+      "Backend": {
+        "Type": "vxlan"
+      }
+    }

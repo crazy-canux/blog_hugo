@@ -43,9 +43,14 @@ libvirt的命令行工具
     $ virsh vncdisplay # 查看虚拟机的vnc信息，可以通过vnc访问.
 
     $ virsh net-list --all # 查看所有网络
+    $ virsh net-define default.xml
+    $ virsh net-autostart default
+    $ virsh net-start default
+    $ virsh net-undefine default
+    $ virsh net-destroy default
 
     # 批量操作vm
-    $ for vm in `virsh list --all --name`; do virsh /destroy/undefine ${vm}; done
+    $ for vm in `virsh list --all --name`; do virsh undefine/destroy ${vm}; done
 
 # qemu-img
 

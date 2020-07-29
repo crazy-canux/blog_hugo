@@ -264,6 +264,8 @@ DaemonSet
 
 # ConfigMap
 
+configmap的配置在pod中无法修改绑定的文件.
+
 ConfigMap
 
     apiVersion: v1
@@ -279,6 +281,12 @@ ConfigMap
         {
           "name": "n1"
         }
+
+创建配置文件的configmap
+
+    // 创建cm,然后导出yaml即可release出去
+    $ kubectl -n app create cm my-conf --from-file ./config.ini
+    $ kubectl -n app get cm -o yaml 
 
 ***
 
@@ -300,10 +308,9 @@ secret
 
 <https://kubernetes.io/zh/docs/tasks/configure-pod-container/pull-image-private-registry/>
 
-    kubectl create secret docker-registry regcred --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
-
-    $ docker login https://harbor.domain.com
-    $ kubectl create secret docker-registry regcred --docker-server=https://harbor.domain.com --docker-username=user --docker-password=pw --docker-email=canuxcheng@gmail.com
+    // 创建secret然后导出到yaml，就可以release出去.
+    $ kubectl -n app create secret docker-registry regcred --docker-server=https://harbor.domain.com --docker-username=user --docker-password=pw --docker-email=canuxcheng@gmail.com
+    $ kubectl -n app get secret harbor-secret -o yaml 
 
 ***
 
