@@ -30,7 +30,7 @@ kubeadm是k8s自带的部署集群的工具.
 init:
 
     $ kubeadm init 
-    --config <config>
+    --config <config> 
     --apiserver-advertise-address <master> // 多网卡指定网卡IP
     --image-repository <registry> // default k8s.gcr.io
     --kubernetes-version <version> // kubelet --version
@@ -61,7 +61,6 @@ token:
 初始化
 
     $ sudo kubeadm init \
-    // --config=/var/lib/kubelet/config.yaml \
     --pod-network-cidr=10.244.0.0/16 \
     --apiserver-advertise-address=<IP> \
     --kubernetes-version=v1.17.0 \
@@ -140,3 +139,74 @@ token:
     $ sudo rm -rf /etc/kubernetes /etc/cni /run/flannel
 
 ***
+
+# 配置
+
+<https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/control-plane-flags/>
+
+使用自定义配置:
+
+    $ sudo kubeadm init --config ./config.yaml -v=6
+
+查看默认配置:
+
+    $ kubeadm config print init-defaults
+
+配置kubeadm：
+
+    apiVersion: kubeadm.k8s.io/v1beta2
+    kind: InitConfiguration
+    bootstrapTokens:
+    - groups:
+      - system:bootstrappers:kubeadm:default-node-token
+      token: abcdef.0123456789abcdef
+      ttl: 24h0m0s
+      usages:
+      - signing
+      - authentication
+    localAPIEndpoint:
+      advertiseAddress: 10.103.239.41 // master IP
+      bindPort: 6443
+    nodeRegistration:
+      criSocket: /var/run/dockershim.sock
+      name: debug // master hostname
+      taints:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+
+配置kubernetes:
+
+    apiVersion: kubeadm.k8s.io/v1beta2
+    kind: ClusterConfiguration
+    certificatesDir: /etc/kubernetes/pki
+    clusterName: kubernetes
+    dns:
+      type: CoreDNS
+    etcd:
+      local:
+        dataDir: /var/lib/etcd
+    networking:
+      dnsDomain: cluster.local
+      serviceSubnet: 10.96.0.0/12
+    imageRepository: k8s.gcr.io
+    kubernetesVersion: v1.18.6
+    controllerManager:
+      extraArgs:
+        <https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/>
+        allocate-node-cidrs: 'true'
+        node-cidr-mask-size: '16' // flannel的SubNetLen
+        cluster-cidr: '10.0.0.0/8' // flannel的Network
+    apiServer:
+      timeoutForControlPlane: 4m0s
+      <https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/>
+      extraArgs:
+        ...
+    #scheduler: {}
+    scheduler:
+      ...
+      <https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/>
+      extraArgs:
+        ...
+
+
+

@@ -1,12 +1,25 @@
 ---
-title: "Flannel"
-date: 2019-12-30T22:06:48+08:00
+title: "K8S CNI"
+date: 2020-03-26T20:55:52+08:00
 categories: ["Container"]
-tags: ["network"]
+tags: ["k8s"]
 keywords: []
 author: "Canux"
 draft: false
 ---
+
+# CNI
+
+<https://github.com/containernetworking>
+
+* kube-router
+* romana
+* cilium
+* weavenet
+* calico
+* flannel
+
+***
 
 # Flannel
 
@@ -49,13 +62,7 @@ veryfy:
     // 重启kubelet
     $ sudo systemctl start kubelet docker
 
-# kubeadm
-
-kubeadm init必须指定flannel的Network参数:
-
-    --pod-network-cidr=10.244.0.0/16
-
-# configuration
+修改配置:
 
 /etc/kube-flannel/net-conf.json
 
@@ -68,3 +75,29 @@ kubeadm init必须指定flannel的Network参数:
         "Type": "vxlan"
       }
     }
+
+使用kubeadm：
+
+kubeadm init必须指定flannel的Network参数:
+
+    --pod-network-cidr=10.244.0.0/16
+
+如果需要修改其它参数，同时需要修改kubeadm的配置
+
+***
+
+# calico
+
+<https://github.com/projectcalico/calico>
+
+***
+
+# cilium
+
+<https://github.com/cilium/cilium>
+
+***
+
+# weave
+
+<https://github.com/weaveworks/weave>

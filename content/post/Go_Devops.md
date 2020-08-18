@@ -228,6 +228,18 @@ go.sum:
 
 # 项目结构
 
+    cmd: 可执行文件入口
+    pkg: 核心代码库
+    api: api的spec, openapi/swagger/json/protocol/grpc
+    hack: 构建/测试相关脚本
+    plugin: 插件
+    staging: wip
+    third_party: 第三方工具/代码
+    vendor: 项目依赖
+    build
+    test
+    docs
+
 没有子目录包结构：
 
     go-devops

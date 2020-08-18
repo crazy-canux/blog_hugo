@@ -48,13 +48,16 @@ helm3+不再需要安装tiller,也不需要helm init.
     helm install [name] [chart] [flags]
     helm install redis ./redis
 
+    // 需提前创建namespace
+    helm install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard -f value.yaml -n kubernetes-dashboard
+
 查看release:
 
     helm list
 
-删除release:
+卸载release:
 
-    helm delete 
+    helm uninstall kubernetes-dashboard -n kubernetes-dashboard
 
 ***
 
@@ -63,5 +66,5 @@ helm3+不再需要安装tiller,也不需要helm init.
     Chart.yaml
     values.yaml
     requirements.yaml
-    templates/deployment.yaml
+    templates/*.yaml
     charts/

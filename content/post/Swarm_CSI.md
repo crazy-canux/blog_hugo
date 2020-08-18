@@ -1,8 +1,8 @@
 ---
-title: "CSI"
+title: "Swarm CSI"
 date: 2018-04-05T22:02:31
 categories: ["Container"]
-tags: ["storage"]
+tags: ["swarm"]
 keywords: []
 author: "Canux"
 draft: false

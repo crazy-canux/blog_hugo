@@ -8,21 +8,77 @@ author: "Canux"
 draft: false
 ---
 
-# metrics-server
+# dashboard
 
-<https://github.com/kubernetes-sigs/metrics-server>
-
-    # deploy 0.3.6
-    # 修改image为  registry.aliyuncs.com/google_containers/metrics-server-amd64:v0.3.6
-    $ kubectl apply -f ./components.yaml
+* kubernetes-dashboard
+* lens
+* octant
 
 ***
 
-# dashboard
+# kubernetes-dashboard
 
 <https://github.com/kubernetes/dashboard>
 
-    // https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml 修改服务类型为NodePort
+    // 部署dashboard
+    $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.3/aio/deploy/recommended.yaml
+
+    // check
+    $ kubectl -n kubernetes-dashboard get pods --watch
+
+    ---
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: dashboard-admin
+      namespace: kubernetes-dashboard
+    ---
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    metadata:
+      name: kubernetes-dashboard-admin
+      namespace: kubernetes-dashboard
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: cluster-admin
+    subjects:
+      - kind: ServiceAccount
+        name: dashboard-admin
+        namespace: kubernetes-dashboard
+    // 创建admin账号
+    $ kubectl apply -f auth.yaml
+
+    // 获取token
+    $ kubectl -n kubernetes-dashboard describe secret \
+    $(kubectl -n kubernetes-dashboard get secret | \ 
+    grep dashboard-admin | awk '{print $1}')
+
+    // 使用admin帐号的token登录
+    > https://<IP>:30001
+
+    // 删除已安装的dashboard
+    $ kubectl delete ns kubernetes-dashboard
+
+## authentication
+
+使用basic auth:
+
+    --authentication-mode=basic
+
+## access dashboard
+
+本机访问
+
+    $ kubectl proxy
+    #> http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
+远程访问
+
+    $ kubectl port-forward -n kubernetes-dashboard service/kubernetes-dashboard 8080:443
+
+nodePort:
+
     kind: Service
     apiVersion: v1
     metadata:
@@ -31,48 +87,24 @@ draft: false
       name: kubernetes-dashboard
       namespace: kubernetes-dashboard
     spec:
-      # use nodeport
       type: NodePort
       ports:
         - port: 443
         targetPort: 8443
-        # specify nodeport
         nodePort: 30001
     selector:
       k8s-app: kubernetes-dashboard
-    // 部署dashboard
-    $ kubectl apply -f dashboard.yaml
 
-    // ServiceAccount 和 ClusterRoleBinding
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      name: admin-user
-      namespace: kubernetes-dashboard
-    ---
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRoleBinding
-    metadata:
-      name: admin-user
-    roleRef:
-      apiGroup: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: cluster-admin
-    subjects:
-      - kind: ServiceAccount
-        name: admin-user
-        namespace: kubernetes-dashboard
-    // 创建admin账号
-    $ kubectl apply -f auth.yaml
+    #> https://<node-ip>:30001
 
-    // check
-    $ kubectl -n kubernetes-dashboard get pods --watch
+ingress:
 
-    // 获取token
-    $ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+***
 
-    // 使用admin帐号的token登录
-    > https://<IP>:30001
+# metrics-server
 
-    // 删除已安装的dashboard
-    $ kubectl delete ns kubernetes-dashboard
+<https://github.com/kubernetes-sigs/metrics-server>
+
+    # deploy 0.3.6
+    # 修改image为  registry.aliyuncs.com/google_containers/metrics-server-amd64:v0.3.6
+    $ kubectl apply -f ./components.yam

@@ -84,11 +84,13 @@ api对象三大类属性:
 
 kubernetes对外暴露服务的三种方式:
 
-* IngressNginx
-* NodePort (30000-32767)
-* LoadBalance
+* NodePort: dev/qa. (30000-32767)
+* IngressNginx: production.
+* LoadBalance: cloud provider.
 
-## pod
+***
+
+# pod
 
 一个pod包含一个或多个容器，这些容器通过infra container共享同一个network namespace。
 
@@ -101,6 +103,20 @@ pod共享网络:
 pod共享存储:
 
 通过pod volumes, 使pod中的container共享存储。
+
+应用:
+* 一个pod中的某个容器异常退出，被kubelet拉起来之前保证之前的数据部丢失.
+* 同一个pod的多个容器共享数据.
+
+pod volume类型:
+1. 本地存储: emptydir/hostpath...
+2. 网络存储: 
+
+    in-tree(ks8内置支持): awsElasticBlockStore/gcePresistentDisk/nfs...
+
+    out-of-tree(插件): flexvolume/csi...
+
+3. projected volume: secret/configmap/downwardAPI/serviceAccountToken
 
 pod服务质量配置:
 

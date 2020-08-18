@@ -59,6 +59,7 @@ expose:
     $ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP] [--target-port=...] [--name=...] [--external-ip=...] [--type=type] [options]
 
     # 创建service，并且使用NodePort
+    # nodeport可以使用任意节点的IP访问.
     $ kubectl expose deployment hello-world --type=NodePort --name=example-service
 
 run:
@@ -123,7 +124,12 @@ apply:
 
     $ kubectl diff
 
+patch
+
     $ kubectl patch
+
+    // 删除terminating状态的resource
+    $ kubectl patch  persistentvolumeclaim/storage -p '{"metadata":{"finalizers":null}}' -n <ns>
 
     $ kubectl replace
 
@@ -185,6 +191,9 @@ logs:
     -f/--follow
     -p/--previous
 
+    // 查看pod中指定container log
+    kubectl logs -f <pod> -c <container> -n <ns>
+
 exec:
 
     # like docker exec
@@ -199,12 +208,16 @@ exec:
 
 port-forward:
 
-由于已知的限制，目前的端口转发仅适用于 TCP 协议
+由于已知的限制，目前的端口转发仅适用于 TCP 协议.
+
+只能通过master IP 访问。
 
     $ kubectl port-forward
 
     // 转发本地端口到deploy/rs/svc/pod
     $ kubectl port-forward svc/redis-service 6379:6379 -n redis
+
+    $ kubectl port-forward --address 0.0.0.0 -n kubernetes-dashboard service/kubernetes-dashboard 8080:443
 
 proxy:
 

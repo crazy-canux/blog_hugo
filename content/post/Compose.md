@@ -93,6 +93,15 @@ compose文件
           - RABBITMQ_DEFAULT_USER=sandbox
           - RABBITMQ_DEFAULT_PASS=password
 
+        <https://docs.docker.com/compose/compose-file/#env_file>
+        # When you set the same environment variable in multiple files, here’s the priority used by Compose to choose which value to use:
+        # Compose file
+        # Shell environment variables
+        # Environment file
+        # Dockerfile
+        # Variable is not defined
+        env_file:
+
         depends_on:
           - service-name
 

@@ -80,6 +80,7 @@ systemctl命令:
     $ systemctl show docker
 
     # 设置开机自动启动
+    //在/etc/systemd/system/multi-user.target.wants下创建链接
     $ systemctl enable ***
     $ systemctl disable ***
     $ systemctl is-enabled ***

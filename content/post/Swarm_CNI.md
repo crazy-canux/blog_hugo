@@ -1,8 +1,8 @@
 ---
-title: "CNI"
+title: "Swarm CNI"
 date: 2018-04-05T22:02:31
 categories: ["Container"]
-tags: ["network"]
+tags: ["swarm"]
 keywords: []
 author: "Canux"
 draft: false
