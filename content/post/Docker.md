@@ -429,7 +429,14 @@ ONBUILD
 
 stage:
 
-    COPY --from=stage1 / .
+多级构建，一般0级用来编译源代码，并且组织目录结构。
+下一级直接将编译好的或者组织好的目录结构copy到指定位置。
+这样最终的image不会含有源代码的overlay.
+也不会有临时目录结构的overlay.
+
+    # 不指定stage name, 默认就是数字
+    COPY --from=0 /path/folder /path/folder
+    COPY --from=stage1 /path/folder /path/folder 
     docker build --target stage1 -t docker:latest . 
 
 .dockerignore 

@@ -211,17 +211,6 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
             install.run(self)
             # your postinst code here for install.
     
-编译成.so文件:
-
-    $ sudo pip install cython
-    from Cython.Build import cythonize
-    setup(
-        ...
-        ext_modules=cythonize([]),
-        ...
-    )
-    $ python3 setup.py build_ext
-
 创建setup.cfg文件：
 
     [wheel]
@@ -305,6 +294,55 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
 
     $python setup.py sdist upload -r pypi
     $python setup.py bdist_wheel upload -r pypi
+
+## cython
+
+编译成.so文件
+
+安装:
+
+    $ sudo pip install cython
+
+在setup.py中引用:
+
+    from Cython.Build import cythonize
+    from Cython.Distutils import build_ext
+
+    def add_extensions(modules):
+        extensions = []
+        for module in modules:
+            level = module
+            for depth in range(10):
+                source_dir = level + ".py"
+                if glob.glob(source_dir):
+                    extensions.append(Extension(module, [source_dir], include_dirs=["."], extra_compile_args=['-O3']),)
+                level = os.path.join(level, "*")
+        print(extensions)
+        return extensions
+
+    INCLUDE_PACKAGES = []
+    EXCLUDE_PACKAGES = []    
+
+    setup(
+        ext_modules=cythonize(
+            add_extensions(INCLUDE_PACKAGES),
+            build_dir="build",
+            # 指定 .py => .c 使用8个线程编译.
+            nthreads=8,
+            compiler_directives=dict(
+                always_allow_keywords=True,
+                language_level=3),
+            exclude=EXCLUDE_PACKAGES),
+        cmdclass={
+            "install": InstInstall,
+            "build_ext": build_ext
+        },
+    )
+
+    // -j 8 指定.c => .so 使用8个线程编译.
+    $ python3 setup.py build_ext --inplace -j 8 
+    // 删除符号信息
+    $ find sandboxav/ -name "*.so" -exec strip {} \; 
 
 ## pbr
 

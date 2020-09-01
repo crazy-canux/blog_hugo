@@ -76,7 +76,7 @@ mkfs:
     mkfs [options] [-t type fs-options] device [size]
     mkfs.ext4 /dev/sdb1 # 将分区格式化成ext4格式.
 
-# mount
+# mount/umount
 
 相关文件:
 
@@ -103,6 +103,9 @@ mount/umount挂载文件系统:
     # 本机挂载, 将本机的folder2挂载到folder1, folder2中原有的内容会隐藏.
     mount --bind /path/folder1 /path/folder2
     /path/folder1 /path/folder2 none bind 0 0
+
+    # 挂载到overlay
+    mount -t overlay -o lowerdir=/path/lower,upperdir=/path/upper,workdir=/path/work overlay /path/dir
 
     umount
     umount device/dir

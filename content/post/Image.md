@@ -12,6 +12,8 @@ draft: false
 
 容器镜像
 
+docker image driver: aufs, btrfs, devicemapper, overlay.
+
 # scratch
 
 scratch是空白镜像，一般用于基础镜像构建.比如制作alpine/ubuntu/debian/busybox镜像.
