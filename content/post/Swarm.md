@@ -129,10 +129,13 @@ stack
 通过compose文件部署服务.
 
     deploy:
-      mode: global # 部署到匹配的全部node.
-    ​
+
+      // 默认mode=replicated, replicas=1.
       mode: replicated
-      replicas: 3
+      replicas: 1
+
+      // 部署到匹配的全部node.
+      mode: global 
     ​
       # global和replicated都可以用placement.
       placement:
@@ -164,31 +167,32 @@ stack
         max_failure_ratio: 更新期间允许的失败率
         order: stop-first(default)/start-first
 
-    // 默认是vip,支持route mesh, 自动负载均衡和服务发现.
     deploy:
+      // 默认endpoint_mode=vip, 支持route mesh, 自动负载均衡和服务发现.
       endpoint_mode: vip
     ports:
     - target: 80
       published: 8080
+      // 默认mode=ingress, 也可以改为host.
       mode: ingress
       protocol: tcp/udp
     - 8080:80/tcp
 
-    // dnsrr 模式
     deploy:
+      // dnsrr 模式
       endpoint_mode: dnsrr
       update_config:
         // 如果expose端口，不能start-first, 否则报错no suitable node (host-mode port already in use on 1 node
         order: stop-first 
-    // dnsrr只能用port->mode=host.
     // 设置iptables规则，外部访问8080通过prerouting做dnat指定目的ip，通过forward转发给container的80.
     // iptables->nat->prerouting: 
     // DNAT tcp -- !docker_gwbridge * 0.0.0.0/0 0.0.0.0/0 tcp dpt:8080 to:172.18.0.16:80
-    // iptables->filter->forward
+    // iptables->filter->forward:
     // ACCEPT tcp -- enp5s0 * 0.0.0.0/0 0.0.0.0/0 multiport dports 80
     ports:
     - target: 80
       published: 8080
+      // dnsrr只能用port->mode=host.
       mode: host
       protocol: tcp/udp
 

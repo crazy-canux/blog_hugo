@@ -39,16 +39,25 @@ Open source framework for processing, monitoring, and alerting on time series da
 
     $ kapacitor help
 
+    # 创建template(也就是变量可以单独赋值的tickscript)
+    $ kapacitor define-template <name> -tick /path/template.tick
+    $ kapacitor show-template <name>
+
     # 创建/更新 task, 创建的默认是disable状态.
-    $ kapacitor define [task id/name] -tick [*.tick] -type [stream|batch] -dbrp [database.retentionPolicy]
+    # 从tickscript创建task
+    $ kapacitor define <name> -tick task.tick -type [stream|batch] -dbrp [database.retentionPolicy]
+    # 从template创建task(如果yaml/json中没有指定template需要用-template指定)
+    $ kapacitor define <name> -file task.yaml
+    $ kapacitor define <name> -file task.json
+
     # 删除task
     $ kapacitor delete [task id/name]
 
-    $ kapacitor list tasks
+    $ kapacitor list tasks/templates
     $ kapacitor reload [task id/name] # 相当于disable & enable.
     $ kapacitor enable [task id/name]
     $ kapaciror disable [task id/name]
-    $ kapacitor show [task id/name]
+    $ kapacitor show [id/name]
     $ kapacitor watch [task id/name]
 
     $ kapacitor list topics

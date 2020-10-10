@@ -25,6 +25,17 @@ gitlab是开源的有web界面的git服务器．
 
     /etc/gitlab/gitlab.rb
 
+升级gitlab:
+
+需要先升级到下个major版本的最后一个稳定版.
+
+    current:   9.4.7
+    patch: gitlab-ce=9.5.10
+    patch: gitlab-ce_10.8.7
+    patch: gitlab-ce=11.11.8
+    patch: gitlab-ce=12.0.12
+    target: 12.10.14
+
 ***
 
 # CLI

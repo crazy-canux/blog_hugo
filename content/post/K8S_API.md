@@ -67,6 +67,7 @@ pod
     kind: Pod
     metadata:
       name: test
+      namespace: test
     spec:
       securityContext: // pod级别security context定义
         runAsuser: 1000
@@ -79,9 +80,13 @@ pod
         command: ...
         args: ...
 
+      imagePullSecrets:  // 私有镜像授权
+      - name: my-harbor
       containers:
       - name: test
         image: image
+        command: ['/bin/bash', '-c', 'env']
+
         resources:
           requests:  // 申明需要的资源
             memory: "64Mi"  // byte
@@ -91,25 +96,30 @@ pod
             memory: "128Mi"
             cpu: "500m"
             ephemeral-storage: "4Gi"
-        command: ['/bin/bash', '-c', 'env']
+
         env:
         - name: special_level_key
           valueFrom: // 挂载ConfigMap
             configMapKeyRef:
               name: cm-name
               key: cm-key
+        - name: key
+          value: value
+
         volumeMounts: // secret以文件形式挂载到/etc/foo
-        - name: foo
+        - name: my-secret
           mountPath: "/etc/foo"
           readOnly: true
+        - name: my-configmap
+          mountPath: "/etc/bar"
 
       volumes:
-      - name: foo // 指定要挂载的secret
+      - name: my-secret // 指定要挂载的secret
         secret:
           secretName: mysecret
-
-      imagePullSecrets:  // 私有镜像授权
-      - name: regcred
+      - name: my-configmap
+        configMap:
+          name: myconfigmap
 
       nodeSelector: // 将pod部署到指定node
         key: value
@@ -175,12 +185,84 @@ pod中的container共享存储(pod volume):
             ports:
             - containerPort: 443
             volumeMounts:
-            - mountPath: /path/on/cpod
-              name: my-volumes
+            - name: my-hostpath
+              mountPath: /path/on/cpod
+            - name: my-pvc
+              mountPath: /data 
           volumes:
-          - name: my-volumes
+          - name: my-hostpath
             hostPath: 
               path: /path/on/host
+          - name: my-pvc
+            persistentVolumeClaim:
+              claimName: nfs-pvc
+
+***
+
+# DaemonSet
+
+每个node上部署一个pod
+
+DaemonSet
+
+    apiVersion: apps/v1
+    kind: DaemonSet
+    metadata:
+      name: my-ds
+      namespace: my-ns
+      labels:
+        k8s-app: my-app
+      spec:
+        selector:
+          matchLabels:
+            name: my-app
+        template:
+          metadata:
+            labels:
+              name: my-app
+          spec:
+            containers:
+            - name: my-container
+              image: my-img
+
+***
+
+# StatefulSet
+
+StatefulSet 中的 Pod 拥有一个唯一的顺序索引和稳定的网络身份标识。
+
+    apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      name: web
+    spec:
+      serviceName: "nginx"
+      replicas: 2
+      selector:
+        matchLabels:
+          app: nginx
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          containers:
+          - name: nginx
+            image: k8s.gcr.io/nginx-slim:0.8
+            ports:
+            - containerPort: 80
+              name: web
+            volumeMounts:
+            - name: www
+              mountPath: /usr/share/nginx/html
+      volumeClaimTemplates:
+      - metadata:
+          name: www
+        spec:
+          accessModes: [ "ReadWriteOnce" ]
+          resources:
+            requests:
+              storage: 1Gi
 
 ***
 
@@ -236,33 +318,9 @@ CronJob
 
 ***
 
-# DaemonSet
-
-DaemonSet
-
-    apiVersion: apps/v1
-    kind: DaemonSet
-    metadata:
-      name: my-ds
-      namespace: my-ns
-      labels:
-        k8s-app: my-app
-      spec:
-        selector:
-          matchLabels:
-            name: my-app
-        template:
-          metadata:
-            labels:
-              name: my-app
-          spec:
-            containers:
-            - name: my-container
-              image: my-img
-
-***
-
 # ConfigMap
+
+configmap只能在当前namespace使用.
 
 configmap的配置在pod中无法修改绑定的文件.
 
@@ -284,13 +342,14 @@ ConfigMap
 
 创建配置文件的configmap
 
-    // 创建cm,然后导出yaml即可release出去
-    $ kubectl -n app create cm my-conf --from-file ./config.ini
-    $ kubectl -n app get cm -o yaml 
+    $ kubectl -n app create cm my-conf --from-file ./config.ini -o yaml > myconf-configmap.yaml
+    $ kubectl -n influxdata create cm dashboard-docker --from-file Docker.json -o yaml > grafana-dashboard-docker-configmap.yaml
 
 ***
 
 # Secret
+
+secret只能在当前namespace使用.
 
 secret
 
@@ -304,13 +363,22 @@ secret
       username: name 
       password: pw
 
-创建私有镜像账号
+创建generic账号:
+
+    $ kubectl -n influxdata create secret generic \
+    datasource --from-file=datasource.yaml 
+
+创建tls账号:
+
+    kubectl -n kubernetes-dashboard create secret tls \
+    kubernetes-dashboard-tls --key ca.key --cert ca.crt 
+
+创建docker-registry账号:
 
 <https://kubernetes.io/zh/docs/tasks/configure-pod-container/pull-image-private-registry/>
 
-    // 创建secret然后导出到yaml，就可以release出去.
-    $ kubectl -n app create secret docker-registry regcred --docker-server=https://harbor.domain.com --docker-username=user --docker-password=pw --docker-email=canuxcheng@gmail.com
-    $ kubectl -n app get secret harbor-secret -o yaml 
+    $ kubectl -n app create secret docker-registry \
+    my-harbor --docker-server=https://harbor.domain.com --docker-username=user --docker-password=pw --docker-email=canuxcheng@gmail.com -o yaml > myharbor-secret.yaml
 
 ***
 
@@ -327,11 +395,21 @@ secret
       token: ...
     type: kubernetes.io/service-account-token
 
-    secrets: // 指定secret
-    - name: default-token
+***
 
-    imagePullSecrets: // 使用该sa的都会自动授权registry.
-    - name: myregistrykey
+# pvc
+
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: nsa-pvc
+      namespace: test
+    spec:
+      accessModes:
+      - ReadWriteMany
+      resources:
+        requests:
+          storage: 5Gi 
 
 ***
 
@@ -356,73 +434,7 @@ pv没有namespace
 
 ## dynamic volume provisioning
 
-***
-
-# pvc
-
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: nsa-pvc
-      namespace: test
-    spec:
-      accessModes:
-      - ReadWriteMany
-      resources:
-        requests:
-          storage: 5Gi 
-
-    apiVersion: v1
-    kind: Pod
-    spec:
-      volumes:
-      - name: nas-pvc
-        persistentVolumeClaim:
-        claimName: nas-pvc 
-      containers:
-      - name: c1
-        volumeMounts:
-        - name: nas-pvc
-          mountPath: /data  
+动态pv需要storageclass.
 
 ***
-
-# StatefulSet
-
-StatefulSet 中的 Pod 拥有一个唯一的顺序索引和稳定的网络身份标识。
-
-    apiVersion: apps/v1
-    kind: StatefulSet
-    metadata:
-      name: web
-    spec:
-      serviceName: "nginx"
-      replicas: 2
-      selector:
-        matchLabels:
-          app: nginx
-      template:
-        metadata:
-          labels:
-            app: nginx
-        spec:
-          containers:
-          - name: nginx
-            image: k8s.gcr.io/nginx-slim:0.8
-            ports:
-            - containerPort: 80
-              name: web
-            volumeMounts:
-            - name: www
-              mountPath: /usr/share/nginx/html
-      volumeClaimTemplates:
-      - metadata:
-          name: www
-        spec:
-          accessModes: [ "ReadWriteOnce" ]
-          resources:
-            requests:
-              storage: 1Gi
-
-
 

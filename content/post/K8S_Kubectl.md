@@ -39,6 +39,8 @@ create:
     options:
     -f/--filename
 
+    kubectl create secret tls kubernetes-dashboard-tls --key ca.key --cert ca.crt -n kubernetes-dashboard
+
 delete:
 
     // 删除资源

@@ -12,4 +12,6 @@ draft: false
 
 # operator-framework
 
+<https://operatorhub.io/>
+
 <https://github.com/operator-framework>

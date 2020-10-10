@@ -16,8 +16,10 @@ Certificate Authority.
 
 # 创建自签名证书
 
-    $ openssl req -newkey rsa:4096 -nodes -sha256 -keyout ca.key -x509 -days 365 -out ca.crt -subj "/C=CN/L=shanghai/O=lisea/CN=harbor-registry"
+创建x509证书:
 
-    $ openssl req -newkey rsa:4096 -nodes -sha256 -keyout <domain>.key -out <domain>.csr -subj "/C=CN/L=shanghai/O=lisea/CN=<domain>"
+    $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ca.key -out ca.crt -subj "/CN=k8s.devops.com/O=k8s.devops.com"
 
-    $ openssl x509 -req -days 365 -in <domain>.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out <domain>.crt
+查看证书有效期:
+
+    $ openssl x509 -in /etc/ssl/ca.domain.com.crt -noout -dates

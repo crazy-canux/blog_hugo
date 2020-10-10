@@ -31,9 +31,10 @@ vagrant还支持其它的providers(docker, vmware, hyper-v, aws)
     $ mkdir -p /home/user/vagrant
     $ cd /vagrant
 
-    $ vagrant init # 生成一个Vagrantfile文件．
+    # 在当前目录生成一个Vagrantfile文件, 需手动添加vm.box
+    $ vagrant init 
 
-    # 相当于直接配置了Vagrantfile.
+    # 相当于直接添加了vm.box到Vagrantfile.
     $ vagrant init [box-name]
 
 # 添加box
@@ -47,7 +48,7 @@ vagrant还支持其它的providers(docker, vmware, hyper-v, aws)
     # 也可以使用自己的服务器上的box
     $ vagrant box add [[--name ]box-name] URL
 
-    # 修改Vagrantfile:
+    # 添加box之后修改Vagrantfile,添加vm.box:
     Vagrant.configure("2") do |config|
       config.vm.box = "[box-name]"
     end
@@ -77,6 +78,11 @@ vagrant还支持其它的providers(docker, vmware, hyper-v, aws)
 
     $ vagrant box list
     $ vagrant box remove
+
+# 其它
+
+    $ vagrant global-status
+    $ vagrant global-status --prune
 
 ***
 

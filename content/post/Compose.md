@@ -133,6 +133,10 @@ compose文件
             cpus: '0.25'
             memory: 20M
 
+        privileged: true
+        devices:
+          - /dev/vboxdrv:/dev/vboxdrv
+
         deploy: // for swarm
         # 下列选项不能用于swarm stack部署.
         sysctls(19.03+)
