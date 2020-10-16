@@ -110,8 +110,11 @@ pod
         - name: my-secret
           mountPath: "/etc/foo"
           readOnly: true
-        - name: my-configmap
-          mountPath: "/etc/bar"
+        - mountPath: "/etc/bar" // 挂载之后覆盖整个目录
+          name: my-configmap
+        - mountPath: /etc/app/app.conf 
+          name: config
+          subPath: app.conf // 挂载之后只覆盖指定文件
 
       volumes:
       - name: my-secret // 指定要挂载的secret

@@ -36,6 +36,14 @@ gitlab是开源的有web界面的git服务器．
     patch: gitlab-ce=12.0.12
     target: 12.10.14
 
+runner:
+
+    #sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+    sudo chmod +x /usr/local/bin/gitlab-runner
+    sudo gitlab-runner install --user=canux --working-directory=/home/canux/gitlab
+    sudo gitlab-runner register
+    sudo gitlab-runner start
+
 ***
 
 # CLI
