@@ -82,10 +82,11 @@ pod
 
       imagePullSecrets:  // 私有镜像授权
       - name: my-harbor
+      
       containers:
       - name: test
         image: image
-        command: ['/bin/bash', '-c', 'env']
+        imagePullPolicy: Always/IfNotPresent/Never
 
         resources:
           requests:  // 申明需要的资源
@@ -106,15 +107,17 @@ pod
         - name: key
           value: value
 
+        // 如果没有subpath，整个目录会被覆盖，目录下只有secret/configmap挂载的文件.
         volumeMounts: // secret以文件形式挂载到/etc/foo
         - name: my-secret
           mountPath: "/etc/foo"
           readOnly: true
         - mountPath: "/etc/bar" // 挂载之后覆盖整个目录
           name: my-configmap
+        // 如果有subpath, secret/configmap里的data文件名需要和subpath/mountpath指定的文件名一致.
         - mountPath: /etc/app/app.conf 
           name: config
-          subPath: app.conf // 挂载之后只覆盖指定文件
+          subPath: app.conf // 挂载之后只覆盖同名文件,其它文件不影响.
 
       volumes:
       - name: my-secret // 指定要挂载的secret
@@ -327,6 +330,8 @@ configmap只能在当前namespace使用.
 
 configmap的配置在pod中无法修改绑定的文件.
 
+data里面的文件名就是挂载之后的文件名。
+
 ConfigMap
 
     apiVersion: v1
@@ -353,6 +358,8 @@ ConfigMap
 # Secret
 
 secret只能在当前namespace使用.
+
+data里的文件名就是挂载之后的文件名。
 
 secret
 
@@ -438,6 +445,29 @@ pv没有namespace
 ## dynamic volume provisioning
 
 动态pv需要storageclass.
+
+***
+
+# Service
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app: grafana
+      name: grafana-service
+      namespace: influxdata
+    spec:
+      type: NodePort
+      ports:
+      - name: https
+        port: 3000 // 集群内部访问的port.
+        targetPort: 3000 // pod指定的port.
+        nodePort: 32000 // 集群外部访问内部service的port.
+      selector:
+        app: grafana
+
+# Endpoint
 
 ***
 
