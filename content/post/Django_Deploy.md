@@ -14,19 +14,11 @@ django内置一个轻量级web开发服务器。
 
 如果要发布django项目需要另外的操作。
 
-WSGI: web server gateway interface
-
-WSGI是python web服务器和应用的标准，PEP3333.
-
-django默认会生成wsgi.py文件。
-
-wsgi.py -> settings.py -> urls.py -> application
-
 也可以发布到其它的云平台。
 
-***
+一般通过wsgi或者asgi来部署.
 
-# deploy时django的设置
+## deploy时django的设置
 
 settings.py中的设置：
 
@@ -35,7 +27,9 @@ settings.py中的设置：
 
 ***
 
-# apache2.4 + mod_wsgi
+# WSGI 部署
+
+## apache2 + mod_wsgi
 
 <https://github.com/GrahamDumpleton/mod_wsgi>
 
@@ -114,7 +108,6 @@ Fedora创建网站的配置文件/etc/httpd/conf.d/mysite.conf:
     # Or you can use daemon mode for WSGI process.
     # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
     os.environ["DIANGO_SETTINGS_MODULE"] = "mysite.settings"
-
     application = get_wsgi_application()
 
 修改项目的settings.py:
@@ -162,34 +155,39 @@ Fedora激活网站：
 
     $sudo systemctl restart  httpd
 
-***
-
-# nginx + uWSGI
+## uWSGI
 
 <https://github.com/unbit/uwsgi>
 
 C写的wsgi应用服务器。
 
-安装：
+    $ python3 -m pip install uwsgi
+    $ uwsgi --http :8000 --chdir /path/to/project --module mysite.wsgi
 
-    pip install uwsgi
-
-测试：
-
-    uwsgi --http :8000 --chdir /path/to/project --module mysite.wsgi
-
-***
-
-# nginx + Gunicorn
+## Gunicorn
 
 <https://github.com/benoitc/gunicorn>
 
 纯python写的WSGI服务器。
 
-安装：
+    $ python3 -m pip install gunicorn
+    $ gunicorn mysite.wsgi
+    
+***
 
-    pip install gunicorn
+# ASGI
 
-在manage.py目录测试：
+## Uvicorn
 
-    gunicorn mysite.wsgi
+    $ python -m pip install uvicorn gunicorn
+    $ gunicorn myproject.asgi:application -k uvicorn.workers.UvicornWorker
+
+## Hypercorn
+
+    $ python -m pip install hypercorn
+    $ hypercorn myproject.asgi:application
+
+## Daphne
+
+    $ python -m pip install daphne
+    $ daphne myproject.asgi:application

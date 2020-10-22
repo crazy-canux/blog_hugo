@@ -10,7 +10,7 @@ draft: false
 
 # urls.py
 
-    from django.conf.urls import url
+    from django.urls import path, include
 
 django请求站点的方法：
 1. ROOT_URLCONF，在settings.py中设置。
@@ -23,17 +23,17 @@ django请求站点的方法：
 
 项目的URL主要用来包含应用的URL以及全局的URL:
 
-    from django.conf.urls import include, url
+    from django.urls import include, path
     from django.contrib import admin
 
     urlpatterns = [
         # 默认的项目的admin的url
-        url(r'^admin/', include(admin.site.urls)),
+        path('admin/', include(admin.site.urls)),
 
         # 在项目URL添加链接到应用URL：
         # 在下面添加你的所有应用的url,
         include内的应用的urls需要引号.
-        url(r'^polls/', include('polls.urls')),
+        path('polls/', include('polls.urls')),
         ...,
     ]
 

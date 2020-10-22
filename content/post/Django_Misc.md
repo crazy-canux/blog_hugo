@@ -1,5 +1,5 @@
 ---
-title: "Utils"
+title: "Misc"
 date: 2017-01-04T01:13:36
 categories: ["Django"]
 tags: ["misc"]

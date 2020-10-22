@@ -1,5 +1,5 @@
 ---
-title: "Utils"
+title: "Admin"
 date: 2016-10-04T04:29:37
 categories: ["Django"]
 tags: ["admin"]

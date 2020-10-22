@@ -466,6 +466,23 @@ pv没有namespace
         nodePort: 32000 // 集群外部访问内部service的port.
       selector:
         app: grafana
+        
+## ExternalName Service
+
+ExternalName Service 是 Service 的特例，它没有选择算符，但是使用 DNS 名称, 将服务映射到 DNS 名称，而不是selector.
+
+访问其它namespace的service.
+
+当查找主机 my-service.my-ns.svc.cluster.local 时，集群 DNS 服务返回 CNAME 记录， 其值为 out-service.out-ns.svc.cluster.local。 访问 my-service 的方式与其他服务的方式相同，但主要区别在于重定向发生在 DNS 级别，而不是通过代理或转发
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: my-service
+      namespace: my-ns
+    spec:
+      type: ExternalName
+      externalName: out-service.out-ns.svc.cluster.local
 
 # Endpoint
 
