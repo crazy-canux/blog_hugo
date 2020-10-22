@@ -309,10 +309,16 @@ CronJob
       startingDeadlineSeconds: 10
       concurrencyPolicy: Allow
       successfulJobsHistoryLimit: 3
+      suspend: false
       jobTemplate:
         spec:
           template:
             spec:
+              nodeSelector:
+                ...
+              imagePullSecrets:
+                ...
+              restartPolicy: OnFailure
               containers:
               - name: image
                 image: image
@@ -320,7 +326,6 @@ CronJob
                 - /bin/sh
                 - -c
                 - date
-              restartPolicy: OnFailure
 
 ***
 
@@ -473,7 +478,8 @@ ExternalName Service 是 Service 的特例，它没有选择算符，但是使�
 
 访问其它namespace的service.
 
-当查找主机 my-service.my-ns.svc.cluster.local 时，集群 DNS 服务返回 CNAME 记录， 其值为 out-service.out-ns.svc.cluster.local。 访问 my-service 的方式与其他服务的方式相同，但主要区别在于重定向发生在 DNS 级别，而不是通过代理或转发
+当查找主机 my-service.my-ns.svc.cluster.local 时，集群 DNS 服务返回 CNAME 记录， 其值为 out-service.out-ns.svc.cluster.local。 
+访问 my-service 的方式与其他服务的方式相同，但主要区别在于重定向发生在 DNS 级别，而不是通过代理或转发
 
     apiVersion: v1
     kind: Service
@@ -482,9 +488,40 @@ ExternalName Service 是 Service 的特例，它没有选择算符，但是使�
       namespace: my-ns
     spec:
       type: ExternalName
-      externalName: out-service.out-ns.svc.cluster.local
+      externalName: out-service.out-ns.svc.cluster.local // 指向其它namespace的service.
 
-# Endpoint
+## Endpoint
+
+下面场景可以使用Endpoint.
+1. 希望在生产环境中使用外部的数据库集群，但测试环境使用自己的数据库。
+2. 希望服务指向另一个 命名空间 中或其它集群中的服务。
+3. 您正在将工作负载迁移到 Kubernetes。 在评估该方法时，您仅在 Kubernetes 中运行一部分后端。
+
+先创建service:
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: mysql-service
+      namespace: influxdata
+    spec:
+      ports:
+        - protocol: TCP
+          port: 3306
+          targetPort: 3306
+    
+再创建endpoint：
+
+    apiVersion: v1
+    kind: Endpoints
+    metadata:
+      name: mysql-service
+      namespace: influxdata
+    subsets:
+      - addresses:
+          - ip: 10.103.X.X // 指向外部服务的IP
+        ports:
+          - port: 3306
 
 ***
 
