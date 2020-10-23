@@ -122,6 +122,10 @@ virtualenv中安装：
         'django.contrib.staticfiles', //管理静态文件的框架。 
     ]
     
+    默认开启的某些应用需要至少一个数据表，所以，在使用他们之前需要在数据库中创建一些表
+    $ python manage.py migrate
+    >py manage.py migrate
+    
 默认enable的midleware:
     
     MIDDLEWARE = [
