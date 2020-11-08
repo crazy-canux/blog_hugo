@@ -18,7 +18,7 @@ draft: false
 
 管理员登陆界面：
 
-    http://localhost:8080/admin/
+    http://localhost:8000/admin/
 
 在admin.py中注册模型，然后就可以在登陆界面管理模型了
 

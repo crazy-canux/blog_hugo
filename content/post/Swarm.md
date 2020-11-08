@@ -30,16 +30,16 @@ swarmkit:
 
     docker swarm init
     --advertise-addr <ip> 多网卡情况下指定manager的ip
-    ​
+    
     docker swarm join --token <token> <host:port>
-    ​
+    
     # 查看token
     docker swarm join-token manager   获取添加manager命令
     docker swarm join-token worker   获取添加worker命令
     docker swarm join-token -q worker
-    ​
+    
     docker swarm leave -f/--force
-    ​
+    
     docker swarm update
 
 管理节点
@@ -105,22 +105,26 @@ stack
     # stack = n*service
     # service = n*task(container)
     docker stack ls # 列出所有stack
-    ​
+    
     # 查看stack的service
-    docker stack services
-    ​
+    docker stack services <stack>
+    
     # 查看stack的task/container
-    docker stack ps STACK
-    ​
+    docker stack ps <stack>
+
+    docker stack rm STACK
+    
     # 根据docker-compose.yml部署应用
     docker stack deploy -c/--compose-file <docker-compose.yml> STACK
     docker stack deploy --bundle-file <DAB> STACK
 
     # 默认所有node从docker hub pull, 如果是私有镜像，需要加参数
-    # 需要先docker login private-registry
+    # 需要在manager上docker login private-registry
     docker stack deploy --with-registry-auth -c test.yml test
-    ​
-    docker stack rm STACK
+    
+    docker stack deploy --resolve-image (always|changed|never) ...
+    
+    docker stack deploy --orchestrator (swarm|kubernetes|all) ...
 
 ***
 

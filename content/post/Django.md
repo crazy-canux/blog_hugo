@@ -60,10 +60,16 @@ virtualenv中安装：
 
 安装使用的数据库引擎的库：
 
-    $pip install mysql-python # MySQLdb
-    $pip install mysqlclient # mysql-python的升级版
+    $pip install mysqlclient
     $pip install psycopg2
     $pip install cx_Oracle
+    
+django默认是mysqlclient，可以使用pymysql替代：
+
+    # vim settings.py
+    import pymysql
+    pymysql.version_info = (1, 4, 13, "final", 0)
+    pymysql.install_as_MySQLdb()
 
 ***
 
@@ -71,8 +77,8 @@ virtualenv中安装：
 
 创建一个名为next的项目
 
-    $cd next
-    $django-admin startproject next.
+    $ cd next
+    $ django-admin startproject next.
 
     next
     |-- manage.py

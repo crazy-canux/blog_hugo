@@ -239,6 +239,8 @@ issue:
 
 fix：
 
+    mysql8 开始默认授权插件改成caching_sha2_password.
+    可以指定为--default-authentication-plugin=mysql_native_password，
     alter user 'sandbox'@'%' identified with mysql_native_password by 'password';
 
 2. max_commection 问题:

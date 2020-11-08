@@ -83,6 +83,7 @@ compose文件
           mode: host
           protocol: tcp/udp
         ports: // short syntax
+          - 80  // host上的port没有指定就是一个随机的port
           - 80:80
           - 1234:1234/udp
 
@@ -136,6 +137,12 @@ compose文件
         privileged: true
         devices:
           - /dev/vboxdrv:/dev/vboxdrv
+          
+        healthcheck
+        
+        init
+        
+        stop_grrace_period
 
         deploy: // for swarm
         # 下列选项不能用于swarm stack部署.
@@ -154,14 +161,14 @@ compose文件
         ulimits
         cap_add
         cap_drop
-    ​
+        
     // (推荐)使用已经创建好的网络
     // 通过命令行或者api 创建网络
     networks:
       mynetwork:
         external: true
         name: lan0 // 通过docker network ls 查看名字
-    ​
+        
     // 创建bridge网络
     // 会在网络名字自动加namespace
     networks:
