@@ -22,19 +22,17 @@ django请求站点的方法：
 # 项目的URL
 
 项目的URL主要用来包含应用的URL以及全局的URL:
-
-    from django.urls import include, path
+    
     from django.contrib import admin
-
+    from django.urls import path, include
+    
     urlpatterns = [
         # 默认的项目的admin的url
-        path('admin/', include(admin.site.urls)),
-
+        path('admin/', admin.site.urls),
+        
         # 在项目URL添加链接到应用URL：
         # 在下面添加你的所有应用的url,
-        include内的应用的urls需要引号.
         path('polls/', include('polls.urls')),
-        ...,
     ]
 
 # 应用的URL
@@ -43,16 +41,19 @@ django请求站点的方法：
 
 urlpatterns是url()实例类型的python列表。
 
-    from django.conf.urls import url
+    from django.urls import path
     from . import views
 
+    app_name = 'polls'
+
     urlpatterns = [
-        # views内的内容不要引号。
-        url(r'^$', views.index, name='index'),
-        # 基于类的视图
-        url(r'^$', views.IndexView.as_view(), name='index'),
-        ...,
+        # 普通视图
+        path('', views.index, name='index'),
+        # 类视图
+        path('', views.IndexView.as_view(), name='index'),
     ]
+
+***
 
 # 没有命名的组
 

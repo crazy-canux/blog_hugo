@@ -58,7 +58,11 @@ docker配置文件:
 
     {
         // debug
-        "debug": true
+        "debug": true,
+        
+        "features": {
+            "buildkit": true
+        },
 
         //容器访问外网:
         ip-forward=true 会设置 net.ipv4.ip_forward=1, 才能访问外网

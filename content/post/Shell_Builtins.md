@@ -98,7 +98,11 @@ set:
 
     set
     set -e 命令失败立即退出
+    set -x 执行前打印每行命令
+    set -u 未定义的变量会报错
     set -o pipefail 对于有管道的操作，返回最后一个非零返回值的命令的返回码.
+    
+    set +e 取消前面设置的-e
 
 echo: 
 

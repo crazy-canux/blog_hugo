@@ -342,7 +342,7 @@ python2.7.9和python3.4以及virtualenv自带setuptools．
     // -j 8 指定.c => .so 使用8个线程编译.
     $ python3 setup.py build_ext --inplace -j 8 
     // 删除符号信息
-    $ find sandboxav/ -name "*.so" -exec strip {} \; 
+    $ find sandbox/ -name "*.so" -exec strip {} \; 
 
 ## pbr
 

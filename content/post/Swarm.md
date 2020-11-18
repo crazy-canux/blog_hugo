@@ -133,6 +133,9 @@ stack
 通过compose文件部署服务.
 
     deploy:
+      // 给service打标签(不作用于container) 
+      labels:
+        com.examples.key: value
 
       // 默认mode=replicated, replicas=1.
       mode: replicated
@@ -143,11 +146,20 @@ stack
     ​
       # global和replicated都可以用placement.
       placement:
+         
         preferences: // 只支持spreed.
           - spreed: node.labels.datacenter
         constraints:
-          - node.role == manager
-          - node.labels.role == "lable-name"
+          # 多个约束是and关系
+          - node.id==...
+          - node.hostname==...
+          - node.role==...
+          - node.role==manager/worker
+          - node.platform.os!=windows
+          - node.platform.arch==x86
+          - engine.labels.<key>==<value>
+          # 用户自定义标签
+          - node.labels.<key>==<value>
     ​
       resources:
         limits:

@@ -165,7 +165,7 @@ token:
       - signing
       - authentication
     localAPIEndpoint:
-      advertiseAddress: 10.103.239.41 // master IP
+      advertiseAddress: 10.103.1.1 // master IP
       bindPort: 6443
     nodeRegistration:
       criSocket: /var/run/dockershim.sock

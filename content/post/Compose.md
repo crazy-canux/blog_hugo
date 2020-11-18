@@ -43,6 +43,19 @@ draft: false
 
 # docker-compose.yml
 
+compose中的变量：
+
+"x-"开头的会被compose忽略，但是会被yaml解析.
+
+    x-var-name: &default-label
+      key1: val1
+      key2: val2
+      
+    services:
+      mysql:
+        <<: *default-label
+        image: mysql
+
 compose文件
 
     version: "3.6"
@@ -50,6 +63,10 @@ compose文件
       mongo:
         image: mongo:latest
         hostname: hostname
+        
+        // 给container打标签
+        labels:
+          com.example.key: value
 
         networks:
         - mynetwork
@@ -59,7 +76,9 @@ compose文件
             ipv4_address: 172.19.0.100
 
         volumes: // short syntax
-        - myvolume:/container/dir
+        - /container/dir // 自动创建volume
+        - myvolume:/container/dir 
+        - /host/dir:/container/dir
         volumes: // long syntax
         - type: valume/bind/tmpfs
           source: 
@@ -203,6 +222,21 @@ compose文件
     .Task.ID Task ID 
     .Task.Name Task name 
     .Task.Slot Task slot 
+    
+yaml变量：
+
+    key: &varhash    value
+    key1: *varhash
+    
+    # 定义变量
+    list: 
+      &varlist
+      key1: value1
+      key2: value2
+    # 将list的元素赋值给list1
+    list1: 
+      <<: *varlist   
+      key3: value2
 
 ***
 

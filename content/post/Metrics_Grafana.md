@@ -174,7 +174,7 @@ datasource
         type: influxdb
         access: proxy
         url: http://influxdb-service:8086
-        database: sandboxav
+        database: sandbox
         isDefault: true
         editable: true
 

@@ -10,4 +10,10 @@ draft: false
 
 # tests.py
 
+    from django.test import TestCase
+
 # 测试
+
+运行测试程序：
+
+    $ python manage.py test polls

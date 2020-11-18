@@ -130,7 +130,7 @@ django默认是mysqlclient，可以使用pymysql替代：
     
     默认开启的某些应用需要至少一个数据表，所以，在使用他们之前需要在数据库中创建一些表
     $ python manage.py migrate
-    >py manage.py migrate
+    > py manage.py migrate
     
 默认enable的midleware:
     
@@ -278,13 +278,19 @@ Asynchronous Server Gateway Interface.
 
     polls/
     |- __init__.py
-    |- migrations
-    |  |- __init__.py
     |- admin.py
     |- apps.py
     |- models.py
-    |- tests.py
     |- views.py
+    |- tests.py
+    |- migrations
+       |- __init__.py
+    |- templates
+       |- polls
+          |- index.html
+    |- static
+       |- polls
+          |- style.css
 
 > migrations 迁移文件夹
 
@@ -320,18 +326,29 @@ Asynchronous Server Gateway Interface.
         remove_stale_contenttypes
 
     [django]
+    
+        startapp
+        
+        startproject
+        
         check
         compilemessages
         createcachetable
         dbshell # 数据库命令行
         diffsettings
-        dumpdata # 导出数据
+        
+        dumpdata # 导出数据 (json, xml, yaml)
+        dumpdata > db.json
         flush # 清空数据库
-        inspectdb
         loaddata # 导入数据
+        loaddata db.json
+        
+        inspectdb
         makemessages
+        
         makemigrations # 创建迁移文件
         migrate # 执行迁移文件
+        
         sendtestemail
         shell # 项目环境终端
         showmigrations
@@ -339,7 +356,7 @@ Asynchronous Server Gateway Interface.
         sqlmigrate # 查看迁移文件会执行哪些sql
         sqlsequencereset
         squashmigrations
-        startapp
-        startproject
+        
         test
+        
         testserver

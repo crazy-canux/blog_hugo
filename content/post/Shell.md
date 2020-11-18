@@ -200,6 +200,10 @@ bash的优化项目bash-it：
 
     $var
     ${var}
+    
+    # 使用双引号
+    var1="pre${var}suf
+    var2="$var"
 
 只读变量:
 
@@ -244,7 +248,6 @@ bash的优化项目bash-it：
 数字类型：
 
 数组:
-
 
 ## shell控制流
 

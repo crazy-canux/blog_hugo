@@ -7,7 +7,7 @@ keywords: []
 author: "Canux"
 draft: false
 ---
-
+    
 # 模板设置
 
 模板引擎在settings.py设置, django有两套模板引擎：
@@ -22,11 +22,12 @@ draft: false
             'APP_DIRS': True,
             # 模板的选项：
             'OPTIONS': {
-            'context_processors':
-            'debug':
-            'loaders':
-            'string_if_invalid':
-            'file_charset': 'utf-8'
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ]
             },
         },
 
@@ -39,10 +40,12 @@ draft: false
             'APP_DIRS': True,
             # 模板的选项：
             'OPTIONS': {
-            'autoescape': True
-            'loader':
-            'auto_reload':
-            'undefined':
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ]
             },
         },
     ]

@@ -295,8 +295,8 @@ CQ不能更新，只能删除重建．
 
     select 1-(mean("part") / mean("all")) as "rate"
     from (
-        select sum("value") as "smash" from "jobs_type" where "type"='SMASH' and $timeFilter
+        select sum("value") as "smart" from "jobs_type" where "type"='smart' and $timeFilter
     ),(
-        select sum("value") as "all" from "jobs_type" where "type"='reversinglab_cloud' and $timeFilter
+        select sum("value") as "all" from "jobs_type" where "type"='reversinglab' and $timeFilter
     )
     group by time($__interval) fill(none)
