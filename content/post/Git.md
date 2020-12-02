@@ -256,6 +256,12 @@ git的结构：
 
         git help -a
         git help -g
+        
+## archive
+
+download one file from git server(github/gitlab/gerrit)
+        
+    git archive --remote=ssh://user@gerrit.domain.com:port/group/project.git HEAD:path/to file | tar -x
 
 ## init
 
@@ -461,6 +467,9 @@ Show the working tree status tag Create, list, delete or verify a
 
     git status
     git status -s # 显示状态的简介信息, 默认是--long
+    
+    // 查看gitignore忽略了哪些文件。
+    git status --ignored
 
 ## stash
 

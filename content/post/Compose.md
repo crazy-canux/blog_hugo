@@ -90,6 +90,10 @@ compose文件
           consistency:
         volumes:
         - "/path/to/file:/path/to/file 挂载文件
+        
+        config:
+        
+        secret:
 
         logging:
           driver: syslog
@@ -114,12 +118,13 @@ compose文件
           - RABBITMQ_DEFAULT_PASS=password
 
         <https://docs.docker.com/compose/compose-file/#env_file>
-        # When you set the same environment variable in multiple files, here’s the priority used by Compose to choose which value to use:
-        # Compose file
-        # Shell environment variables
-        # Environment file
-        # Dockerfile
-        # Variable is not defined
+        # When you set the same environment variable in multiple files, 
+        # here’s the priority used by Compose to choose which value to use:
+        # 1. Compose file (environment)
+        # 2. Shell environment variables(export key=value)
+        # 3. Environment file (env_file)
+        # 4. Dockerfile
+        # 5. Variable is not defined
         env_file:
 
         depends_on:

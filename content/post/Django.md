@@ -60,8 +60,11 @@ virtualenv中安装：
 
 安装使用的数据库引擎的库：
 
-    $pip install mysqlclient
+    $ sudo udo apt-get install libmysqlclient-dev
+    $ pip install mysqlclient
+    
     $pip install psycopg2
+    
     $pip install cx_Oracle
     
 django默认是mysqlclient，可以使用pymysql替代：
@@ -89,21 +92,23 @@ django默认是mysqlclient，可以使用pymysql替代：
         |- wsgi.py
         |- asgi.py
         
-> next/ 最外层根目录只是你项目的容器， 根目录名称对Django没有影响，你可以将它重命名为任何你喜欢的名称。
+> next 最外层根目录只是你项目的容器， 根目录名称对Django没有影响，你可以将它重命名为任何你喜欢的名称。
 
 > manage.py: 一个让你用各种方式管理 Django 项目的命令行工具。你可以阅读 django-admin and manage.py 获取所有 manage.py 的细节。
 
-> next/ 里层的目录包含你的项目，它是一个纯 Python 包。它的名字就是当你引用它内部任何东西时需要用到的 Python 包名。 (比如 next.urls).
+> templates: project的模版.
 
-> next/__init__.py：一个空文件，告诉 Python 这个目录应该被认为是一个 Python 包。如果你是 Python 初学者，阅读官方文档中的 更多关于包的知识。
+> next 里层的目录包含你的项目，它是一个纯 Python 包。它的名字就是当你引用它内部任何东西时需要用到的 Python 包名。 (比如 next.urls).
 
-> next/settings.py：Django 项目的配置文件。如果你想知道这个文件是如何工作的，请查看 Django 配置 了解细节。
+>> next/__init__.py：一个空文件，告诉 Python 这个目录应该被认为是一个 Python 包。如果你是 Python 初学者，阅读官方文档中的 更多关于包的知识。
 
-> next/urls.py：Django 项目的 URL 声明，就像你网站的“目录”。阅读 URL调度器 文档来获取更多关于 URL 的内容。
+>> next/settings.py：Django 项目的配置文件。如果你想知道这个文件是如何工作的，请查看 Django 配置 了解细节。
 
-> next/asgi.py：作为你的项目的运行在 ASGI 兼容的Web服务器上的入口。阅读 如何使用 ASGI 来部署 了解更多细节。
+>> next/urls.py：Django 项目的 URL 声明，就像你网站的“目录”。阅读 URL调度器 文档来获取更多关于 URL 的内容。
 
-> next/wsgi.py：作为你的项目的运行在 WSGI 兼容的Web服务器上的入口。阅读 如何使用 WSGI 进行部署 了解更多细节。
+>> next/asgi.py：作为你的项目的运行在 ASGI 兼容的Web服务器上的入口。阅读 如何使用 ASGI 来部署 了解更多细节。
+
+>> next/wsgi.py：作为你的项目的运行在 WSGI 兼容的Web服务器上的入口。阅读 如何使用 WSGI 进行部署 了解更多细节。
 
 验证开发服务器：
 
@@ -181,6 +186,10 @@ django默认是mysqlclient，可以使用pymysql替代：
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
+            'TEST': {
+                // 默认测试数据库是test_ 加 default.NAME，TEST可以指定数据库名字.
+                'NAME': 'test_db'
+            }
         }
     }
 
@@ -282,7 +291,7 @@ Asynchronous Server Gateway Interface.
     |- apps.py
     |- models.py
     |- views.py
-    |- tests.py
+    |- tests.py (tests/test_case.py)
     |- migrations
        |- __init__.py
     |- templates
@@ -292,19 +301,23 @@ Asynchronous Server Gateway Interface.
        |- polls
           |- style.css
 
-> migrations 迁移文件夹
-
 > admin.py admin管理界面
 
 > apps.py
 
 > models.py 模型
 
-> test.py 测试
-
 > views.py 视图
 
 > urls.py 新建的application的url
+
+> test.py 测试
+
+> migrations 迁移文件夹
+
+> templates 应用的模版文件夹
+
+> static 静态文件
 
 ***
 
@@ -347,7 +360,7 @@ Asynchronous Server Gateway Interface.
         makemessages
         
         makemigrations # 创建迁移文件
-        migrate # 执行迁移文件
+        migrate # 创建/更新表结构（执行迁移文件）
         
         sendtestemail
         shell # 项目环境终端

@@ -60,6 +60,8 @@ docker配置文件:
         // debug
         "debug": true,
         
+        "data-root"： "/var/lib/docker",
+        
         "features": {
             "buildkit": true
         },
@@ -329,11 +331,23 @@ secret
 
     // 保存敏感数据
     $ docker secret
+    
+    docker secret ls
+    docker secret inspect <ID/name>
+    docker secret rm <id/name>
+    
+    docker secret create --help
 
 config
 
     // 保存非敏感数据
     $ docker config
+    
+    docker config ls
+    docker config inspect <id/name>
+    docker config rm <id/name>
+    
+    docker config create --help
 
 ***
 

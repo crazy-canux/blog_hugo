@@ -1,8 +1,8 @@
 ---
-title: "Angular.JS"
+title: "AngularJS"
 date: 2017-03-13T09:36:32
 categories: ["JavaScript"]
-tags: ["angular"]
+tags: ["angularjs"]
 keywords: []
 author: "Canux"
 draft: false
@@ -11,5 +11,5 @@ draft: false
 # angular.js
 
 <https://github.com/angular/angular.js>
-<https://angularjs.org/>
 
+<https://angularjs.org/>
