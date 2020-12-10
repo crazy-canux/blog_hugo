@@ -70,6 +70,12 @@ dockerfile 语法检查:
 
 <https://github.com/hadolint/hadolint>
 
+## gosu
+
+权限管理
+
+<https://github.com/tianon/gosu>
+
 ***
 
 # CLI

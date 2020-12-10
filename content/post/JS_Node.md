@@ -23,6 +23,7 @@ Node.js 的包管理器npm，是全球最大的开源库生态系统.
 安装nodejs:
 
     $ sudo apt-get install nodejs
+    $ brew install nodejs
 
 ***
 
@@ -34,6 +35,13 @@ npm加速:
     $ npm config get registry
 
 安装:
+
+    // 修改默认全局安装路径
+    mkdir /path/npm_global
+    npm config set prefix /path/npm_global
+    echo 'export PATH=/path/npm_global/bin:$PATH' >> ~/.profile
+    source ~/.profile
+    npm install -g <pkg>
 
     // 安装到当前目录的 node_modules
     $ npm install <name>

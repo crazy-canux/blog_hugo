@@ -134,17 +134,22 @@ doc
 mod
 
     go mod init <name>
-    go mod tidy
-    go mod download
-    go mod verify
+    go mod tidy // 添加缺少的，删除多余的.
+    go mod download // 下载包
+    go mod verify 
+    go mod edit
+    go mod graph
+    go mod why
+    go mod vendor
+    
 
 env
 
     // 通过env 设置golang的变量，取代系统环境变量
     go env
-    go env -w GOPATH="$HOME/Src/go"
-    go env -w GOBIN="/usr/local/go/bin"
     go env -w GOROOT="/usr/local/go"
+    go env -w GOPATH="$HOME/Src/go"
+    go env -w GOBIN="$GOPATH/bin"
 
 clean
 
@@ -214,6 +219,7 @@ go.sum:
     go env -w GOPROXY=https://goproxy.cn,direct
     https://proxy.golang.org //默认值
     https://goproxy.cn
+    https://goproxy.io
     https://mirrors.aliyun.com/goproxy/
 
     GOSUMDB:
