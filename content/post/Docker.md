@@ -45,7 +45,7 @@ Install:
     <https://docs.docker.com/docker-for-windows/install/>
 
     linux:
-    <https://docs.docker.com/install/linux/docker-ce/>
+    <https://docs.docker.com/engine/install/ubuntu/>
 
 # 配置
 

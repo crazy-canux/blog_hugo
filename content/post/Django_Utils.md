@@ -89,15 +89,11 @@ django的asset management的application。
 
 <https://github.com/django-compressor/django-compressor>
 
-***
-
-# Others
-
-## django-extensions
+# django-extensions
 
 <https://github.com/django-extensions/django-extensions/>
 
-## django-filter
+# django-filter
 
 <https://github.com/carltongibson/django-filter>
 
@@ -117,6 +113,8 @@ django的asset management的application。
 
 <https://github.com/stephenmcd/mezzanine/>
 
+***
+
 # e-Commerce Project
 
 ## django-oscar
@@ -126,6 +124,8 @@ django的asset management的application。
 ## django-shop
 
 <https://github.com/awesto/django-shop>
+
+***
 
 # PM Project
 

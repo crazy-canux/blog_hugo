@@ -76,6 +76,10 @@ dockerfile 语法检查:
 
 <https://github.com/tianon/gosu>
 
+## swarm-cronjob
+
+<https://github.com/crazy-max/swarm-cronjob>
+
 ***
 
 # CLI
