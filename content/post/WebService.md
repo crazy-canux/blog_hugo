@@ -1,7 +1,7 @@
 ---
 title: "WebService"
 date: 2018-07-07T16:43:15
-categories: ["Web"]
+categories: ["Network"]
 tags: ["webservice"]
 keywords: []
 author: "Canux"

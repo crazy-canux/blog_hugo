@@ -1,7 +1,7 @@
 ---
-title: "OOP"
+title: "JS OOP"
 date: 2017-03-15T09:36:32
-categories: ["JavaScript"]
+categories: ["Web"]
 tags: ["oop"]
 keywords: []
 author: "Canux"

@@ -92,8 +92,18 @@ compose文件
         - "/path/to/file:/path/to/file 挂载文件
         
         config:
+          c-name:
+            // 根据文件创建
+            file: ./httpd.conf
+            // 使用已经创建好的
+            external: true
         
         secret:
+          s-name:
+            // 根据文件创建
+            file: ./server.cert
+            // 使用已经创建好的
+            external: true
 
         logging:
           driver: syslog

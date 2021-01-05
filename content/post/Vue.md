@@ -1,7 +1,7 @@
 ---
-title: "Document"
+title: "Vue"
 date: 2019-01-27T22:19:20
-categories: ["JavaScript"]
+categories: ["Web"]
 tags: ["vue"]
 keywords: []
 author: "Canux"

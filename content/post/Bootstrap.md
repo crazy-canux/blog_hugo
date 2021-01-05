@@ -10,6 +10,12 @@ draft: false
 
 # Bootstrap
 
+<https://github.com/twbs/bootstrap>
+
+install:
+
+    $ npm install bootstrap@next
+
 HTML,CSS,JavaScript的支持响应式和移动设备的WEB框架.
 
 

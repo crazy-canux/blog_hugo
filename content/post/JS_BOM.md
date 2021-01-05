@@ -1,7 +1,7 @@
 ---
-title: "BOM"
+title: "JS BOM"
 date: 2018-03-15T09:36:32
-categories: ["JavaScript"]
+categories: ["Web"]
 tags: ["bom"]
 keywords: []
 author: "Canux"

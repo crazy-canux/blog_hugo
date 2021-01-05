@@ -10,9 +10,7 @@ draft: false
 
 # AMQP
 
-AMQP: Advanced Message Queue Protocol.
-
-AMQP是高级消息队列协议．是异步消息传递所使用的应用层协议规范．
+AMQP: Advanced Message Queuing Protocol,高级消息队列协议
 
 常用的开源AMQP框架：
 
@@ -22,11 +20,17 @@ AMQP是高级消息队列协议．是异步消息传递所使用的应用层协�
 
 <https://github.com/apache/activemq>
 
+# MQTT
+
+MQTT: Message Queuing Telemetry Transport,消息队列遥测传输协议
+
+***
+
 # Rabbitmq
 
 <https://github.com/rabbitmq>
 
-RabbitMQ是一个erlang开发的AMQP的开源项目．
+RabbitMQ是一个erlang开发的符合AMQP和MQTT的开源项目．
 
 rabbitmq-server也叫broker server
 

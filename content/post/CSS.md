@@ -283,4 +283,13 @@ id选择器常常用来建立派生选择器：
 
 ***
 
+## color
 
+16进制 和 rgb表示
+
+    rgb(255,255,255) == #FFFFFF == white
+    rgb(0,0,0) == #000000 == black
+    rgb(255,0,0) == red
+    rgb(0,255,0) == green
+    rgb(0,0,255) == blue
+    rgb(255,255,0) == yellow

@@ -1,7 +1,7 @@
 ---
 title: "JavaScript"
 date: 2017-03-13T09:36:32
-categories: ["JavaScript"]
+categories: ["Web"]
 tags: ["javascript"]
 keywords: []
 author: "Canux"

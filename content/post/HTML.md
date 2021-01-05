@@ -106,11 +106,16 @@ html属性和值大小写不敏感，推荐使用小写,始终给属性值加引
 
     # html文档的头部, head支持全局属性
     <head>
-    <base>
-    <meta>
-    <script>
-    <title>
-    ...
+    
+      <base>
+      <meta>
+      <title> 必须的
+      
+      <link>
+      <style>
+      
+      <script>
+    
     </head>
 
     # profile属性
@@ -147,7 +152,6 @@ html属性和值大小写不敏感，推荐使用小写,始终给属性值加引
 
     # html文档的主体, 支持样式，支持全局属性和事件属性
     <body>
-    ...
     </body>
 
 ## h1-h6
@@ -249,7 +253,7 @@ url只能使用ASCII字符集。
 
     # id属性为map定义唯一的名称
     <map id="planetmap">
-    ...
+      ...
     </map>
 
     # name属性为image-map规定的名称
@@ -283,10 +287,10 @@ url只能使用ASCII字符集。
 优先级仅次于内联样式。
 
     <head>
-    <style type="text/css">
-    h1 {color: red}
-    p {color: blue}
-    </style>
+      <style type="text/css">
+        h1 {color: red}
+        p {color: blue}
+      </style>
     </head>
 
     # type属性规定样式表的MIME类型
@@ -300,7 +304,7 @@ url只能使用ASCII字符集。
 优先级仅高于浏览器缺省值。
 
     <head>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+      <link rel="stylesheet" type="text/css" href="mystyle.css">
     </head>
 
     # href属性规定被链接文档的位置
@@ -366,7 +370,7 @@ url只能使用ASCII字符集。
 # **表格**
 
     <table border="1">
-    <caption>The title</caption>
+      <caption>The title</caption>
       <tr>
         <th>Month</th>
         <th>Saving</th>
@@ -473,34 +477,34 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
 使用html5的网站布局标签.
 
     <head>
-    <style>
-    header {}
-    nav {}
-    section {}
-    footer {}
-    </style>
+      <style>
+        header {}
+        nav {}
+        section {}
+        footer {}
+      </style>
     </head>
 
     <body>
-    <header>...</header>
-    ...
-    <footer>...</footer>
+      <header>...</header>
+      ...
+      <footer>...</footer>
     </body>
 
 也可以使用id选择器：
 
     <head>
-    <style>
-    #header {}
-    ...
-    #footer {}
+      <style>
+      #header {}
+      ...
+      #footer {}
+      </style>
     </head>
-    </style>
 
     <body>
-    <div id="header">...</div>
-    ...
-    <div id="footer">...</div>
+      <div id="header">...</div>
+      ...
+      <div id="footer">...</div>
     </body>
 
 ## header标签
@@ -542,13 +546,14 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
 混合框架：
 
     <frameset rows="50%, 50%">
-    <frame src="a.html">
+    
+      <frame src="a.html">
 
-    <frameset cols="%25, 75%">
-    <frame src="b.html">
-    <frame src="c.html">
-    </frameset>
-
+      <frameset cols="%25, 75%">
+        <frame src="b.html">
+        <frame src="c.html">
+      </frameset>
+      
     </frameset>
 
 ## frameset标签
@@ -613,7 +618,7 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
 
     <!-- 直接嵌入javascript代码 -->
     <script type="text/javascript">
-    document.write("hello javascript")
+      document.write("hello javascript")
     </script>
 
     <!-- 指定外部javascript脚本　-->
@@ -629,6 +634,9 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
     <html>
     <head>
       ...head content...
+      
+      <!-- head中的script是调用才执行的，或者是事件触发的，可以提前备加载 -->
+      <script>...</script>
     </head>
     <body>
       ...body content...
@@ -637,7 +645,7 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
       <script type="text/javascript" src="example.js"></script>
 
       <!-- defer表示整个页面解析完后才加载和解析脚本 -->
-      <script type="text/javascript" defer="defer" sr"example.js"></script>
+      <script type="text/javascript" defer="defer" src="example.js"></script>
 
       <!-- async表示在加载页面期间异步加载和解析脚本 -->
       <script type="text/javascript" async src="example.js"></script>
@@ -651,5 +659,5 @@ dl定义定义列表,dt定义定义项目,dd定义定义的描述,都支持全�
 
 当浏览器不支持，就显示noscript标签的内容，否则就不显示．
 
-    <script type="text/javascript" sr"example.js"></script>
+    <script type="text/javascript" src="example.js"></script>
     <noscript>Your browser does not support javascript</noscript>

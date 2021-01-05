@@ -1,7 +1,7 @@
 ---
-title: "DOM"
+title: "JS DOM"
 date: 2017-03-15T09:36:32
-categories: ["JavaScript"]
+categories: ["Web"]
 tags: ["dom"]
 keywords: []
 author: "Canux"

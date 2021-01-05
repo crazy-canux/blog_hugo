@@ -1,7 +1,7 @@
 ---
 title: "Apache"
 date: 2016-09-27T03:25:26+08:00
-categories: ["Web"]
+categories: ["Network"]
 tags: ["apache"]
 keywords: []
 author: "Canux"

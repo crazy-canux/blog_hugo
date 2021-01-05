@@ -1,64 +1,67 @@
 ---
-title: "Nodejs"
+title: "NPM"
 date: 2016-09-27T03:31:25
-categories: ["JavaScript"]
-tags: ["nodejs"]
+categories: ["Web"]
+tags: ["npm"]
 keywords: []
 author: "Canux"
 draft: false
 ---
 
-# Nodejs
+# NPM
 
-<https://github.com/nodejs/node>
+npm: node package manager.
 
-Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
+npm 由三部分组成：
+* website <https://www.npmjs.com>
+* CLI
+* registry <https://registry.npmjs.org>
 
-Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。
+config:
 
-Node.js 的包管理器npm，是全球最大的开源库生态系统.
-
-常说的javascript是前端语言，nodejs就是后端版本的javascript。
-
-安装nodejs:
-
-    $ sudo apt-get install nodejs
-    $ brew install nodejs
-
-***
-
-# npm
-
-npm加速:
-
+    // 修改registry
     $ npm config set registry https://registry.npm.taobao.org
     $ npm config get registry
-
-安装:
 
     // 修改默认全局安装路径
     mkdir /path/npm_global
     npm config set prefix /path/npm_global
     echo 'export PATH=/path/npm_global/bin:$PATH' >> ~/.profile
     source ~/.profile
-    npm install -g <pkg>
+    
+    // 查看配置
+    $ npm config ls -l
+    
+install:
 
     // 安装到当前目录的 node_modules
     $ npm install <name>
+    
     // 安装到全局的node_modules
     $ npm install -g <name>
+    
+    --save-dev // 安装并自动更新到package.json的devDependencies.
+    --no-package-lock
+
+list:
 
     // 查看安装了哪些包
     $ npm list --depth=0 --global
+    
+init:
 
-配置:
+    // 创建package.json
+    $ npm init
+    
+test:
 
-    // 查看配置
-    $ npm config ls -l
+    $ npm test
 
 ***
 
-# module
+# 配置
+
+## folders
 
 nodejs加载的路径:
 
@@ -70,3 +73,22 @@ nodejs加载的路径:
 
     // 查看prefix (也是-g 安装的目录)
     $ npm config ls -l | grep prefix
+    
+## npmrc
+
+## package.json
+
+package.json
+
+package-locks
+
+package-lock.json
+
+## shrinkwrap.json
+    
+***
+
+
+***
+
+
