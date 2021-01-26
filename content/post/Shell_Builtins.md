@@ -113,3 +113,6 @@ echo:
 kill:
 
     kill
+    
+    # 查看所有信号
+    kill -l 

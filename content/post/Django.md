@@ -364,7 +364,7 @@ Asynchronous Server Gateway Interface.
         
         sendtestemail
         shell # 项目环境终端
-        showmigrations
+        showmigrations # 查看可迁移的文件
         sqlflush
         sqlmigrate # 查看迁移文件会执行哪些sql
         sqlsequencereset

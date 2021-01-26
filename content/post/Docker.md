@@ -329,6 +329,8 @@ register使用
 
 secret
 
+secret以文件形式存在于/run/secrets/<s-name>
+
     // 保存敏感数据
     $ docker secret
     
@@ -336,9 +338,12 @@ secret
     docker secret inspect <ID/name>
     docker secret rm <id/name>
     
-    docker secret create --help
+    // 根据文件创建
+    docker secret create <s-name> <s-file>
 
 config
+
+config以文件形式存在于/<c-name>
 
     // 保存非敏感数据
     $ docker config
@@ -347,7 +352,7 @@ config
     docker config inspect <id/name>
     docker config rm <id/name>
     
-    docker config create --help
+    docker config create <c-name> <c-file>
 
 ***
 

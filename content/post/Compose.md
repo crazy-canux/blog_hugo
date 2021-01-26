@@ -91,20 +91,18 @@ compose文件
         volumes:
         - "/path/to/file:/path/to/file 挂载文件
         
-        config:
-          c-name:
-            // 根据文件创建
-            file: ./httpd.conf
-            // 使用已经创建好的
-            external: true
+        configs:
+        - my-conf
+        configs:
+        - source: config-name
+          target: file-name
+         
+        secrets:
+        - my-sec
+        secrets:
+        - source: secret-name
+          target: file-name in /run/secrets/
         
-        secret:
-          s-name:
-            // 根据文件创建
-            file: ./server.cert
-            // 使用已经创建好的
-            external: true
-
         logging:
           driver: syslog
           options:
@@ -196,6 +194,29 @@ compose文件
         cap_add
         cap_drop
         
+    # 定义资源
+
+    configs:
+      c-name:
+        // 根据文件创建
+        file: ./httpd.conf
+        // 使用已经创建好的
+        external: true
+        
+    secrets:
+      s-name:
+        // 根据文件创建
+        file: ./server.cert
+        // 使用已经创建好的
+        external: true
+      
+    volumes:
+      data-volume:
+    // 以定义好的volume
+    volumes:
+      data:
+        external: true
+
     // (推荐)使用已经创建好的网络
     // 通过命令行或者api 创建网络
     networks:
@@ -228,7 +249,8 @@ compose文件
           config:
           - subnet: 172.12.0.0/16
 
-    # compose文件中用到的变量
+compose文件中用到的变量
+
     .Service.ID Service ID 
     .Service.Name Service name 
     .Service.Labels Service labels 

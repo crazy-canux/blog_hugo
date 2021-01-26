@@ -10,7 +10,26 @@ draft: false
 
 # CA
 
-Certificate Authority.
+SSL: secure sockets layer
+
+TLS: transport layer security
+
+CA: Certificate Authority.
+
+SNI: server name indication
+
+证书类型
+* x509: 只有公钥没有私钥匙
+
+编码方式
+* pem: base64编码
+* der: 二进制
+
+证书文件:
+* crt: 证书文件（可以是pem或der编码）
+* cer: 证书文件（可以是pem或der编码）
+* csr: 申请签名的文件
+* key: 私钥文件
 
 ***
 
@@ -18,8 +37,40 @@ Certificate Authority.
 
 创建x509证书:
 
-    $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ca.key -out ca.crt -subj "/CN=k8s.devops.com/O=k8s.devops.com"
+    $ openssl genrsa -out server.key 2048   // 创建key
+    $ openssl req -new -key server.key -sha256 -out server.csr // 创建csr
+    $ openssl x509 -req -days 365 -in server.csr -signkey server.key -sha256 -out server.crt // 创建证书
+
+查看证书信息:
+
+    // pem编码
+    $ openssl x509 -in cert.pem -noout -text
+    // der编码
+    $ openssl x509 -in cert.der -inform der -noout -text
 
 查看证书有效期:
 
-    $ openssl x509 -in /etc/ssl/ca.domain.com.crt -noout -dates
+    $ openssl x509 -in ca.domain.com.crt -noout -dates
+    
+# 客户端
+
+客户端需要信任证书.
+
+Linux:
+
+    // 添加
+    $ cp my-cert.crt /usr/local/share/ca-certificates/my-cert.crt
+    $ sudo update-ca-certificates
+    
+    // 删除
+    $ rm /usr/local/share/ca-certificates/my-cert.crt
+    $ sudo update-ca-certificates --fresh
+    
+windows:
+
+    // 添加
+    certutil -addstore -f "ROOT" my-cert.crt
+    
+    // 删除
+    certutil -delstore "ROOT" my-cert.crt
+    

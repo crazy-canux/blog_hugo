@@ -18,8 +18,8 @@ gitlab是开源的有web界面的git服务器．
 
     sudo apt-get install -y curl openssh-server ca-certificates
     sudo apt-get install -y postfix
-    curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
-    sudo EXTERNAL_URL="http://gitlab.example.com" apt-get install gitlab-ee
+    curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+    sudo EXTERNAL_URL="http://gitlab.example.com" apt-get install gitlab-ce
 
 配置:
 
@@ -56,3 +56,7 @@ runner:
 重新加载配置:
 
     # gitlab-ctl reconfigure
+    
+重启:
+
+    # gitlab-ctl restart/start/stop

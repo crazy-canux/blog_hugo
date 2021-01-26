@@ -19,3 +19,15 @@ draft: false
 配置:
 
     $ sudo vim /etc/haproxy/haproxy.cfg
+
+global:
+
+    mode: http | tcp | health
+
+defaults:
+
+frontend:
+
+backend:
+
+listen:
