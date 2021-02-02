@@ -231,6 +231,7 @@ django默认是mysqlclient，可以使用pymysql替代：
     ALLOWED_HOSTS = [''*''] # 允许所有域名访问
 
     STATIC_URL = '/static/'
+    STATIC_ROOT = '/path/to/static'
     # static目录存放js/css等静态文件,collectstatic命令用来收集静态文件。
 
     LANGUAGE_CODE = 'en-us'

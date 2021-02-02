@@ -41,11 +41,15 @@ django的RESTful API的application。
 
 <https://github.com/darklow/django-suit>
 
+<https://github.com/sshwsfc/xadmin>
+
 # authentication
 
 <https://github.com/etianen/django-python3-ldap>
 
 <https://github.com/pennersr/django-allauth/>
+
+<https://github.com/django-guardian/django-guardian>
 
 # database
 
@@ -61,11 +65,15 @@ django的RESTful API的application。
 
 <https://github.com/django-crispy-forms/django-crispy-forms>
 
-<https://github.com/django-haystack/django-haystack>
-
-<https://github.com/django-guardian/django-guardian>
+# search
 
 <https://github.com/carltongibson/django-filter>
+
+<https://github.com/django-haystack/django-haystack>
+
+# security
+
+<https://github.com/adamchainz/django-cors-headers>
 
 ***
 

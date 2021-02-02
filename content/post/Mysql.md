@@ -226,6 +226,11 @@ comparison:
 查看表结构：
 
     desc tablename;
+    
+正则：
+
+    // 类似like，特殊字符要用双反斜杠转义.
+    select * from tablename where colume REGEXP '...'
 
 ***
 
