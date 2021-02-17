@@ -22,15 +22,17 @@ angular.js 的升级版
 
 <https://github.com/angular/angular>
 
+<https://github.com/angular/angular-cli>
+
 <https://angular.io>
 
 <https://angular.cn>
 
-install angular-cli:
+安装 angular-cli:
 
     $ npm install -g @angular/cli
     
-verify:
+验证:
 
     $ ng v
     
