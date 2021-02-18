@@ -22,8 +22,7 @@ GOROOT:
 
 windows标准包安装go:
 
-    下载zip包解压到C:\go
-    %GOROOT%=C:\go
+    msi指定安装路径，自动添加%GOROOT%/bin到环境变量
 
 linux标准包安装go:
 
@@ -60,11 +59,15 @@ gopath结构：
     pkg    编译后的库文件
     bin    编译后生成的可执行文件
 
-bin目录一般加入环境变量:
-
-    $GOPATH/bin
-
 gopath有多个值时用冒号分开即可.
+
+# GOBIN
+
+默认值
+
+    GOBIN=$GOPATH/bin
+
+go get 和 go install 安装的二进制到GOBIN。
 
 ***
 
