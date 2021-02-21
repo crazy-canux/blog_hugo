@@ -26,3 +26,34 @@ Node.js 的包管理器npm，是全球最大的开源库生态系统.
     $ brew install nodejs
 
 ***
+
+# nvm
+
+<https://github.com/nvm-sh/nvm>
+
+nodejs版本管理器.
+
+install:
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+
+verify:
+
+    command -v nvm
+
+usage:
+
+    // 查看所有可安装版本
+    nvm ls-remote
+
+    // 安装指定版本
+    nvm install v14.15.5
+
+    // 查看已安装版本
+    nvm ls
+
+    // 指定版本
+    nvm use v14.15.5
+
+    // 查看版本
+    nvm run node --version

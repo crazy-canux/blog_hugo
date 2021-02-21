@@ -34,8 +34,11 @@ config:
     
 install:
 
-    // 安装到当前目录的 node_modules
-    $ npm install <name>
+    // 根据当前目录package.json安装
+    $ npm install
+
+    // 安装pkg到当前目录的 node_modules
+    $ npm install <pkg>
     
     // 安装到全局的node_modules
     $ npm install -g <name>
