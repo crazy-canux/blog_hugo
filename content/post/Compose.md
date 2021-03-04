@@ -124,6 +124,7 @@ compose文件
         environment:
           - RABBITMQ_DEFAULT_USER=sandbox
           - RABBITMQ_DEFAULT_PASS=password
+          - TZ=UTC   // 设置时区
 
         <https://docs.docker.com/compose/compose-file/#env_file>
         # When you set the same environment variable in multiple files, 

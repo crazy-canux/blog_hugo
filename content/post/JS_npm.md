@@ -13,6 +13,7 @@ draft: false
 npm: node package manager.
 
 npm 由三部分组成：
+
 * website <https://www.npmjs.com>
 * CLI
 * registry <https://registry.npmjs.org>
@@ -31,10 +32,10 @@ config:
     
     // 查看配置
     $ npm config ls -l
-    
+
 install:
 
-    // 根据当前目录package.json安装
+    // 根据当前目录package.json安装到当前目录node_modules
     $ npm install
 
     // 安装pkg到当前目录的 node_modules
@@ -44,18 +45,19 @@ install:
     $ npm install -g <name>
     
     --save-dev // 安装并自动更新到package.json的devDependencies.
-    --no-package-lock
+    --no-save // 不保存到package.json 和 package-lock.json.
+    --no-package-lock // 不生成package-lock.json
 
 list:
 
     // 查看安装了哪些包
     $ npm list --depth=0 --global
-    
+ 
 init:
 
     // 创建package.json
     $ npm init
-    
+
 test:
 
     $ npm test

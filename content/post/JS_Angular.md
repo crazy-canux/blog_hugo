@@ -32,13 +32,16 @@ angular.js 的升级版
 
     $ npm install -g @angular/cli
     
-验证:
+查看版本:
 
     $ ng v
     
 新建项目:
 
     $ ng new <my-app>
+
+    # 严格模式
+    $ ng new <my-app> --strict
     
 测试项目:
 
@@ -46,6 +49,6 @@ angular.js 的升级版
     // --open会自动打开浏览器
     $ ng serve --open
     
-打包
+打包:
 
     $ ng build --prod
