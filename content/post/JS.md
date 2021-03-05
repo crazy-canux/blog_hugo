@@ -1,5 +1,5 @@
 ---
-title: "JavaScript"
+title: "JS"
 date: 2017-03-13T09:36:32
 categories: ["Web"]
 tags: ["javascript"]
@@ -68,43 +68,87 @@ javascript中所有事物都是对象，都有属性和方法.
     # 异常处理
     try catch throw
 
+    # 调试
     debugger
+
+    # ECMAScript2015
+    let const
 
 ***
 
 # 运算符和优先级
 
+## 算数运算符
+
+## 赋值运算符
+
+## 比较运算符
+
+## 逻辑运算符
+
+## 类型运算符
+
+## 位运算符
+
 ***
 
 # 数据类型
 
-## 变量
+## var申明变量
+
+通过var申明的变量没有块作用域，在块之外也能访问.
 
 申明变量:
 
 重复申明同名变量不会改变变量的值．
 
-    var varName
+    var varName;
     // 一次申明多个变量
-    var varName1, varName2, ...
+    var varName1, varName2, ...;
 
 赋值:
 
-    varName = varValue
+    varName = varValue;
 
 申明并赋值:
 
 动态类型语言，变量可以赋予不同类型值.
 
-    var varName = varValue
+    var varName = varValue;
     // 一次定义多个变量
-    var varName1 = varValue1, varName2=varValue2, ...
+    var varName1 = varValue1, varName2=varValue2, ...;
 
 申明变量类型:
 
-    var varName = new Boolean/Number/String/Array/Object
+    var varName = new Boolean/Number/String/Array/Object;
 
-## 常量
+## let申明变量
+
+通过let申明有块作用域的变量.
+
+    {
+        let varName = varValue;
+    }
+
+## const申明常量
+
+const定义的变量与let相似， 但不能重新赋值.
+
+它没有定义常量值。它定义了对值的常量引用。
+
+    {
+        const varName = varValue;
+    }
+
+常量对象的属性可以修改：
+
+    const car = {type:"porsche", model:"911", color:"black"};
+    car.color = "white";
+
+常量数组元素可以修改：
+
+    const cars = ["audi", "bmw"];
+    cars[0] = "honda";
 
 ## 布尔/Boolean
 
@@ -347,6 +391,13 @@ try-catch:
 throw:
 
     throw exception
+
+通过在脚本或函数开头添加严格模式：
+
+严格模式在不声明变量的情况下使用变量，是不允许的
+
+    "use strict";
+    ......
 
 ***
 

@@ -16,8 +16,6 @@ DOM: document object model.
 
 DOM操作需要在html加载完成后进程.
 
-dom的对象: document/element/attribute/event.
-
 js可以通过DOM访问html文档的所有元素.
 
 * JavaScript 能够改变页面中的所有 HTML 元素
@@ -258,3 +256,4 @@ window事件:
     onabort
     onerror
 
+***

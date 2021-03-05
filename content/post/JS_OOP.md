@@ -12,7 +12,7 @@ draft: false
 
 javascript中一切都是对象.
 
-javacript内置了Object/Array/Date/RegExp/Function类型.
+javacript内置了Bull/Number/String/Object/Function/Array/Date/RegExp类型.
 
 # Object
 
