@@ -28,11 +28,16 @@ javascript使用驼峰命名法．
 
 javascript的标识符以字母，下划线或美元符号开头，还可以包含数字．不能是关键字．
 
-JvaScript代码块以大括号{}包围．
+JvaScript代码块以大括号{}包围,开括号写在第一行结尾处，前面空格，闭括号单独一行。
+
+javascript中所有事物都是对象，都有属性和方法.
 
 JavaScript使用分号;表示一个语句结束, 一般一行写多个语句才需要显示添加分号．
 
-javascript中所有事物都是对象，都有属性和方法.
+javascript中运算符周围要有空格。
+
+javascript中使用四个空格来缩进。
+
 
 ***
 
@@ -83,6 +88,12 @@ javascript中所有事物都是对象，都有属性和方法.
 ## 赋值运算符
 
 ## 比较运算符
+
+    // 在比较值钱进行类型转换.
+    ==
+
+    // 强制对值和类型进行比较.
+    ===
 
 ## 逻辑运算符
 
@@ -189,7 +200,12 @@ Undefined类型只有一个特殊值undefined.
 
     var obj = new Object;
 
-    var obj = {key: "val1", ...}
+    var obj = {key: "val", key1: "val1"};
+
+    var obj = {
+        firstName: "bill", // 冒号后空格.
+        lastName: "gates" // 最后一个不要都好.
+    };  
 
 访问对象属性:
 
@@ -325,6 +341,25 @@ continue:
 
 # 文件和输入输出
 
+## 输出
+
+alert写入警告框：
+
+    window.alert(10);
+
+write写入html：
+
+    document.write(10);
+
+innerHTML写入html:
+
+    document.getElementById("demo").innerHTML = 10;
+
+console.log写入浏览器控制台:
+
+    // 可以在js代码或调试窗口打印变量值：
+    console.log(10);
+
 ***
 
 # 函数
@@ -392,12 +427,24 @@ throw:
 
     throw exception
 
+## 严格模式
+
 通过在脚本或函数开头添加严格模式：
 
 严格模式在不声明变量的情况下使用变量，是不允许的
 
     "use strict";
     ......
+
+## debugger调试
+
+debugger关键字会停止js的执行，如果有调试函数就调用。
+
+如果调试器打开，会在debugger停止执行，如果没有打开调试器，会继续运行。
+
+    var x = 10;
+    debugger;
+    document.getElementbyId("demo").innerHTML = x;
 
 ***
 
