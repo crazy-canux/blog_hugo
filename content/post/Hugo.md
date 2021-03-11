@@ -76,6 +76,11 @@ go开发的静态站点生成器.
 
     $ git submodule add https://github.com/crazy-canux/hugo-theme-canux.git
 
+克隆主题：
+
+    $ git submodule init
+    $ git submodule update
+
 ***
 
 # 创建页面

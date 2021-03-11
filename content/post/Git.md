@@ -495,7 +495,22 @@ Initialize, update or inspect submodules
 
 会在项目产生.gitmodules文件，而且不被.gitignore忽略，所以不要在URL添加用户名和密码．
 
+添加子模块：
+
+    // push只会push创建的子模块空目录和.gitmodules文件.
     git submodule add <repository> [<path>]
+
+克隆子模块：
+
+    // git clone 只会clone空目录
+    git submodule init
+    git submodule update 
+    // 或者
+    git clone --recurse-submodules <sub-URL>
+    // 或者
+    git clone <URL>
+    git submodule update --init
+    // 或者
     git submodule update --init --recursive
 
 ## mergetool
